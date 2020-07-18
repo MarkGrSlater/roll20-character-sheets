@@ -1,0 +1,1510 @@
+<!-- head -->
+<div class="charsheet">
+    <p><strong>General Information</strong></p>
+    <div class="sheet-rq35-title">
+        <label>Name:</label>
+        <input type="text" name="attr_character_name">
+        <label>Frame:</label>
+        <input type="text" name="attr_frame">
+        <label>Age:</label>
+        <input type="number" name="attr_age">
+        <label>Career:</label>
+        <input type="text" name="attr_career">
+
+        <label>Species:</label>
+        <input type="text" name="attr_species">
+        <label>Height:</label>
+        <input type="text" name="attr_height">
+        <label>Handed:</label>
+        <input type="text" name="attr_handed">
+        <label>Social Class:</label>
+        <input type="text" name="attr_social_class">
+
+        <label>Gender:</label>
+        <input type="text" name="attr_gender">
+        <label>Weight:</label>
+        <input type="text" name="attr_weight">
+        <label>Homeland:</label>
+        <input type="text" name="attr_homeland">
+        <label>Culture:</label>
+        <input type="text" name="attr_culture">
+    </div>
+    <!-- navigation -->
+    <div class="sheet-navigation">
+        <span> </span>
+        <button type="action" name="act_attributes">Attributes</button>
+        <button type="action" name="act_combat">Combat</button>
+        <button type="action" name="act_skills">Skills</button>
+        <button type="action" name="act_equipment">Equipment</button>
+        <button type="action" name="act_spirit">Spirit</button>
+        <button type="action" name="act_divine">Divine</button>
+        <button type="action" name="act_dragon">Dragon</button>
+        <button type="action" name="act_sorcery">Sorcery</button>
+        <button type="action" name="act_devices">Devices</button>
+    </div>
+    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="attributes">
+<!-- characteristics -->
+    <div class="sheet-attributes">
+	    <p><strong>Characteristics</strong></p>
+        <div class="sheet-rq35-stats">
+            <label class="sheet-title"> </label>
+            <label class="sheet-title">Strength</label>
+            <label class="sheet-title">Constitution</label>
+            <label class="sheet-title">Size</label>
+            <label class="sheet-title">Intelligence</label>
+            <label class="sheet-title">Dexterity</label>
+            <label class="sheet-title">Power</label>
+            <label class="sheet-title">Appearance</label>
+
+            <label>Roll:</label>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Strength roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{str}+@{str_enchant}) * 5]]}} {{x4=[[(@{str}+@{str_enchant}) * 4]]}} {{x3=[[(@{str}+@{str_enchant}) * 3]]}} {{x2=[[(@{str}+@{str_enchant}) * 2]]}} {{x1=[[@{str}+@{str_enchant}]]}} {{x5plus=[[((@{str}+@{str_enchant}) * 5) + 1]]}} {{x4plus=[[((@{str}+@{str_enchant}) * 4) + 1]]}} {{x3plus=[[((@{str}+@{str_enchant}) * 3) + 1]]}} {{x2plus=[[((@{str}+@{str_enchant}) * 2) + 1]]}} {{x1plus=[[@{str}+@{str_enchant} + 1]]}}"></button>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Constitution roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{con}+@{con_enchant}) * 5]]}} {{x4=[[(@{con}+@{con_enchant}) * 4]]}} {{x3=[[(@{con}+@{con_enchant}) * 3]]}} {{x2=[[(@{con}+@{con_enchant}) * 2]]}} {{x1=[[@{con}+@{con_enchant}]]}} {{x5plus=[[((@{con}+@{con_enchant}) * 5) + 1]]}} {{x4plus=[[((@{con}+@{con_enchant}) * 4) + 1]]}} {{x3plus=[[((@{con}+@{con_enchant}) * 3) + 1]]}} {{x2plus=[[((@{con}+@{con_enchant}) * 2) + 1]]}} {{x1plus=[[@{con}+@{con_enchant} + 1]]}}"></button>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Size roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{siz}+@{siz_enchant}) * 5]]}} {{x4=[[(@{siz}+@{siz_enchant}) * 4]]}} {{x3=[[(@{siz}+@{siz_enchant}) * 3]]}} {{x2=[[(@{siz}+@{siz_enchant}) * 2]]}} {{x1=[[@{siz}+@{siz_enchant}]]}} {{x5plus=[[((@{siz}+@{siz_enchant}) * 5) + 1]]}} {{x4plus=[[((@{siz}+@{siz_enchant}) * 4) + 1]]}} {{x3plus=[[((@{siz}+@{siz_enchant}) * 3) + 1]]}} {{x2plus=[[((@{siz}+@{siz_enchant}) * 2) + 1]]}} {{x1plus=[[@{siz}+@{siz_enchant} + 1]]}}"></button>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Intelligence roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{int}+@{int_enchant}) * 5]]}} {{x4=[[(@{int}+@{int_enchant}) * 4]]}} {{x3=[[(@{int}+@{int_enchant}) * 3]]}} {{x2=[[(@{int}+@{int_enchant}) * 2]]}} {{x1=[[@{int}+@{int_enchant}]]}} {{x5plus=[[((@{int}+@{int_enchant}) * 5) + 1]]}} {{x4plus=[[((@{int}+@{int_enchant}) * 4) + 1]]}} {{x3plus=[[((@{int}+@{int_enchant}) * 3) + 1]]}} {{x2plus=[[((@{int}+@{int_enchant}) * 2) + 1]]}} {{x1plus=[[@{int}+@{int_enchant} + 1]]}}"></button>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Dexterity roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{dex}+@{dex_enchant}) * 5]]}} {{x4=[[(@{dex}+@{dex_enchant}) * 4]]}} {{x3=[[(@{dex}+@{dex_enchant}) * 3]]}} {{x2=[[(@{dex}+@{dex_enchant}) * 2]]}} {{x1=[[@{dex}+@{dex_enchant}]]}} {{x5plus=[[((@{dex}+@{dex_enchant}) * 5) + 1]]}} {{x4plus=[[((@{dex}+@{dex_enchant}) * 4) + 1]]}} {{x3plus=[[((@{dex}+@{dex_enchant}) * 3) + 1]]}} {{x2plus=[[((@{dex}+@{dex_enchant}) * 2) + 1]]}} {{x1plus=[[@{dex}+@{dex_enchant} + 1]]}}"></button>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Power roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{pow}+@{pow_enchant}) * 5]]}} {{x4=[[(@{pow}+@{pow_enchant}) * 4]]}} {{x3=[[(@{pow}+@{pow_enchant}) * 3]]}} {{x2=[[(@{pow}+@{pow_enchant}) * 2]]}} {{x1=[[@{pow}+@{pow_enchant}]]}} {{x5plus=[[((@{pow}+@{pow_enchant}) * 5) + 1]]}} {{x4plus=[[((@{pow}+@{pow_enchant}) * 4) + 1]]}} {{x3plus=[[((@{pow}+@{pow_enchant}) * 3) + 1]]}} {{x2plus=[[((@{pow}+@{pow_enchant}) * 2) + 1]]}} {{x1plus=[[@{pow}+@{pow_enchant} + 1]]}}"></button>
+            <button type="roll" name="roll_attribute"
+                        value="&{template:attribute} {{name=Appearance roll}} {{rollmade=[[1d100]]}} {{x5=[[(@{app}+@{app_enchant}) * 5]]}} {{x4=[[(@{app}+@{app_enchant}) * 4]]}} {{x3=[[(@{app}+@{app_enchant}) * 3]]}} {{x2=[[(@{app}+@{app_enchant}) * 2]]}} {{x1=[[@{app}+@{app_enchant}]]}} {{x5plus=[[((@{app}+@{app_enchant}) * 5) + 1]]}} {{x4plus=[[((@{app}+@{app_enchant}) * 4) + 1]]}} {{x3plus=[[((@{app}+@{app_enchant}) * 3) + 1]]}} {{x2plus=[[((@{app}+@{app_enchant}) * 2) + 1]]}} {{x1plus=[[@{app}+@{app_enchant} + 1]]}}"></button>
+
+            <label>Total:</label>
+            <input name="attr_str_total" value="@{str}+@{str_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_con_total" value="@{con}+@{con_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_siz_total" value="@{siz}+@{siz_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_int_total" value="@{int}+@{int_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_dex_total" value="@{dex}+@{dex_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_pow_total" value="@{pow}+@{pow_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_app_total" value="@{app}+@{app_enchant}" type="number" class="sheet-stats" disabled>
+
+            <label>Enhanced:</label>
+            <input name="attr_str_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_con_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_siz_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_int_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_dex_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_pow_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_app_enchant" value="0" type="number" class="sheet-stats" />
+
+            <label>Current:</label>
+            <input name="attr_str" value="10" type="number" class="sheet-stats" />
+            <input name="attr_con" value="10" type="number" class="sheet-stats" />
+            <input name="attr_siz" value="10" type="number" class="sheet-stats" />
+            <input name="attr_int" value="10" type="number" class="sheet-stats" />
+            <input name="attr_dex" value="10" type="number" class="sheet-stats" />
+            <input name="attr_pow" value="10" type="number" class="sheet-stats" />
+            <input name="attr_app" value="10" type="number" class="sheet-stats" />
+
+            <label>Original:</label>
+            <input name="attr_str_orig" value="10" type="number" class="sheet-stats" />
+            <input name="attr_con_orig" value="10" type="number" class="sheet-stats" />
+            <input name="attr_siz_orig" value="10" type="number" class="sheet-stats" />
+            <input name="attr_int_orig" value="10" type="number" class="sheet-stats" />
+            <input name="attr_dex_orig" value="10" type="number" class="sheet-stats" />
+            <input name="attr_pow_orig" value="10" type="number" class="sheet-stats" />
+            <input name="attr_app_orig" value="10" type="number" class="sheet-stats" />
+        </div>
+        <input hidden name="attr_str_primary" value="@{str}+@{str_enchant}-10" disabled>
+        <input hidden name="attr_str_negative" value="10-@{str}-@{str_enchant}" disabled>
+        <input hidden name="attr_str_secondary" readonly>
+        <input hidden name="attr_con_primary" value="@{con}+@{con_enchant}-10" disabled>
+        <input hidden name="attr_con_negative" value="10-@{con}-@{con_enchant}" disabled>
+        <input hidden name="attr_con_secondary" readonly>
+        <input hidden name="attr_siz_primary" value="@{siz}+@{siz_enchant}-10" disabled>
+        <input hidden name="attr_siz_negative" value="10-@{siz}-@{siz_enchant}" disabled>
+        <input hidden name="attr_int_primary" value="@{int}+@{int_enchant}-10" disabled>
+        <input hidden name="attr_int_negative" value="10-@{int}-@{int_enchant}" disabled>
+        <input hidden name="attr_dex_primary" value="@{dex}+@{dex_enchant}-10" disabled>
+        <input hidden name="attr_dex_negative" value="10-@{dex}-@{dex_enchant}" disabled>
+        <input hidden name="attr_dex_secondary" readonly>
+        <input hidden name="attr_pow_primary" value="@{pow}+@{pow_enchant}-10" disabled>
+        <input hidden name="attr_pow_negative" value="10-@{pow}-@{pow_enchant}" disabled>
+        <input hidden name="attr_pow_secondary" readonly>
+        <input hidden name="attr_app_primary" value="@{app}+@{app_enchant}-10" disabled>
+        <input hidden name="attr_app_negative" value="10-@{app}-@{app_enchant}" disabled>
+        <input hidden name="attr_app_secondary" readonly>
+        <input hidden name="attr_missiledmod" type="text" readonly>
+        <input hidden name="attr_meleemod_dice" type="text" readonly>
+        <input hidden name="attr_meleemod_sides" type="text" readonly>
+        <p><strong>Attributes</strong></p>
+
+        <div class="sheet-rq35-attributes">
+            <label>Move Rate: </label>
+            <input name="attr_move_rate" type="number" value="3">
+
+            <label>Size Strike Rank: </label>
+            <input name="attr_sizsr" type="number" readonly>
+            <label>Dex Strike Rank: </label>
+            <input name="attr_dexsr" type="number" readonly>
+            <label>Melee Strike Rank: </label>
+            <input name="attr_meleesr" type="number" readonly>
+            <label>Damage Modifier: </label>
+            <input name="attr_damagemod" type="text" readonly>
+            <label>Magic Points: </label>
+            <input name="attr_mp" value="@{pow}+@{pow_enchant}" type="number" disabled>
+
+            <label>Strength Enchant: </label>
+            <input name="attr_strengthen_enchant" type="number" value="0">
+            <label>Total Hit Points:</label>
+            <input name="attr_hp" value="ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant}" type="number" disabled>
+        </div>
+        <input name="attr_25_location" value="ceil((ceil((ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant})/3)*3)/4)" disabled hidden>
+        <input name="attr_3_location" value="ceil((ceil((ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant})/3)*3)/3)" disabled hidden>
+        <input name="attr_4_location" value="ceil((ceil((ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant})/3)*3)*0.4)" disabled hidden>
+
+        <p><strong>Skill Modifiers</strong></p>
+        <div class="sheet-rq35-stats">
+            <label> </label>
+            <label class="sheet-title">Agility</label>
+            <label class="sheet-title">Communication</label>
+            <label class="sheet-title">Knowledge</label>
+            <label class="sheet-title">Manipulation</label>
+            <label class="sheet-title">Perception</label>
+            <label class="sheet-title">Stealth</label>
+            <label class="sheet-title">Magic Bonus</label>
+
+            <label>Total</label>
+            <input name="attr_agil_total" value="@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_comm_total" value="@{int_primary}+@{pow_secondary}+@{app_secondary}+@{comm_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_know_total" value="@{int_primary}+@{know_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_mani_total" value="@{int_primary}+@{dex_primary}+@{str_secondary}+@{mani_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_perc_total" value="@{int_primary}+@{pow_secondary}+@{con_secondary}+@{perc_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_stea_total" value="@{dex_primary}+@{pow_negative}+@{siz_negative}+@{stea_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_magb_total" value="@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" type="number" class="sheet-stats" disabled>
+
+            <label>Enhanced:</label>
+            <input name="attr_agil_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_comm_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_know_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_mani_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_perc_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_stea_enchant" value="0" type="number" class="sheet-stats" />
+            <input name="attr_magb_enchant" value="0" type="number" class="sheet-stats" />
+
+            <label>Current:</label>
+            <input name="attr_agil" value="@{dex_primary}+@{str_secondary}+@{siz_negative}" type="number" class="sheet-stats" disabled />
+            <input name="attr_comm" value="@{int_primary}+@{pow_secondary}+@{app_secondary}" type="number" class="sheet-stats" disabled />
+            <input name="attr_know" value="@{int_primary}" type="number" class="sheet-stats" disabled />
+            <input name="attr_mani" value="@{int_primary}+@{dex_primary}+@{str_secondary}" type="number" class="sheet-stats" disabled />
+            <input name="attr_perc" value="@{int_primary}+@{pow_secondary}+@{con_secondary}" type="number" class="sheet-stats" disabled />
+            <input name="attr_stea" value="@{dex_primary}+@{pow_negative}+@{siz_negative}" type="number" class="sheet-stats" disabled />
+            <input name="attr_magb" value="@{int_primary}+@{pow_primary}+@{dex_secondary}" type="number" class="sheet-stats" disabled />
+        </div><p><strong>Date Qualified for Power Gain Roll</strong></p>
+        <div class="sheet-rq35-power-gain">
+            <label>Due Check</label>
+            <label>Date Qualified</label>
+            <label>Current Power</label>
+            <label>Chance of Gain</label>
+            <label>Roll for Gain</label>
+
+            <input type="checkbox" name="attr_powergain_check" value="1">
+            <input type="text" name="attr_powergain_date">
+            <input type="number" name="attr_powergain_current" value="@{pow}" disabled>
+            <input type="number" name="attr_powergain_chance" value="(21-@{pow})*5" disabled>
+            <button type="roll" name="roll_powergain"
+                        value="&{template:powergain} {{name=Power Gain Check}} {{rollmade=[[1d100]]}} {{normal=[[(21-@{pow})*5]]}} {{normalplus=[[((21-@{pow})*5) + 1]]}} {{gain=[[1d100]]}} {{maxgain=[[21-@{pow}]]}}"></button>
+        </div>    </div>    <!-- start of combat sheet -->
+    <div class="sheet-combat">
+        <p><strong>Armour & Hit Locations</strong></p>
+        <div class="sheet-rq35-armour">
+            <label>Melee</label>
+            <label>Missile</label>
+            <label>Location</label>
+            <label>Armour Description</label>
+            <label>Armour Points</label>
+            <label>Magic Boost</label>
+            <label>Total Armour</label>
+            <label>Hits to location</label>
+            <em> </em>
+            <em> </em>
+            <em> </em>
+
+            <p class="center">01 - 04</p>
+            <p class="center">01 - 03</p>
+            <p class="center">Right Leg</p>
+            <input name="attr_rleg_armour" type="text" class="armour-description">
+            <input name="attr_rleg_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_rleg_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_rleg_ap_total" value="@{rleg_ap}+@{rleg_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_rleg_damage" value="0" type="number" class="sheet-stats">
+            <em> </em>
+            <em> </em>
+            <em> </em>
+
+            <p class="center">05 - 08</p>
+            <p class="center">04 - 06</p>
+            <p class="center">Left Leg</p>
+            <input name="attr_lleg_armour" type="text" class="armour-description">
+            <input name="attr_lleg_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_lleg_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_lleg_ap_total" value="@{lleg_ap}+@{lleg_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_lleg_damage" value="0" type="number" class="sheet-stats">
+            <label>Left Side</label>
+            <label>Body</label>
+            <label>Right Side</label>
+
+            <p class="center">09 - 11</p>
+            <p class="center">07 - 10</p>
+            <p class="center">Abdomen</p>
+            <input name="attr_abdomen_armour" type="text" class="armour-description">
+            <input name="attr_abdomen_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_abdomen_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_abdomen_ap_total" value="@{abdomen_ap}+@{abdomen_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_abdomen_damage" value="0" type="number" class="sheet-stats">
+
+            <em> </em>
+            <input name="attr_head_hp_total" type="number" value="@{3_location}-@{head_damage}" disabled class="sheet-stats">
+            <em> </em>
+
+            <p class="center">12</p>
+            <p class="center">11 - 15</p>
+            <p class="center">Chest</p>
+            <input name="attr_chest_armour" type="text" class="armour-description">
+            <input name="attr_chest_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_chest_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_chest_ap_total" value="@{chest_ap}+@{chest_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_chest_damage" value="0" type="number" class="sheet-stats">
+
+            <input name="attr_larm_hp_total" type="number" value="@{25_location}-@{larm_damage}" disabled class="sheet-stats">
+            <em> </em>
+            <input name="attr_rarm_hp_total" type="number" value="@{25_location}-@{rarm_damage}" disabled class="sheet-stats">
+
+            <p class="center">13 - 15</p>
+            <p class="center">16 - 17</p>
+            <p class="center">Right Arm</p>
+            <input name="attr_rarm_armour" type="text" class="armour-description">
+            <input name="attr_rarm_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_rarm_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_rarm_total_ap" value="@{rarm_ap}+@{rarm_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_rarm_damage" value="0" type="number" class="sheet-stats">
+
+            <em> </em>
+            <input name="attr_chest_hp_total" type="number" value="@{4_location}-@{chest_damage}" disabled class="sheet-stats">
+            <em> </em>
+
+            <p class="center">16 - 18</p>
+            <p class="center">18 - 19</p>
+            <p class="center">Left Arm</p>
+            <input name="attr_larm_armour" type="text" class="armour-description">
+            <input name="attr_larm_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_larm_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_larm_total_ap" value="@{larm_ap}+@{larm_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_larm_damage" value="0" type="number" class="sheet-stats">
+            <em> </em>
+            <input name="attr_abdomen_hp_total" type="number" value="@{3_location}-@{abdomen_damage}" disabled class="sheet-stats">
+            <em> </em>
+
+            <p class="center">19 - 20</p>
+            <p class="center">20</p>
+            <p class="center">Head</p>
+            <input name="attr_head_armour" type="text" class="armour-description">
+            <input name="attr_head_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_head_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_head_total_ap" value="@{head_ap}+@{head_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_head_damage" value="0" type="number" class="sheet-stats">
+            <input name="attr_lleg_hp_total" type="number" value="@{3_location}-@{lleg_damage}" disabled class="sheet-stats">
+            <em> </em>
+            <input name="attr_rleg_hp_total" type="number" value="@{3_location}-@{rleg_damage}" disabled class="sheet-stats">
+        </div>
+        <!-- melee -->
+        <p><strong>Melee Weapon Skills</strong></p>
+        <div class="sheet-rq35-combat">
+            <label>Attack Tick</label>
+            <label>Weapon Name</label>
+            <label>Weapon SR</label>
+            <label>Attack SR</label>
+            <label>Base Attack</label>
+            <label>Magic Bonus</label>
+            <label>Total Attack %</label>
+            <label>Attack Roll</label>
+            <label>Weapon AP</label>
+            <label>Base Parry</label>
+            <label>Total Parry %</label>
+            <label>Parry Roll</label>
+            <label>Parry Tick</label>
+            <label>Attack Exp</label>
+            <label>Parry Exp</label>
+            <fieldset class="repeating_meleeskills">
+                <input type="checkbox" name="attr_weapon_ticked1" value="1">
+                <input type="text" name="attr_weapon_name1">
+                <input type="number" name="attr_weapon_sr1" value="0">
+                <input type="number" name="attr_weapon_tsr1" value="@{weapon_sr1}+@{meleesr}" disabled>
+                <input type="number" name="attr_weapon_attack1" value="0">
+                <input type="number" name="attr_weapon_magic1" value="0">
+                <input type="number" name="attr_weapon_tatt1" value="@{weapon_magic1}+@{weapon_attack1}+@{int_primary}+@{dex_primary}+@{str_secondary}+@{mani_enchant}" disabled >
+                <button type="roll" name="roll_weapon1"
+                        value="&{template:test} {{name=@{weapon_name1} Attack}} {{rollmade=[[1d100]]}} {{normal=[[@{weapon_tatt1}]]}} {{normalplus=[[@{weapon_tatt1}+1]]}} {{fumble=[[100-floor(((100 - @{weapon_tatt1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{weapon_tatt1}) / 20) + 0.55)-1]]}} {{special=[[round(@{weapon_tatt1}/5)]]}} {{specialplus=[[round(@{weapon_tatt1}/5)+1]]}} {{critical=[[round(@{weapon_tatt1}/20)]]}} {{criticalplus=[[round(@{weapon_tatt1}/20)+1]]}} {{supercritical=[[floor(@{weapon_tatt1}/100)]]}} {{supercriticalplus=[[floor(@{weapon_tatt1}/100)+1]]}} {{hypercritical=[[floor(@{weapon_tatt1}/400)]]}} {{hypercriticalplus=[[floor(@{weapon_tatt1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                <input type="number" name="attr_weapon_ap1">
+                <input type="number" name="attr_weapon_parry1" value="0">
+                <input type="number" name="attr_weapon_tparry1" value="@{weapon_parry1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" disabled>
+                <button type="roll" name="roll_parry1"
+                        value="&{template:test} {{name=@{weapon_name1} Parry}} {{rollmade=[[1d100]]}} {{normal=[[@{weapon_tparry1}]]}} {{normalplus=[[@{weapon_tparry1}+1]]}} {{fumble=[[100-floor(((100 - @{weapon_tparry1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{weapon_tparry1}) / 20) + 0.55)-1]]}} {{special=[[round(@{weapon_tparry1}/5)]]}} {{specialplus=[[round(@{weapon_tparry1}/5)+1]]}} {{critical=[[round(@{weapon_tparry1}/20)]]}} {{criticalplus=[[round(@{weapon_tparry1}/20)+1]]}} {{supercritical=[[floor(@{weapon_tparry1}/100)]]}} {{supercriticalplus=[[floor(@{weapon_tparry1}/100)+1]]}} {{hypercritical=[[floor(@{weapon_tparry1}/400)]]}} {{hypercriticalplus=[[floor(@{weapon_tparry1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                <input type="checkbox" name="attr_parry_ticked1" value="1">
+                <button type="roll" name="roll_attackexp1"
+                        value="&{template:attackexp} {{name=@{weapon_name1} Attack}} {{exproll=[[1d100]]}} {{normal=[[@{weapon_attack1}]]}} {{normalplus=[[@{weapon_attack1}+1]]}} {{master=[[100-(@{int_primary}+@{dex_primary}+@{str_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{dex_primary}+@{str_secondary})]]}}"></button>
+                <button type="roll" name="roll_attackexp1"
+                        value="&{template:attackexp} {{name=@{weapon_name1} Parry}} {{exproll=[[1d100]]}} {{normal=[[@{weapon_parry1}]]}} {{normalplus=[[@{weapon_parry1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+            </fieldset>
+        </div>
+        <!-- missile -->
+        <p><strong>Missile Weapon Skills</strong></p>
+        <div class="sheet-rq35-missile">
+            <label>Attack Tick</label>
+            <label>Weapon Name</label>
+            <label>Rate of Fire</label>
+            <label>Range<br>(Effective / Max)</label>
+            <label>Attack Base</label>
+            <label>Magic Bonus</label>
+            <label>Total Attack</label>
+            <label>Attack Effective Range</label>
+            <label>Attack Max Range</label>
+            <label>Experience Roll</label>
+            <fieldset class="repeating_missileattack">
+                <input type="checkbox" name="attr_missile_ticked1" value="1">
+                <input type="text" name="attr_missile_name1">
+                <input type="text" class="sheet-small-text" name="attr_missile_rof1">
+                <input type="text" class="sheet-small-text" name="attr_missile_range1">
+                <input type="number" name="attr_missile_attack1" value="0">
+                <input type="number" name="attr_missile_magic1" value="0">
+                <input type="number" name="attr_missile_tatt1" value="@{missile_magic1}+@{missile_attack1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" disabled >
+                <input type="number" name="attr_missile_tattmax1" value="floor((@{missile_magic1}+@{missile_attack1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant})/2)" disabled hidden>
+                <button type="roll" name="roll_weapon1"
+                        value="&{template:test} {{name=@{missile_name1} Attack}}  {{rollmade=[[1d100]]}} {{normal=[[@{missile_tatt1}]]}} {{normalplus=[[@{missile_tatt1}+1]]}} {{fumble=[[100-floor(((100 - @{missile_tatt1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{missile_tatt1}) / 20) + 0.55)-1]]}} {{special=[[round(@{missile_tatt1}/5)]]}} {{specialplus=[[round(@{missile_tatt1}/5)+1]]}} {{critical=[[round(@{missile_tatt1}/20)]]}} {{criticalplus=[[round(@{missile_tatt1}/20)+1]]}} {{supercritical=[[floor(@{missile_tatt1}/100)]]}} {{supercriticalplus=[[floor(@{missile_tatt1}/100)+1]]}} {{hypercritical=[[floor(@{missile_tatt1}/400)]]}} {{hypercriticalplus=[[floor(@{missile_tatt1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                <button type="roll" name="roll_maxweapon1"
+                        value="&{template:test} {{name=@{missile_name1} Attack (max range)}}  {{rollmade=[[1d100]]}} {{normal=[[@{missile_tattmax1}]]}} {{normalplus=[[@{missile_tattmax1}+1]]}} {{fumble=[[100-floor(((100 - @{missile_tattmax1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{missile_tattmax1}) / 20) + 0.55)-1]]}} {{fail=[[95]]}} {{special=[[round(@{missile_tattmax1}/5)]]}} {{specialplus=[[round(@{missile_tattmax1}/5)+1]]}} {{critical=[[round(@{missile_tattmax1}/20)]]}} {{criticalplus=[[round(@{missile_tattmax1}/20)+1]]}} {{supercritical=[[floor(@{missile_tattmax1}/100)]]}} {{supercriticalplus=[[floor(@{missile_tattmax1}/100)+1]]}} {{hypercritical=[[floor(@{missile_tattmax1}/400)]]}} {{hypercriticalplus=[[floor(@{missile_tattmax1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                <button type="roll" name="roll_attackexp1"
+                        value="&{template:attackexp} {{name=@{missile_name1} Attack}} {{exproll=[[1d100]]}} {{normal=[[@{missile_attack1}]]}} {{normalplus=[[@{missile_attack1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+            </fieldset>
+        </div>        <!-- meleeDamage -->
+        <p><strong>Weapon Damage</strong></p>
+        <div class="sheet-rq35-melee-damage">
+            <label>Weapon Name</label>
+            <label>Base Damage</label>
+            <label>Magic Modifier</label>
+            <label>Strength Bonus</label>
+            <label>Roll Normal</label>
+            <label>Special Damage</label>
+            <label>Roll Special</label>
+            <label>Roll Critical</label>
+            <fieldset class="repeating_meleedamage">
+                <input type="text" name="attr_meleedamage_name1">
+                <input type="text" class="sheet-small-text" name="attr_meleedamage_base1">
+                <input type="number" name="attr_meleedamage_magic1" value="0">
+                <input type="text" class="sheet-small-text" name="attr_meleedamage_mod1" >
+                <button type="roll" name="roll_weapon1"
+                        value="&{template:meleedamage} {{name=@{meleedamage_name1}}} {{subtags=Normal hit}} {{damage=[[@{meleedamage_base1}+@{meleedamage_magic1}+@{meleedamage_mod1}]]}}"></button>
+                <input type="text" class="sheet-small-text" name="attr_specialdamage1">
+                <button type="roll" name="roll_weapon1"
+                        value="&{template:meleedamage} {{name=@{meleedamage_name1}}} {{subtags=Special hit}} {{damage=[[@{specialdamage1}+@{meleedamage_magic1}+@{meleedamage_mod1}]]}}"></button>
+                <button type="roll" name="roll_weapon1"
+                        value="&{template:meleedamage} {{name=@{meleedamage_name1}}} {{subtags=Critical hit}} {{damage=[[@{meleedamage_base1}+@{meleedamage_base1}+@{meleedamage_magic1}+@{meleedamage_magic1}+@{meleedamage_mod1}+@{meleedamage_mod1}]] }}"></button>
+            </fieldset>
+        </div>
+    </div>
+<!-- start of skills sheet -->
+<div class="sheet-rqskills">
+    <div class="sheet-rqskills-main">
+
+<div class="sheet-rqskills-left">
+    <p><strong>Agility Skills</strong></p>
+    <div class="sheet-rq35-skills">
+        <label>Skill Tick</label>
+        <label>Name</label>
+        <label>Base Skill %</label>
+        <label>Total Skill %</label>
+        <label>Skill Roll</label>
+        <label>Skill Exp.</label>
+        <fieldset class="repeating_agilityskills">
+            <input type="checkbox" name="attr_agilityskill_ticked1" value="1">
+            <input type="text" name="attr_agilityskill_name1">
+            <input type="number" name="attr_agilityskill_base1" value="0">
+            <input type="number" name="attr_agilityskill_total1" value="@{agilityskill_base1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" disabled>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{agilityskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{agilityskill_total1}]]}} {{normalplus=[[@{agilityskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{agilityskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{agilityskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{agilityskill_total1}/5)]]}} {{specialplus=[[round(@{agilityskill_total1}/5)+1]]}} {{critical=[[round(@{agilityskill_total1}/20)]]}} {{criticalplus=[[round(@{agilityskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{agilityskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{agilityskill_base1}]]}} {{normalplus=[[@{agilityskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+        </fieldset>
+    </div>
+    <p><strong>Communication Skills</strong></p>
+    <div class="sheet-rq35-skills">
+        <label>Skill Tick</label>
+        <label>Name</label>
+        <label>Base Skill %</label>
+        <label>Total Skill %</label>
+        <label>Skill Roll</label>
+        <label>Skill Exp.</label>
+        <fieldset class="repeating_commskills">
+            <input type="checkbox" name="attr_commskill_ticked1" value="1">
+            <input type="text" name="attr_commskill_name1">
+            <input type="number" name="attr_commskill_base1" value="0">
+            <input type="number" name="attr_commskill_total1" value="@{commskill_base1}+@{int_primary}+@{pow_secondary}+@{app_secondary}+@{comm_enchant}" disabled>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{commskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{commskill_total1}]]}} {{normalplus=[[@{commskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{commskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{commskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{commskill_total1}/5)]]}} {{specialplus=[[round(@{commskill_total1}/5)+1]]}} {{critical=[[round(@{commskill_total1}/20)]]}} {{criticalplus=[[round(@{commskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{commskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{commskill_base1}]]}} {{normalplus=[[@{commskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+        </fieldset>
+    </div>
+    <p><strong>Manipulation Skills</strong></p>
+    <div class="sheet-rq35-skills">
+        <label>Skill Tick</label>
+        <label>Name</label>
+        <label>Base Skill %</label>
+        <label>Total Skill %</label>
+        <label>Skill Roll</label>
+        <label>Skill Exp.</label>
+        <fieldset class="repeating_manipulationskills">
+            <input type="checkbox" name="attr_manipulationskill_ticked1" value="1">
+            <input type="text" name="attr_manipulationskill_name1">
+            <input type="number" name="attr_manipulationskill_base1" value="0">
+            <input type="number" name="attr_manipulationskill_total1" value="@{manipulationskill_base1}+@{dex_primary}+@{int_primary}+@{str_secondary}+@{mani_enchant}" disabled>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{manipulationskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{manipulationskill_total1}]]}} {{normalplus=[[@{manipulationskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{manipulationskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{manipulationskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{manipulationskill_total1}/5)]]}} {{specialplus=[[round(@{manipulationskill_total1}/5)+1]]}} {{critical=[[round(@{manipulationskill_total1}/20)]]}} {{criticalplus=[[round(@{manipulationskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{manipulationskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{manipulationskill_base1}]]}} {{normalplus=[[@{manipulationskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+        </fieldset>
+    </div></div>
+<!-- end of left column -->
+<div class="sheet-rqskills-right">
+    <p><strong>Knowledge Skills</strong></p>
+    <div class="sheet-rq35-skills">
+        <label>Skill Tick</label>
+        <label>Name</label>
+        <label>Base Skill %</label>
+        <label>Total Skill %</label>
+        <label>Skill Roll</label>
+        <label>Skill Exp.</label>
+        <fieldset class="repeating_knowledgeskills">
+            <input type="checkbox" name="attr_knowskill_ticked1" value="1">
+            <input type="text" name="attr_knowskill_name1">
+            <input type="number" name="attr_knowskill_base1" value="0">
+            <input type="number" name="attr_knowskill_total1" value="@{knowskill_base1}+@{int_primary}+@{know_enchant}" disabled>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{knowskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{knowskill_total1}]]}} {{normalplus=[[@{knowskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{knowskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{knowskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{knowskill_total1}/5)]]}} {{specialplus=[[round(@{knowskill_total1}/5)+1]]}} {{critical=[[round(@{knowskill_total1}/20)]]}} {{criticalplus=[[round(@{knowskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{knowskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{knowskill_base1}]]}} {{normalplus=[[@{knowskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+        </fieldset>
+    </div>
+    <p><strong>Stealth Skills</strong></p>
+    <div class="sheet-rq35-skills">
+        <label>Skill Tick</label>
+        <label>Name</label>
+        <label>Base Skill %</label>
+        <label>Total Skill %</label>
+        <label>Skill Roll</label>
+        <label>Skill Exp.</label>
+        <fieldset class="repeating_stealthskills">
+            <input type="checkbox" name="attr_stealthskill_ticked1" value="1">
+            <input type="text" name="attr_stealthskill_name1">
+            <input type="number" name="attr_stealthskill_base1" value="0">
+            <input type="number" name="attr_stealthskill_total1" value="@{stealthskill_base1}+@{dex_primary}+@{pow_negative}+@{siz_negative}+@{stea_enchant}" disabled>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{stealthskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{stealthskill_total1}]]}} {{normalplus=[[@{stealthskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{stealthskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{stealthskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{stealthskill_total1}/5)]]}} {{specialplus=[[round(@{stealthskill_total1}/5)+1]]}} {{critical=[[round(@{stealthskill_total1}/20)]]}} {{criticalplus=[[round(@{stealthskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{stealthskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{stealthskill_base1}]]}} {{normalplus=[[@{stealthskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+        </fieldset>
+    </div>
+    <p><strong>Perception Skills</strong></p>
+    <div class="sheet-rq35-skills">
+        <label>Skill Tick</label>
+        <label>Name</label>
+        <label>Base Skill %</label>
+        <label>Total Skill %</label>
+        <label>Skill Roll</label>
+        <label>Skill Exp.</label>
+        <fieldset class="repeating_perceptionskills">
+            <input type="checkbox" name="attr_perceptionskill_ticked1" value="1">
+            <input type="text" name="attr_perceptionskill_name1">
+            <input type="number" name="attr_perceptionskill_base1" value="0">
+            <input type="number" name="attr_perceptionskill_total1" value="@{perceptionskill_base1}+@{int_primary}+@{pow_secondary}+@{con_secondary}+@{perc_enchant}" disabled>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{perceptionskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{perceptionskill_total1}]]}} {{normalplus=[[@{perceptionskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{perceptionskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{perceptionskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{perceptionskill_total1}/5)]]}} {{specialplus=[[round(@{perceptionskill_total1}/5)+1]]}} {{critical=[[round(@{perceptionskill_total1}/20)]]}} {{criticalplus=[[round(@{perceptionskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{perceptionskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{perceptionskill_base1}]]}} {{normalplus=[[@{perceptionskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+        </fieldset>
+    </div></div>
+<!-- end of right column -->
+    </div>
+</div><!-- start of equipment sheet -->
+<div class="sheet-rqequipment">
+    <div class="sheet-rqequipment-main">
+        <!-- Equipment -->
+        <p><strong>Equipment</strong></p>
+        <div class="sheet-rq35-equipment">
+            <label>Number of Items</label>
+            <label>Item Name / Details</label>
+            <label>Value (d)</label>
+            <label>Encumbrance</label>
+            <label>Where Located</label>
+            
+            <fieldset class="repeating_equipment">
+                <input type="number" name="attr_equipment_ticked1" value="1">
+                <input type="text" name="attr_equipment_name1">
+                <input type="number" name="attr_equipment_value1">
+                <input type="number" name="attr_equipment_enc1">
+                <input type="text" name="attr_equipment_located1">
+            </fieldset>
+        </div>    </div>
+</div><!-- start of equipment sheet -->
+<div class="sheet-rqspirit">
+        <!-- Spirit Spells -->
+        <p><strong>Spirit Spells</strong></p>
+        <div class="sheet-rq35-spirit-spells">
+            <label>Spell Name</label>
+            <label>Magic Points</label>
+            <label>Located On</label>
+            <label>Roll to Cast</label>
+            <label>Spell Name</label>
+            <label>Magic Points</label>
+            <label>Located On</label>
+            <label>Roll to Cast</label>
+
+            <fieldset class="repeating_spiritspells">
+                <input type="text" name="attr_spiritspell_name1">
+                <input type="number" name="attr_spiritspell_magicpoints1" value="0">
+                <input type="text" name="attr_spiritspell_location1">
+                <button type="roll" name="roll_spiritspell"
+                        value="&{template:spiritspell} {{name=@{spiritspell_name1} @{spiritspell_magicpoints1}}} {{rollmade=[[1d100]]}} {{x5=[[(@{pow}+@{pow_enchant}) * 5]]}} {{x5plus=[[((@{pow}+@{pow_enchant}) * 5) + 1]]}}"></button>
+                <input type="text" name="attr_spiritspell_nameb1">
+                <input type="number" name="attr_spiritspell_magicpointsb1" value="0">
+                <input type="text" name="attr_spiritspell_locationb1">
+                <button type="roll" name="roll_spiritspell"
+                        value="&{template:spiritspell} {{name=@{spiritspell_nameb1} @{spiritspell_magicpointsb1}}} {{rollmade=[[1d100]]}} {{x5=[[(@{pow}+@{pow_enchant}) * 5]]}} {{x5plus=[[((@{pow}+@{pow_enchant}) * 5) + 1]]}}"></button>
+            </fieldset>
+        </div>
+        <!-- Spirit Skills -->
+        <p><strong>Spirit Spell Skills</strong></p>
+        <div class="sheet-rq35-spirit-skills">
+            <label>Skill Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained Experience Roll</label>
+            <label>Self-training Experience Roll</label>
+            <fieldset class="repeating_spiritskills">
+                <input type="text" name="attr_spiritskill_name1">
+                <input type="number" name="attr_spiritskill_base1" value="0">
+                <input type="number" name="attr_spiritskill_total1" value="@{spiritskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+                <input type="number" name="attr_spiritskill_hours1" value="0">
+                <button type="roll" name="roll_training1"
+                        value="&{template:training} {{name=@{spiritskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_base1}]]}} {{baseskillplus=[[@{spiritskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+                <button type="roll" name="roll_training1"
+                        value="&{template:training} {{name=@{spiritskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_base1}]]}} {{minskill=[[1]]}}"></button>
+            </fieldset>
+        </div>
+
+</div><!-- start of equipment sheet -->
+<div class="sheet-rqdivine">
+    <div class="sheet-rqdivine-main">        <!-- Divine Spells -->
+        <p><strong>Divine Spells</strong></p>
+        <div class="sheet-rq35-divine-spells">
+            <label>Spell Name</label>
+            <label>Power Points</label>
+            <label>Where Stored</label>
+            <label>Extensions</label>
+            <label>God</label>
+            <label>Roll to Cast</label>
+            <label>Released Tick</label>
+            <fieldset class="repeating_divinespells">
+                <input type="text" name="attr_divinespell_name1">
+                <input type="number" name="attr_divinespell_power1" value="1">
+                <input type="text" name="attr_divinespell_location1">
+                <input type="number" name="attr_divinespell_extensions1" value="0">
+                <input type="text" name="attr_divinespell_god1">
+                <input type="number" name="attr_divinespell_chance1" value="100" hidden>
+                <button type="roll" name="roll_spiritspell"
+                        value="&{template:spiritspell} {{name=@{divinespell_name1} }} {{rollmade=[[1d100]]}} {{x5=[[@{divinespell_chance1}]]}} {{x5plus=[[@{divinespell_chance1} + 1]]}}"></button>
+                <input type="checkbox" name="attr_divinespell_released1" value="1">
+            </fieldset>
+        </div>        <!-- Divine Skills -->
+        <p><strong>Divine Spell Skills</strong></p>
+        <!-- use same css as spirit skills because format the same -->
+        <div class="sheet-rq35-spirit-skills">
+            <label>Skill Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained Experience Roll</label>
+            <label>Self-training Experience Roll</label>
+            <fieldset class="repeating_divineskills">
+                <input type="text" name="attr_divineskill_name1">
+                <input type="number" name="attr_divineskill_base1" value="0">
+                <input type="number" name="attr_divineskill_total1" value="@{divineskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+                <input type="number" name="attr_divineskill_hours1" value="0">
+                <button type="roll" name="roll_training1"
+                        value="&{template:training} {{name=@{divineskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_base1}]]}} {{baseskillplus=[[@{divineskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+                <button type="roll" name="roll_training1"
+                        value="&{template:training} {{name=@{divineskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_base1}]]}} {{minskill=[[1]]}}"></button>
+            </fieldset>
+        </div>        <!-- Primal Flux Calculator -->
+        <p><strong>Primal Flux Calculator</strong></p>
+        <div class="sheet-rq35-primalcalc">
+            <label>Primal Base</label>
+            <label>Square Root of Number of Worshippers</label>
+            <label>Square Root of Number of Captured Souls</label>
+            <label>Total Base of Captured Deities</label>
+            <label>Number of Shrines</label>
+
+            <input type="number" name="attr_primal_base" value="10">
+            <input type="number" name="attr_number_worshippers" value="0">
+            <input type="number" name="attr_number_souls" value="0">
+            <input type="number" name="attr_deities_base" value="0">
+            <input type="number" name="attr_number_shrines" value="0">
+
+            <label>Number of Temples</label>
+            <label>Number of Greater Temples</label>
+            <label>Number of Mini Plains</label>
+            <label>Number of Plains</label>
+            <label>Roll to Calculate</label>
+            <input type="number" name="attr_number_temples" value="0">
+            <input type="number" name="attr_number_greater" value="0">
+            <input type="number" name="attr_number_miniplanes" value="0">
+            <input type="number" name="attr_number_planes" value="0">
+
+            <button type="roll" name="roll_primalcalc"
+                    value="&{template:primalcalc} {{base=[[floor(@{primal_base} / 10)]]}} {{worshippers=[[@{number_worshippers}]]}} {{souls=[[floor(@{number_souls}/10)]]}} {{deities=[[floor(@{deities_base}/10)]]}} {{shrines=[[@{number_shrines} * 5]]}} {{temple=[[@{number_temples} * 10]]}} {{greater=[[@{number_greater} * 20]]}} {{mini=[[@{number_miniplanes} * 100]]}} {{planes=[[@{number_planes} * 1000]]}} {{totalflux=[[(floor(@{primal_base}/10))+(@{number_worshippers})+(@{number_shrines}*5)+(floor((@{number_souls}+0.5)/10))+(floor((@{deities_base}+0.5)/10))+(@{number_temples} * 10)+(@{number_greater} * 20)+(@{number_miniplanes} * 100)+(@{number_planes} * 1000)]]}}"></button>
+        </div>    </div>
+</div><!-- start of equipment sheet -->
+<div class="sheet-rqdragon">
+<!-- Dragon Spells -->
+        <p><strong>Dragon Skills</strong></p>
+        <div class="sheet-rq35-dragon-skills">
+            <label>Skill Ticked</label>
+            <label>Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Experience Roll</label>
+            <label>Trained Exp. Roll</label>
+            <label>Research Exp. Roll</label>
+
+            <input type="checkbox" name="attr_illumination_checked" value="1">
+            <input type="text" name="attr_illumination_name" value="Draconic Illumination" readonly>
+            <input type="number" name="attr_illumination_base">
+            <input type="number" name="attr_illumination_total" value="@{illumination_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{illumination_name}}} {{exproll=[[1d100]]}} {{normal=[[@{illumination_base}]]}} {{normalplus=[[@{illumination_base}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{illumination_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{illumination_base}]]}} {{baseskillplus=[[@{illumination_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{illumination_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{illumination_base}]]}} {{minskill=[[1]]}}"></button>
+
+            <input type="checkbox" name="attr_dance_checked" value="1">
+            <input type="text" name="attr_dance_name" value="Dragon Dance" readonly>
+            <input type="number" name="attr_dance_base">
+            <input type="number" name="attr_dance_total" value="@{dance_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{dance_name}}} {{exproll=[[1d100]]}} {{normal=[[@{dance_base}]]}} {{normalplus=[[@{dance_base}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dance_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dance_base}]]}} {{baseskillplus=[[@{dance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dance_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dance_base}]]}} {{minskill=[[1]]}}"></button>
+
+            <input type="checkbox" name="attr_trigger_checked" value="1">
+            <input type="text" name="attr_trigger_name" value="Trigger" readonly>
+            <input type="number" name="attr_trigger_base">
+            <input type="number" name="attr_trigger_total" value="@{dance_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <span> </span>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{trigger_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{trigger_base}]]}} {{baseskillplus=[[@{trigger_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{trigger_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{trigger_base}]]}} {{minskill=[[1]]}}"></button>
+        </div>        <!-- Dragon Spells -->
+        <p><strong>Dragon Spells</strong></p>
+        <div class="sheet-rq35-dragon-spells">
+            <label>Spell Name</label>
+            <label>Magnitude</label>
+            <label>Casting Time</label>
+            <label>Area of Effect</label>
+            <label>Duration</label>
+            <label>Ranged</label>
+            <label>Progressive</label>
+            <label>Resistable</label>
+            <label>Triggerable</label>
+            <label>Cast Spell</label>
+
+            <fieldset class="repeating_dragonspells">
+                <input type="text" name="attr_dragonspell_name1">
+                <input type="number" name="attr_dragonspell_magnitude1" value="1">
+                <input type="number" name="attr_dragonspell_castingtime1">
+                <input type="text" name="attr_dragonspell_area1">
+                <input type="text" name="attr_dragonspell_duration1">
+                <input type="checkbox" name="attr_dragonspell_ranged1">
+                <input type="checkbox" name="attr_dragonspell_progressive1" value="1">
+                <input type="checkbox" name="attr_dragonspell_resist1" value="1">
+                <input type="checkbox" name="attr_dragonspell_triggerable1" value="1">
+                <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{dragonspell_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}]]}} {{normalplus=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}+1]]}} {{fumble=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)-1]]}} {{special=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)]]}} {{specialplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)+1]]}} {{critical=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)]]}} {{criticalplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+
+            </fieldset>
+        </div>
+</div><!-- start of equipment sheet -->
+<div class="sheet-rqsorcery">
+    <div class="sheet-rqsorcery-main">        <!-- Sorcery Spells -->
+        <p><strong>Sorcery Spells</strong></p>
+        <div class="sheet-rq35-sorcery-spells">
+            <label>Cast Tick</label>
+            <label>Spell Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Where Stored</label>
+            <label>Casting Roll</label>
+            <label>Experience Roll</label>
+
+            <fieldset class="repeating_sorceryspells">
+                <input type="checkbox" name="attr_sorceryspell_ticked1" value="1">
+                <input type="text" name="attr_sorceryspell_name1">
+                <input type="number" name="attr_sorceryspell_base1" value="0">
+                <input type="number" name="attr_sorceryspell_total1" value="@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}" disabled>
+                <input type="text" name="attr_sorceryspell_location1">
+                <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{sorceryspell_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}]]}} {{normalplus=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}+1]]}} {{fumble=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}) / 20) + 0.55)-1]]}} {{special=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/5)]]}} {{specialplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/5)+1]]}} {{critical=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/20)]]}} {{criticalplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                <button type="roll" name="roll_attackexp1"
+                    value="&{template:attackexp} {{name=@{sorceryspell_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{sorceryspell_base1}]]}} {{normalplus=[[@{sorceryspell_base1}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
+            </fieldset>
+        </div>
+        <!-- Held Spells -->
+        <p><strong>Held Spells</strong></p>
+        <div class="sheet-rq35-held-spells">
+            <label>Released</label>
+            <label>Spell Name(s)</label>
+            <label>Intensity</label>
+            <label>Range</label>
+            <label>Multispell</label>
+            <label> </label>
+            <label>Released</label>
+            <label>Spell Name(s)</label>
+            <label>Intensity</label>
+            <label>Range</label>
+            <label>Multispell</label>
+
+            <fieldset class="repeating_sorceryspells">
+                <input type="checkbox" name="attr_heldspell_ticked1" value="1">
+                <input type="text" name="attr_heldspell_name1">
+                <input type="number" name="attr_heldspell_intensity1" value="1">
+                <input type="number" name="attr_heldspell_range1" value="0">
+                <input type="number" name="attr_heldspell_multispell1" value="0">
+                <span> </span>
+                <input type="checkbox" name="attr_heldspell_tickedb1" value="1">
+                <input type="text" name="attr_heldspell_nameb1">
+                <input type="number" name="attr_heldspell_intensityb1" value="1">
+                <input type="number" name="attr_heldspell_rangeb1" value="0">
+                <input type="number" name="attr_heldspell_multispellb1" value="0">
+            </fieldset>
+        </div>
+        <!-- Running Spells -->
+        <p><strong>Running Spells</strong></p>
+        <div class="sheet-rq35-running-spells">
+            <label>Dropped</label>
+            <label>Spell Name</label>
+            <label>Intensity</label>
+            <label>Range</label>
+            <label>Multispell</label>
+            <label>Magic Points</label>
+            <label>Cast On</label>
+
+            <fieldset class="repeating_sorceryspells">
+                <input type="checkbox" name="attr_runningspell_dropped1" value="1">
+                <input type="text" name="attr_runningspell_name1">
+                <input type="number" name="attr_runningspell_intensity1" value="1">
+                <input type="number" name="attr_runningspell_range1" value="0">
+                <input type="number" name="attr_runningspell_multispell1" value="0">
+                <input type="number" name="attr_runningspell_magicpoints1" value="0">
+                <input type="text" name="attr_runningspell_upon1">
+            </fieldset>
+        </div>
+        <!-- Sorcery Skills -->
+        <p><strong>Sorcery Spell Skills</strong></p>
+        <!-- use same class as spirit skills because format is the same -->
+        <div class="sheet-rq35-spirit-skills">
+            <label>Skill Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained Experience Roll</label>
+            <label>Self-training Experience Roll</label>
+            <fieldset class="repeating_sorceryskills">
+                <input type="text" name="attr_sorceryskill_name1">
+                <input type="number" name="attr_sorceryskill_base1" value="0">
+                <input type="number" name="attr_sorceryskill_total1" value="@{sorceryskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+                <input type="number" name="attr_sorceryskill_hours1" value="0">
+                <button type="roll" name="roll_training1"
+                        value="&{template:training} {{name=@{sorceryskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_base1}]]}} {{baseskillplus=[[@{sorceryskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+                <button type="roll" name="roll_training1"
+                        value="&{template:training} {{name=@{sorceryskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_base1}]]}} {{minskill=[[1]]}}"></button>
+            </fieldset>
+        </div>
+    </div>
+</div><!-- start of equipment sheet -->
+<div class="sheet-rqdevices">
+    <div class="sheet-rqdevices-main">
+        <!-- Divine Skills -->
+        <p><strong>Magic Items / Devices</strong></p>
+        <div class="sheet-rq35-magic-items">
+            <label>Description</label>
+            <label>Magic Details</label>
+            <label>Location & Value</label>
+            <fieldset class="repeating_magicitems">
+                <textarea name="attr_magicitem_description1"></textarea>
+                <textarea name="attr_magicitem_details1"></textarea>
+                <textarea name="attr_magicitem_location1"></textarea>
+            </fieldset>
+        </div>        <!-- Spirits & Ghosts -->
+        <p><strong>Bound Spirits</strong></p>
+        <div class="sheet-rq35-bound-spirit">
+            <label>Type</label>
+            <label>Intelligence</label>
+            <label>Power</label>
+            <label>Bound To Device</label>
+            <label>Details</label>
+            <fieldset class="repeating_boundspirits">
+                <input type="text" name="attr_boundspirit_type1">
+                <input type="number" name="attr_boundspirit_int1">
+                <input type="number" name="attr_boundspirit_pow1">
+                <input type="text" name="attr_boundspirit_device1">
+                <textarea name="attr_boundspirit_details1"></textarea>
+            </fieldset>
+        </div>
+        <!-- Elementals -->
+        <p><strong>Elementals</strong></p>
+        <div class="sheet-rq35-elementals">
+            <label>Released</label>
+            <label>True Name</label>
+            <label>Type</label>
+            <label>Strength</label>
+            <label>Size (Cubic Meters)</label>
+            <label>Hit Points</label>
+            <label>Damage</label>
+            <label>Move Rate</label>
+            
+            <fieldset class="repeating_elementals">
+                <input type="checkbox" name="attr_elemental_ticked1" value="1">
+                <input type="text" name="attr_elemental_name1">
+                <input type="text" name="attr_elemental_type1">
+                <input type="number" name="attr_elemental_str1">
+                <input type="number" name="attr_elemental_siz1">
+                <input type="number" name="attr_elemental_hits1">
+                <input type="text" name="attr_elemental_damage1">
+                <input type="text" name="attr_elemental_moverate1">
+            </fieldset>
+        </div>
+    </div>
+</div></div><!-- attackTemplate -->
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">{{name}}: {{rollmade}}</div>
+        <!-- if roll over 99 automatic fumble -->
+        {{#rollGreater() rollmade 99 }}
+            <div class="sheet-fumble">
+                <span>Fumbled Roll:&nbsp;&nbsp;&nbsp;{{ normal }} &#10005; &#10005;</span>
+            </div>
+        {{/rollGreater() rollmade 99 }}
+        {{#rollLess() rollmade 100}}
+            <!-- if roll over 95 automatic fail -->
+            {{#rollGreater() rollmade 95}}
+                <!-- they failed but did they fumble? -->
+                {{#rollGreater() rollmade fumbleminus}}
+                    <div class="sheet-fumble">
+                        <span>Fumbled Roll:&nbsp;&nbsp;&nbsp;{{ normal }} &#10005; &#10005;</span>
+                    </div>
+                {{/rollGreater() rollmade fumbleminus}}
+                <!-- not a fumble but still a fail -->
+                {{#rollLess() rollmade fumble}}
+                    <div class="sheet-fail">
+                        <span>Missed Roll:&nbsp;&nbsp;&nbsp;&nbsp;{{ normal }} &#10005;</span>
+                    </div>
+                {{/rollLess() rollmade fumble}}
+            {{/rollGreater() rollmade 95}}
+            <!-- Not an automatic miss so check against their skill -->
+            {{#rollLess() rollmade 96}}
+                {{#rollGreater() rollmade normal}}
+                    <div class="sheet-fail">
+                        <span>Missed Roll:&nbsp;&nbsp;&nbsp;&nbsp;{{ normal }} &#10005;</span>
+                    </div>
+                {{/rollGreater() rollmade normal}}
+                {{#rollLess() rollmade normalplus}}
+                    <div class="sheet-normal">
+                        <span>Normal success: {{ normal }} &#10004;</span>
+                    </div>
+                {{/rollLess() rollmade normalplus}}
+
+                <!-- special must be a minimum of 1 (use specmin) -->
+                {{#rollLess() special 1}}
+                    {{#rollGreater() rollmade 1}}
+                        <div class="sheet-special">
+                            <span>Special success: {{ specmin }} &#10005;</span>
+                        </div>
+                    {{/rollGreater() rollmade 1}}
+                    {{#rollLess() rollmade 2}}
+                        <div class="sheet-special">
+                            <span>Special success: {{ specmin }} &#10004;&#10004;</span>
+                        </div>
+                    {{/rollLess() rollmade 2}}
+                {{/rollLess() special 1}}
+
+                <!-- player has special of at least 1 (use special) -->
+                {{#rollGreater() special 0}}
+                    {{#rollGreater() rollmade special}}
+                        <div class="sheet-special">
+                            <span>Special success: {{ special }} &#10005;</span>
+                        </div>
+                    {{/rollGreater() rollmade special}}
+                    {{#rollLess() rollmade specialplus}}
+                        <div class="sheet-special">
+                            <span>Special success: {{ special }} &#10004;&#10004;</span>
+                        </div>
+                    {{/rollLess() rollmade specialplus}}
+                {{/rollGreater() special 0}}
+
+                <!-- critical must be minimum 1 -->
+                {{#rollLess() critical 1}}
+                    {{#rollGreater() rollmade 1}}
+                        <div class="sheet-critical">
+                            <span>Critical success:&nbsp;&nbsp;{{ critmin }} &#10005;</span>
+                        </div>
+                    {{/rollGreater() rollmade 1}}
+                    {{#rollLess() rollmade 2}}
+                        <div class="sheet-critical">
+                            <span>Critical success:&nbsp;&nbsp;{{ critmin }} &#10004;&#10004;&#10004;</span>
+                        </div>
+                    {{/rollLess() rollmade 2}}
+                {{/rollLess() critical 1}}
+
+                <!-- player has critical of at least 1 -->
+                {{#rollGreater() critical 0}}
+                    {{#rollGreater() rollmade critical}}
+                        <div class="sheet-critical">
+                            <span>Critical success:&nbsp;&nbsp;{{ critical }} &#10005;</span>
+                        </div>
+                    {{/rollGreater() rollmade critical}}
+                    {{#rollLess() rollmade criticalplus}}
+                        <div class="sheet-critical">
+                            <span>Critical success:&nbsp;&nbsp;{{ critical }} &#10004;&#10004;&#10004;</span>
+                        </div>
+                    {{/rollLess() rollmade criticalplus}}
+                {{/rollGreater() critical 0}}
+
+                <!-- only display supercritical if they can roll it -->
+                {{#rollGreater() supercritical 0}}
+                    {{#rollGreater() rollmade supercritical}}
+                        <div class="sheet-supercritical">
+                            <span>Supercritical:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ supercritical }} &#10005;</span>
+                        </div>
+                    {{/rollGreater() rollmade supercritical}}
+                    {{#rollLess() rollmade supercriticalplus}}
+                        <div class="sheet-supercritical">
+                            <span>Supercritical:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ supercritical }} &#10004;&#10004;&#10004;&#10004;</span>
+                        </div>
+                    {{/rollLess() rollmade supercriticalplus}}
+                {{/rollGreater() supercritical 0}}
+
+                <!-- only display hypercritical if they can roll it -->
+                {{#rollGreater() hypercritical 0}}
+                    {{#rollGreater() rollmade hypercritical}}
+                        <div class="sheet-hypercritical">
+                            <span>Hypercritical:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ hypercritical }} &#10005;</span>
+                        </div>
+                    {{/rollGreater() rollmade hypercritical}}
+                    {{#rollLess() rollmade hypercriticalplus}}
+                        <div class="sheet-hypercritical">
+                            <span>Hypercritical:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ hypercritical }} &#10004;&#10004;&#10004;&#10004;&#10004;</span>
+                        </div>
+                    {{/rollLess() rollmade hypercriticalplus}}
+                {{/rollGreater() hypercritical 0}}
+            {{/rollLess() rollmade 96}}
+        {{/rollLess() rollmade 100}}
+    </div>
+</rolltemplate>
+<!-- ExperienceTemplate -->
+<rolltemplate class="sheet-rolltemplate-attackexp">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">{{name}} Experience Roll</div>
+        {{#rollLess() normal 100}}
+            {{#rollGreater() exproll normal}}
+                <div class="sheet-normal">
+                    <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
+                </div>
+            {{/rollGreater() exproll normal}}
+            {{#rollLess() exproll normalplus}}
+                <div class="sheet-fail">
+                    <span><strong>Experience Roll Missed: &#10005;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
+                </div>
+            {{/rollLess() exproll normalplus}}
+        {{/rollLess() normal 100}}
+        {{#rollGreater() normal 99}}
+            {{#rollGreater() exproll master}}
+                 <div class="sheet-normal">
+                     <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
+                </div>
+            {{/rollGreater() exproll master}}
+            {{#rollLess() exproll masterplus}}
+                <div class="sheet-fail">
+                    <span><strong>Experience Roll Missed: &#10005;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
+                </div>
+            {{/rollLess() exproll masterplus}}
+        {{/rollGreater() normal 99}}
+    </div>
+</rolltemplate>
+<!-- meleeDamageTemplate -->
+<rolltemplate class="sheet-rolltemplate-meleedamage">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">Damage: {{ subtags }}</div>
+        <div class="sheet-normal">
+            <span><strong>{{ name }}</strong>: {{ damage }}</span>
+        </div>
+    </div>
+</rolltemplate>
+<!-- attributeTemplate -->
+<rolltemplate class="sheet-rolltemplate-attribute">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">{{name}}: {{rollmade}}</div>
+        <!-- if roll over 95 automatic fail -->
+        {{#rollGreater() rollmade 95 }}
+            <div class="sheet-fail">
+                <span>Failed Roll:&nbsp;&nbsp;&nbsp;{{ rollmade }} &#10005;</span>
+            </div>
+        {{/rollGreater() rollmade 95 }}
+        {{#rollLess() rollmade 96}}
+            <!-- Not an automatic miss so check against their skill -->
+            {{#rollGreater() rollmade x5}}
+                <div class="sheet-normal">
+                    <span>Times 5:  {{ x5 }} &#10005;</span>
+                </div>
+            {{/rollGreater() rollmade x5}}
+            {{#rollLess() rollmade x5plus}}
+                <div class="sheet-normal">
+                    <span>Times 5:  {{ x5 }} &#10004;</span>
+                </div>
+            {{/rollLess() rollmade x5plus}}
+            {{#rollGreater() rollmade x4}}
+                <div class="sheet-special">
+                    <span>Times 4:  {{ x4 }} &#10005;</span>
+                </div>
+            {{/rollGreater() rollmade x4}}
+            {{#rollLess() rollmade x4plus}}
+                <div class="sheet-special">
+                    <span>Times 4:  {{ x4 }} &#10004;&#10004;</span>
+                </div>
+            {{/rollLess() rollmade x4plus}}
+            {{#rollGreater() rollmade x3}}
+                <div class="sheet-critical">
+                    <span>Times 3:  {{ x3 }} &#10005;</span>
+                </div>
+            {{/rollGreater() rollmade x3}}
+            {{#rollLess() rollmade x3plus}}
+                <div class="sheet-critical">
+                    <span>Times 3:  {{ x3 }} &#10004;&#10004;&#10004;</span>
+                </div>
+            {{/rollLess() rollmade x3plus}}
+            {{#rollGreater() rollmade x2}}
+                <div class="sheet-supercritical">
+                    <span>Times 2:  {{ x2 }} &#10005;</span>
+                </div>
+            {{/rollGreater() rollmade x2}}
+            {{#rollLess() rollmade x2plus}}
+                <div class="sheet-supercritical">
+                    <span>Times 2: {{ x2 }} &#10004;&#10004;&#10004;&#10004;</span>
+                </div>
+            {{/rollLess() rollmade x2plus}}
+            {{#rollGreater() rollmade x1}}
+                <div class="sheet-hypercritical">
+                    <span>Times 1: {{ x1 }} &#10005;</span>
+                </div>
+            {{/rollGreater() rollmade x1}}
+            {{#rollLess() rollmade x1plus}}
+                <div class="sheet-hypercritical">
+                    <span>Times 1: {{ x1 }} &#10004;&#10004;&#10004;&#10004;&#10004;</span>
+                </div>
+            {{/rollLess() rollmade x1plus}}
+        {{/rollLess() rollmade 96}}
+    </div>
+</rolltemplate>
+<!-- PowerGainRoll Template -->
+<rolltemplate class="sheet-rolltemplate-powergain">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">{{name}}: {{rollmade}}</div>
+        <!-- if roll over 95 automatic fail -->
+        {{#rollGreater() rollmade normal}}
+            <div class="sheet-fail">
+                <span><strong>{{name}} Failed!</strong><br>Needed: {{ normal }} or less </span>
+            </div>
+        {{/rollGreater() rollmade normal}}
+        {{#rollLess() rollmade normalplus}}
+            <div class="sheet-normal">
+                <span><strong>{{name}}</strong> was successful!:<br>Needed:  {{ normal }} &#10004;</span>
+            </div>
+            {{#rollGreater() gain 40}}
+                <div class="sheet-normal">
+                    <span>Power gain % roll was {{gain}}<br>Increase your Power by <strong>1</strong></span>
+                </div>
+            {{/rollGreater() gain 40}}
+            {{#rollLess() gain 41}}
+                {{#rollGreater() gain 10}}
+                    {{#rollLess() maxgain 2}}
+                        <div class="sheet-normal">
+                            <span>Power gain % roll was {{gain}}<br>Increase your Power by maximum allowed <strong>{{ maxgain }}</strong></span>
+                        </div>
+                    {{/rollLess() maxgain 2}}
+                    {{#rollGreater() maxgain 1}}
+                        <div class="sheet-special">
+                            <span>Power gain % roll was {{gain}}<br>Increase your Power by <strong>2</strong></span>
+                        </div>
+                    {{/rollGreater() maxgain 1}}
+                {{/rollGreater() gain 10}}
+                {{#rollLess() gain 11}}
+                    {{#rollLess() maxgain 3}}
+                        {{#rollLess() maxgain 2}}
+                            <div class="sheet-normal">
+                                <span>Power gain % roll was {{gain}}<br>Increase your Power by maximum allowed <strong>{{ maxgain }}</strong></span>
+                            </div>
+                        {{/rollLess() maxgain 2}}
+                        {{#rollGreater() maxgain 1}}
+                            <div class="sheet-special">
+                                <span>Power gain % roll was {{gain}}<br>Increase your Power by maximum allowed <strong>2</strong></span>
+                            </div>
+                        {{/rollGreater() maxgain 1}}
+                    {{/rollLess() maxgain 3}}
+                    {{#rollGreater() maxgain 2}}
+                        <div class="sheet-critical">
+                            <span>Power gain % roll was {{gain}}<br>Increase your Power by <strong>3</strong></span>
+                        </div>
+                    {{/rollGreater() maxgain 2}}
+                {{/rollLess() gain 11}}
+            {{/rollLess() gain 41}}
+        {{/rollLess() rollmade normalplus}}
+    </div>
+</rolltemplate><!-- spiritSkillTemplate -->
+<rolltemplate class="sheet-rolltemplate-training">
+    <div class="sheet-rolltemplate-training">
+        <div class="sheet-template-container">
+        {{#rollLess() expcheck 101}}
+            <!-- training roll - check if it worked -->
+            <div class="sheet-template-header">{{ name }} {{ subtags }}: {{ expcheck }}</div>
+                {{#rollLess() baseskill 100}}
+                    {{#rollGreater() exproll baseskill}}
+                        <div class="sheet-normal">
+                            <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
+                        </div>
+                    {{/rollGreater() exproll baseskill}}
+                    {{#rollLess() exproll baseskillplus}}
+                        <div class="sheet-fail">
+                            <span><strong>Experience Roll Missed: &#10005;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
+                        </div>
+                    {{/rollLess() exproll baseskillplus}}
+                {{/rollLess() baseskill 100}}
+                {{#rollGreater() baseskill 99}}
+                    {{#rollGreater() exproll master}}
+                         <div class="sheet-normal">
+                             <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
+                        </div>
+                    {{/rollGreater() exproll master}}
+                    {{#rollLess() exproll masterplus}}
+                        <div class="sheet-fail">
+                            <span><strong>Experience Roll Missed: &#10005;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
+                        </div>
+                    {{/rollLess() exproll masterplus}}
+                {{/rollGreater() baseskill 99}}
+                {{#rollLess() rollmade 0}}
+                    {{#rollLess() baseskill 1}}
+                        <!-- training new skill - failed so need to start again -->
+                        <div class="sheet-fail">
+                            <span>Attempt to learn new skill {{ name }} failed.<br>Start again after another 50 hours.</span>
+                        </div>
+                    {{/rollLess() baseskill 1}}
+                    <!-- player already has some ability in this skill -->
+                    {{#rollGreater() baseskill 0}}
+                        {{#rollLess() rollmade -1}}
+                            <!-- rolled -2 -->
+                            {{#rollLess() baseskill 3}}
+                                <!-- cannot reduce skill to 0 so present with the minimum -->
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
+                                </div>
+                            {{/rollLess() baseskill 3}}
+                            {{#rollGreater() baseskill 2}}
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
+                                </div>
+                            {{/rollGreater() baseskill 2}}
+                        {{/rollLess() rollmade -1}}
+                        {{#rollGreater() rollmade -2}}
+                            <!-- rolled -1 -->
+                            {{#rollLess() baseskill 2}}
+                                <!-- cannot reduce skill to 0 so present with the minimum -->
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
+                                </div>
+                            {{/rollLess() baseskill 2}}
+                            {{#rollGreater() baseskill 1}}
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
+                                </div>
+                            {{/rollGreater() baseskill 1}}
+                        {{/rollGreater() rollmade -2}}
+                    {{/rollGreater() baseskill 0}}
+                {{/rollLess() rollmade 0}}
+                {{#rollLess() rollmade 1}}
+                    {{#rollGreater() rollmade -1}}
+                        <!-- rolled 0 -->
+                        <div class="sheet-fail">
+                            <span>No improvement training {{ name }}. Try again in another {{ baseskill }} hours.</span>
+                        </div>
+                    {{/rollGreater() rollmade -1}}
+                {{/rollLess() rollmade 1}}
+                {{#rollGreater() rollmade 0}}
+                    <div class="sheet-normal">
+                        <span>Success! Increase {{ name }} skill by {{ rollmade }}!</span>
+                    </div>
+                {{/rollGreater() rollmade 0}}
+            </div>
+        {{/rollLess() expcheck 101}}
+        {{#rollGreater() expcheck 100}}
+            <!-- skill roll from trainer -->
+            <div class="sheet-template-header">{{ name }} {{ subtags }}: {{ rollmade }}</div>
+                <!-- updated skill cannot be less than 0 -->
+                {{#rollLess() rollmade 0}}
+                    {{#rollLess() baseskill 1}}
+                        <!-- training new skill - failed so need to start again -->
+                        <div class="sheet-fail">
+                            <span>Attempt to learn new skill {{ name }} failed.<br>Start again after another 50 hours.</span>
+                        </div>
+                    {{/rollLess() baseskill 1}}
+                    <!-- player already has some ability in this skill -->
+                    {{#rollGreater() baseskill 0}}
+                        {{#rollLess() rollmade -1}}
+                            <!-- rolled -2 -->
+                            {{#rollLess() baseskill 3}}
+                                <!-- cannot reduce skill to 0 so present with the minimum -->
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
+                                </div>
+                            {{/rollLess() baseskill 3}}
+                            {{#rollGreater() baseskill 2}}
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
+                                </div>
+                            {{/rollGreater() baseskill 2}}
+                        {{/rollLess() rollmade -1}}
+                        {{#rollGreater() rollmade -2}}
+                            <!-- rolled -1 -->
+                            {{#rollLess() baseskill 2}}
+                                <!-- cannot reduce skill to 0 so present with the minimum -->
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
+                                </div>
+                            {{/rollLess() baseskill 2}}
+                            {{#rollGreater() baseskill 1}}
+                                <div class="sheet-fail">
+                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
+                                </div>
+                            {{/rollGreater() baseskill 1}}
+                        {{/rollGreater() rollmade -2}}
+                    {{/rollGreater() baseskill 0}}
+                {{/rollLess() rollmade 0}}
+                {{#rollLess() rollmade 1}}
+                    {{#rollGreater() rollmade -1}}
+                        <!-- rolled 0 -->
+                        <div class="sheet-fail">
+                            <span>No improvement training {{ name }}. Try again in another {{ baseskill }} hours.</span>
+                        </div>
+                    {{/rollGreater() rollmade -1}}
+                {{/rollLess() rollmade 1}}
+                {{#rollGreater() rollmade 0}}
+                    <div class="sheet-normal">
+                        <span>Success! Increase {{ name }} skill by {{ rollmade }}!</span>
+                    </div>
+                {{/rollGreater() rollmade 0}}
+            </div>
+        {{/rollGreater() expcheck 100}}
+        </div>
+    </div>
+</rolltemplate><!-- spiritSpellTemplate -->
+<rolltemplate class="sheet-rolltemplate-spiritspell">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">Casting {{name}}: {{rollmade}}</div>
+        <!-- if roll over 95 automatic fail -->
+        {{#rollGreater() rollmade 95 }}
+            <div class="sheet-fail">
+                <span>Failed to cast:&nbsp;&nbsp;&nbsp;{{ rollmade }} &#10005; <br>Automatic fail</span>
+            </div>
+        {{/rollGreater() rollmade 95 }}
+        {{#rollLess() rollmade 96}}
+            <!-- Not an automatic miss so check against their skill -->
+            {{#rollGreater() rollmade x5}}
+                <div class="sheet-fail">
+                    <span>{{name}} Failed to cast<br>Needed: {{ x5 }} or less </span>
+                </div>
+            {{/rollGreater() rollmade x5}}
+            {{#rollLess() rollmade x5plus}}
+                <div class="sheet-normal">
+                    <span><strong>{{name}}</strong> cast successfully:<br>Needed:  {{ x5 }} &#10004;</span>
+                </div>
+            {{/rollLess() rollmade x5plus}}
+        {{/rollLess() rollmade 96}}
+    </div>
+</rolltemplate>
+<!-- spiritSpellTemplate -->
+<rolltemplate class="sheet-rolltemplate-primalcalc">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">Daily Primal Flux Calculation</div>
+
+        <div class="sheet-normal">
+            {{#rollGreater() base 0}}
+                <span>Flux from base = {{ base }}</span><br>
+            {{/rollGreater() base 0}}
+            {{#rollGreater() worshippers 0}}
+                <span>Flux from worshippers = {{ worshippers }}</span><br>
+            {{/rollGreater() worshippers 0}}
+            {{#rollGreater() souls 0}}
+                <span>Flux from captured souls = {{ souls }}</span><br>
+            {{/rollGreater() souls 0}}
+            {{#rollGreater() deities 0}}
+                <span>Flux from captured deities base = {{ deities }}</span><br>
+            {{/rollGreater() deities 0}}
+            {{#rollGreater() shrines 0}}
+                <span>Flux from your shrines = {{ shrines }}</span><br>
+            {{/rollGreater() shrines 0}}
+            {{#rollGreater() temple 0}}
+                <span>Flux from your temples = {{ temple }}</span><br>
+            {{/rollGreater() temple 0}}
+            {{#rollGreater() greater 0}}
+                <span>Flux from your greater temples = {{ greater }}</span><br>
+            {{/rollGreater() greater 0}}
+            {{#rollGreater() mini 0}}
+                <span>Flux from mini planes = {{ mini }}</span><br>
+            {{/rollGreater() mini 0}}
+            {{#rollGreater() planes 0}}
+                <span>Flux from planes = {{ planes }}</span><br>
+            {{/rollGreater() planes 0}}
+            {{#rollGreater() totalflux 0}}
+                <span><strong>Total Flux per Day = {{ totalflux }}</strong></span>
+            {{/rollGreater() totalflux 0}}
+        </div>
+    </div>
+</rolltemplate>
+ 
+<script type="text/worker">
+    on("change:dex change:dex_enchant change:siz change:siz_enchant change:str change:str_enchant change:pow change:pow_enchant change:app change:app_enchant change:con change:con_enchant", function() {
+        console.log("***** start dex strike rank *****");
+        getAttrs(["dex", "dex_enchant", "siz", "siz_enchant", "str", "str_enchant", "pow", "pow_enchant", "app", "app_enchant", "con", "con_enchant"], function(pvalue) {
+				console.log("current dex value: " + pvalue.dex);
+				console.log("dex enchant value: " + pvalue.dex_enchant);
+        		console.log("current siz value: " + pvalue.siz);
+				console.log("siz enchant value: " + pvalue.siz_enchant);
+                console.log("current str value: " + pvalue.str);
+				console.log("str enchant value: " + pvalue.str_enchant);
+
+				let totalSiz = parseInt(pvalue.siz) + parseInt(pvalue.siz_enchant);
+	            let totalDex = parseInt(pvalue.dex) + parseInt(pvalue.dex_enchant);
+	            let totalStr = parseInt(pvalue.str) + parseInt(pvalue.str_enchant);
+	            let damage = totalSiz + totalStr;
+                let update = {};
+
+	            update['str_secondary'] = Math.ceil((parseInt(pvalue.str) + parseInt(pvalue.str_enchant)-10)/2);
+	            if (update['str_secondary'] > 20) {
+	                update['str_secondary'] = 20;
+                }
+
+	            update['con_secondary'] = Math.ceil((parseInt(pvalue.con) + parseInt(pvalue.con_enchant)-10)/2);
+	            if (update['con_secondary'] > 20) {
+	                update['con_secondary'] = 20;
+                }
+
+	            update['pow_secondary'] = Math.ceil((parseInt(pvalue.pow) + parseInt(pvalue.pow_enchant)-10)/2);
+	            if (update['pow_secondary'] > 20) {
+	                update['pow_secondary'] = 20;
+                }
+
+	            update['dex_secondary'] = Math.ceil((parseInt(pvalue.dex) + parseInt(pvalue.dex_enchant)-10)/2);
+	            if (update['dex_secondary'] > 20) {
+	                update['dex_secondary'] = 20;
+                }
+
+	            update['app_secondary'] = Math.ceil((parseInt(pvalue.app) + parseInt(pvalue.app_enchant)-10)/2);
+	            if (update['app_secondary'] > 20) {
+	                update['app_secondary'] = 20;
+                }
+
+	            update['meleemod_dice'] = 0;
+	            update['meleemod_sides'] = 6;
+
+                if (damage < 13) {
+                    update['missiledmod'] = '-1d8';
+                    update['meleemod_dice'] = -1;
+                    update['meleemod_sides'] = 4;
+                } else if (damage > 71 ) {
+                    damage = damage - 71;
+
+                    let multiplier = floor(damage / 16);
+                    damage = 4 + multiplier;
+                    update['meleemod_dice'] = damage;
+                    update['missiledmod'] = '+' + damage + 'd3';
+                } else if (damage > 56) {
+                    update['meleemod_dice'] = 3;
+                    update['missiledmod'] = '+3d3';
+                } else if (damage > 40) {
+                    update['meleemod_dice'] = 2;
+                    update['missiledmod'] = '+2d3';
+                } else if (damage > 32) {
+                    update['meleemod_dice'] = 1;
+                    update['missiledmod'] = '+1d3';
+                } else if (damage > 24) {
+                    update['meleemod_dice'] = 1;
+                    update['meleemod_sides'] = 4;
+                    update['missiledmod'] = '+1d2';
+                } else {
+                    update['missiledmod'] = '0';
+                }
+
+                if (update['meleemod_dice'] == 0) {
+                    update['damagemod'] = 0;
+                } else {
+                    update['damagemod'] = update['meleemod_dice'] + 'd' + update['meleemod_sides'];
+                }
+
+	            if (totalDex > 19) {
+                    console.log("Dex SR is 1");
+                    update['dexsr'] = 1;
+                } else if (totalDex > 15) {
+                    console.log("Dex SR is 2");
+                    update['dexsr'] = 2;
+                } else if (totalDex > 9) {
+                    console.log("Dex SR is 3");
+                    update['dexsr'] = 3;
+                } else {
+	                update['dexsr'] = 4;
+                }
+
+	            if (totalSiz > 19) {
+                    console.log("Size SR is 0");
+                    update['sizsr'] = 0;
+                } else if (totalSiz > 15) {
+                    console.log("Size SR is 1");
+                    update['sizsr'] = 1;
+                } else if (totalSiz > 9) {
+                    console.log("Size SR is 2");
+                    update['sizsr'] = 2;
+                } else {
+	                update['sizsr'] = 3;
+                }
+
+	            update['meleesr'] = update['sizsr'] + update['dexsr'];
+
+                console.log("Setting dexsr to " + update['dexsr']);
+                console.log("Setting sizsr to " + update['sizsr']);
+                console.log("Setting dexsr to " + update['meleesr']);
+                setAttrs(update);
+				});
+
+        console.log("***** End Dex SR *****");
+    });
+const buttonlist = ["attributes","combat","skills","equipment","spirit","divine","dragon","sorcery","devices"];
+buttonlist.forEach(button => {
+    on(`clicked:${button}`, function() {
+        setAttrs({
+            sheetTab: button
+        });
+    });
+});</script>

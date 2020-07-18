@@ -1,0 +1,24 @@
+/* configure the tab buttons */
+.sheet-attributes,
+.sheet-combat,
+.sheet-rqskills,
+.sheet-rqequipment,
+.sheet-rqspirit,
+.sheet-rqdivine,
+.sheet-rqdragon,
+.sheet-rqsorcery,
+.sheet-rqdevices {display: none;}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="attributes"] ~ div.sheet-attributes,
+.sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
+.sheet-tabstoggle[value="skills"] ~ div.sheet-rqskills,
+.sheet-tabstoggle[value="equipment"] ~ div.sheet-rqequipment,
+.sheet-tabstoggle[value="divine"] ~ div.sheet-rqdivine,
+.sheet-tabstoggle[value="dragon"] ~ div.sheet-rqdragon,
+.sheet-tabstoggle[value="spirit"] ~ div.sheet-rqspirit,
+.sheet-tabstoggle[value="sorcery"] ~ div.sheet-rqsorcery,
+.sheet-tabstoggle[value="devices"] ~ div.sheet-rqdevices
+{
+    display: block;
+}

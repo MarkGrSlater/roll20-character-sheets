@@ -1,0 +1,39 @@
+<!-- spiritSpellTemplate -->
+<rolltemplate class="sheet-rolltemplate-primalcalc">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">Daily Primal Flux Calculation</div>
+
+        <div class="sheet-normal">
+            {{#rollGreater() base 0}}
+                <span>Flux from base = {{ base }}</span><br>
+            {{/rollGreater() base 0}}
+            {{#rollGreater() worshippers 0}}
+                <span>Flux from worshippers = {{ worshippers }}</span><br>
+            {{/rollGreater() worshippers 0}}
+            {{#rollGreater() souls 0}}
+                <span>Flux from captured souls = {{ souls }}</span><br>
+            {{/rollGreater() souls 0}}
+            {{#rollGreater() deities 0}}
+                <span>Flux from captured deities base = {{ deities }}</span><br>
+            {{/rollGreater() deities 0}}
+            {{#rollGreater() shrines 0}}
+                <span>Flux from your shrines = {{ shrines }}</span><br>
+            {{/rollGreater() shrines 0}}
+            {{#rollGreater() temple 0}}
+                <span>Flux from your temples = {{ temple }}</span><br>
+            {{/rollGreater() temple 0}}
+            {{#rollGreater() greater 0}}
+                <span>Flux from your greater temples = {{ greater }}</span><br>
+            {{/rollGreater() greater 0}}
+            {{#rollGreater() mini 0}}
+                <span>Flux from mini planes = {{ mini }}</span><br>
+            {{/rollGreater() mini 0}}
+            {{#rollGreater() planes 0}}
+                <span>Flux from planes = {{ planes }}</span><br>
+            {{/rollGreater() planes 0}}
+            {{#rollGreater() totalflux 0}}
+                <span><strong>Total Flux per Day = {{ totalflux }}</strong></span>
+            {{/rollGreater() totalflux 0}}
+        </div>
+    </div>
+</rolltemplate>
