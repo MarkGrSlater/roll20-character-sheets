@@ -6,7 +6,7 @@ This repository is the collection of all the community-contributed character she
 Contributing
 ============
 
-Full Character Sheet documentation can be found on the [Roll20 Wiki: Building Character Sheets](https://wiki.roll20.net/Building_Character_Sheets).
+Full Character Sheet documentation can be found on the [Roll20 Wiki: Building Character Sheets](https://roll20.zendesk.com/hc/en-us/articles/360037773393-Building-Character-Sheets).
 
 Pull requests are processed weekly and should be **submitted no later than 6am PST Mondays**, roughly 13:00-14:00 UTC. Earlier submissions are encouraged to allow for peer review from other contributors. On Monday, a Roll20 staff member will review the content to ensure it meets the standards documented on the [Roll20 Wiki](https://wiki.roll20.net/Building_Character_Sheets#Roll20_Character_Sheets_Repository). Comments, concerns, and changes as a result of review will need to be addressed before the pull request can be merged into the repository.
 

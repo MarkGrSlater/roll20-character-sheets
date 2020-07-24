@@ -2,8 +2,8 @@
         <p><strong>Primal Flux Calculator</strong></p>
         <div class="sheet-rq35-primalcalc">
             <label>Primal Base</label>
-            <label>Square Root of Number of Worshippers</label>
-            <label>Square Root of Number of Captured Souls</label>
+            <label>Number of Worshippers</label>
+            <label>Number of Captured Souls</label>
             <label>Total Base of Captured Deities</label>
             <label>Number of Shrines</label>
 
@@ -17,12 +17,11 @@
             <label>Number of Greater Temples</label>
             <label>Number of Mini Plains</label>
             <label>Number of Plains</label>
-            <label>Roll to Calculate</label>
+            <label>Total Daily Flux</label>
             <input type="number" name="attr_number_temples" value="0">
             <input type="number" name="attr_number_greater" value="0">
             <input type="number" name="attr_number_miniplanes" value="0">
             <input type="number" name="attr_number_planes" value="0">
+            <input type="text" name="attr_total_flux" readonly>
 
-            <button type="roll" name="roll_primalcalc"
-                    value="&{template:primalcalc} {{base=[[floor(@{primal_base} / 10)]]}} {{worshippers=[[@{number_worshippers}]]}} {{souls=[[floor(@{number_souls}/10)]]}} {{deities=[[floor(@{deities_base}/10)]]}} {{shrines=[[@{number_shrines} * 5]]}} {{temple=[[@{number_temples} * 10]]}} {{greater=[[@{number_greater} * 20]]}} {{mini=[[@{number_miniplanes} * 100]]}} {{planes=[[@{number_planes} * 1000]]}} {{totalflux=[[(floor(@{primal_base}/10))+(@{number_worshippers})+(@{number_shrines}*5)+(floor((@{number_souls}+0.5)/10))+(floor((@{deities_base}+0.5)/10))+(@{number_temples} * 10)+(@{number_greater} * 20)+(@{number_miniplanes} * 100)+(@{number_planes} * 1000)]]}}"></button>
         </div>

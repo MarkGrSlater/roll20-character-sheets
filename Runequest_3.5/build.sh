@@ -11,6 +11,9 @@ done
 echo ' ' >> ${outfile}
 echo '<script type="text/worker">' >> ${outfile}
 cat javascript/calcStrikeRanks_DamageBonus.js >> ${outfile}
+cat javascript/primalFluxCalculator.js >> ${outfile}
+cat javascript/spiritSkills.js >> ${outfile}
+cat javascript/dodge.js >> ${outfile}
 cat javascript/tabHandler.js >> ${outfile}
 echo '</script>' >> ${outfile}
 

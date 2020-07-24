@@ -4,17 +4,48 @@
             <label>Skill Name</label>
             <label>Base Skill</label>
             <label>Total Skill</label>
+            <label>Maximum Boost</label>
             <label>Number of Hours of Training</label>
-            <label>Being Trained Experience Roll</label>
-            <label>Self-training Experience Roll</label>
-            <fieldset class="repeating_spiritskills">
-                <input type="text" name="attr_spiritskill_name1">
-                <input type="number" name="attr_spiritskill_base1" value="0">
-                <input type="number" name="attr_spiritskill_total1" value="@{spiritskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
-                <input type="number" name="attr_spiritskill_hours1" value="0">
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{spiritskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_base1}]]}} {{baseskillplus=[[@{spiritskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{spiritskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_base1}]]}} {{minskill=[[1]]}}"></button>
-            </fieldset>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+            <input type="text" name="attr_amplify_name" value="Amplify" readonly>
+            <input type="number" name="attr_amplify_base" value="0">
+            <input type="number" name="attr_amplify_total" readonly >
+            <input type="text" name="attr_amplify_boost" readonly>
+            <input type="number" name="attr_amplify_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{amplify_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{amplify_base}]]}} {{baseskillplus=[[@{amplify_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{amplify_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{amplify_base}]]}} {{baseskillplus=[[@{amplify_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary}]]}}"></button>
+
+            <input type="text" name="attr_combine_name" value="Combine" readonly>
+            <input type="number" name="attr_combine_base" value="0">
+            <input type="number" name="attr_combine_total" readonly >
+            <input type="text" name="attr_combine_boost" readonly>
+            <input type="number" name="attr_combine_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{combine_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{combine_base}]]}} {{baseskillplus=[[@{combine_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{combine_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{combine_base}]]}} {{baseskillplus=[[@{combine_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_distance_name" value="Distance" readonly>
+            <input type="number" name="attr_distance_base" value="0">
+            <input type="number" name="attr_distance_total" readonly >
+            <input type="text" name="attr_distance_boost" readonly>
+            <input type="number" name="attr_distance_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{distance_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{distance_base}]]}} {{baseskillplus=[[@{distance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{distance_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{distance_base}]]}} {{baseskillplus=[[@{distance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_prolong_name" value="Prolong" readonly>
+            <input type="number" name="attr_prolong_base" value="0">
+            <input type="number" name="attr_prolong_total" readonly >
+            <input type="text" name="attr_prolong_boost" readonly>
+            <input type="number" name="attr_prolong_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{prolong_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{prolong_base}]]}} {{baseskillplus=[[@{prolong_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{prolong_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{prolong_base}]]}} {{baseskillplus=[[@{prolong_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
         </div>

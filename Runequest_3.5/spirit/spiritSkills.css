@@ -4,27 +4,17 @@
     width: 860px;
     background: #fff;
     border: thick double #32a1ce;
-    grid-template-columns: 160px repeat(5, 140px);
+    grid-template-columns: 210px 70px 70px 210px repeat(3, 100px);
     grid-template-rows: auto;
 }
-.sheet-rq35-spirit-skills div.repcontainer {
-    grid-column-start: 1;
-    grid-column-end: span 6;
-}
-.sheet-rq35-spirit-skills div.repcontainer div.repitem {
-    display: inline-grid;
-    width: 860px;
-    grid-template-columns: 160px repeat(5, 140px);
-    grid-template-rows: auto;
-}
-.sheet-rq35-spirit-skills div.repcontainer input[type="text"] {
+.sheet-rq35-spirit-skills input[type="text"] {
     margin-left: auto;
     margin-right: auto;
-    width: 150px;
+    width: 205px;
 }
-.sheet-rq35-spirit-skills div.repcontainer button {
-    margin-left: auto;
-    margin-right: auto;
+.sheet-rq35-spirit-skills button {
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: 16px;
 }
 .sheet-rq35-spirit-skills label {
@@ -38,9 +28,4 @@
     margin-left: auto;
     margin-right: auto;
 }
-/* spirit-skills multiline display */
-.sheet-rq35-spirit-skills div.repcontrol {
-    grid-column-start: 1;
-    grid-column-end: span 6;
-    padding: 10px 20px 5px 20px;
-}
+

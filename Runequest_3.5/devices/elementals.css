@@ -4,28 +4,28 @@
     width: 860px;
     background: #fff;
     border: thick double #32a1ce;
-    grid-template-columns: 80px 120px 120px repeat(3, 100px) 120px 120px;
+    grid-template-columns: 60px 150px 150px repeat(4, 70px) 150px 70px;
     grid-template-rows: auto;
 }
 .sheet-rq35-elementals div.repcontainer {
     grid-column-start: 1;
-    grid-column-end: span 8;
+    grid-column-end: span 9;
 }
 .sheet-rq35-elementals div.repcontainer div.repitem {
     display: inline-grid;
     width: 860px;
-    grid-template-columns: 80px 120px 120px repeat(3, 100px) 120px 120px;
+    grid-template-columns: 60px 150px 150px repeat(4, 70px) 150px 70px;
     grid-template-rows: auto;
 }
 .sheet-rq35-elementals div.repcontainer input[type="text"] {
     margin-left: auto;
     margin-right: auto;
-    width: 110px;
+    width: 140px;
 }
 .sheet-rq35-elementals div.repcontainer input[type="number"] {
     margin-left: auto;
     margin-right: auto;
-    width: 60px;
+    width: 50px;
 }
 .sheet-rq35-elementals div.repcontainer button {
     margin-left: auto;
@@ -46,6 +46,6 @@
 /* sorcery-spells multiline display */
 .sheet-rq35-elementals div.repcontrol {
     grid-column-start: 1;
-    grid-column-end: span 8;
+    grid-column-end: span 9;
     padding: 10px 20px 5px 20px;
 }

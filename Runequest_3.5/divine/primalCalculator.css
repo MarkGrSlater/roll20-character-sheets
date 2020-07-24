@@ -40,8 +40,8 @@
     margin-right: auto;
     margin-bottom: 15px;
 }
-/* spirit-skills multiline display */
-.sheet-rq35-primalcalc div.repcontrol {
-    grid-column-start: 2;
-    grid-column-end: span 2;
+.sheet-rq35-primalcalc input[type="text"] {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
 }

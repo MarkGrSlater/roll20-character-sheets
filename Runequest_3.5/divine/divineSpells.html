@@ -14,9 +14,8 @@
                 <input type="text" name="attr_divinespell_location1">
                 <input type="number" name="attr_divinespell_extensions1" value="0">
                 <input type="text" name="attr_divinespell_god1">
-                <input type="number" name="attr_divinespell_chance1" value="100" hidden>
                 <button type="roll" name="roll_spiritspell"
-                        value="&{template:spiritspell} {{name=@{divinespell_name1} }} {{rollmade=[[1d100]]}} {{x5=[[@{divinespell_chance1}]]}} {{x5plus=[[@{divinespell_chance1} + 1]]}}"></button>
+                        value="&{template:spiritspell} {{name=@{divinespell_name1} }} {{rollmade=[[1d100]]}} {{x5=[[100+@{dodge_encumbrance}]]}} {{x5plus=[[100+@{dodge_encumbrance}+1]]}}"></button>
                 <input type="checkbox" name="attr_divinespell_released1" value="1">
             </fieldset>
         </div>

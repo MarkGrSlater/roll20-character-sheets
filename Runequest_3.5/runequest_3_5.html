@@ -108,25 +108,25 @@
             <input name="attr_pow_orig" value="10" type="number" class="sheet-stats" />
             <input name="attr_app_orig" value="10" type="number" class="sheet-stats" />
         </div>
-        <input hidden name="attr_str_primary" value="@{str}+@{str_enchant}-10" disabled>
-        <input hidden name="attr_str_negative" value="10-@{str}-@{str_enchant}" disabled>
-        <input hidden name="attr_str_secondary" readonly>
-        <input hidden name="attr_con_primary" value="@{con}+@{con_enchant}-10" disabled>
-        <input hidden name="attr_con_negative" value="10-@{con}-@{con_enchant}" disabled>
-        <input hidden name="attr_con_secondary" readonly>
-        <input hidden name="attr_siz_primary" value="@{siz}+@{siz_enchant}-10" disabled>
-        <input hidden name="attr_siz_negative" value="10-@{siz}-@{siz_enchant}" disabled>
-        <input hidden name="attr_int_primary" value="@{int}+@{int_enchant}-10" disabled>
-        <input hidden name="attr_int_negative" value="10-@{int}-@{int_enchant}" disabled>
-        <input hidden name="attr_dex_primary" value="@{dex}+@{dex_enchant}-10" disabled>
-        <input hidden name="attr_dex_negative" value="10-@{dex}-@{dex_enchant}" disabled>
-        <input hidden name="attr_dex_secondary" readonly>
-        <input hidden name="attr_pow_primary" value="@{pow}+@{pow_enchant}-10" disabled>
-        <input hidden name="attr_pow_negative" value="10-@{pow}-@{pow_enchant}" disabled>
-        <input hidden name="attr_pow_secondary" readonly>
-        <input hidden name="attr_app_primary" value="@{app}+@{app_enchant}-10" disabled>
-        <input hidden name="attr_app_negative" value="10-@{app}-@{app_enchant}" disabled>
-        <input hidden name="attr_app_secondary" readonly>
+        <input hidden name="attr_str_primary" type="number" readonly>
+        <input hidden name="attr_str_negative" type="number" readonly>
+        <input hidden name="attr_str_secondary" type="number" readonly>
+        <input hidden name="attr_con_primary" type="number" readonly>
+        <input hidden name="attr_con_negative" type="number" readonly>
+        <input hidden name="attr_con_secondary" type="number" readonly>
+        <input hidden name="attr_siz_primary" type="number" readonly>
+        <input hidden name="attr_siz_negative" type="number" readonly>
+        <input hidden name="attr_int_primary" type="number" readonly>
+        <input hidden name="attr_int_negative" type="number" readonly>
+        <input hidden name="attr_dex_primary" type="number" readonly>
+        <input hidden name="attr_dex_negative" type="number" readonly>
+        <input hidden name="attr_dex_secondary" type="number" readonly>
+        <input hidden name="attr_pow_primary" type="number" readonly>
+        <input hidden name="attr_pow_negative" type="number" readonly>
+        <input hidden name="attr_pow_secondary" type="number" readonly>
+        <input hidden name="attr_app_primary" type="number" readonly>
+        <input hidden name="attr_app_negative" type="number" readonly>
+        <input hidden name="attr_app_secondary" type="number" readonly>
         <input hidden name="attr_missiledmod" type="text" readonly>
         <input hidden name="attr_meleemod_dice" type="text" readonly>
         <input hidden name="attr_meleemod_sides" type="text" readonly>
@@ -207,6 +207,30 @@
             <input type="number" name="attr_powergain_chance" value="(21-@{pow})*5" disabled>
             <button type="roll" name="roll_powergain"
                         value="&{template:powergain} {{name=Power Gain Check}} {{rollmade=[[1d100]]}} {{normal=[[(21-@{pow})*5]]}} {{normalplus=[[((21-@{pow})*5) + 1]]}} {{gain=[[1d100]]}} {{maxgain=[[21-@{pow}]]}}"></button>
+        </div>        <!-- Encumbrance -->
+        <p><strong>Encumbrance & Fatigue</strong></p>
+        <div class="sheet-rq35-encumbrance">
+            <label>Armour Encumbrance</label>
+            <label>Weapons Encumbrance</label>
+            <label>Equipment Encumbrance</label>
+            <label>Total Encumbrance</label>
+            <label>Stamina</label>
+            <label>Stamina minus Encumbrance</label>
+
+            <input type="number" name="attr_encumbrance_armour" value="0">
+            <input type="number" name="attr_encumbrance_weapons" value="0">
+            <input type="number" name="attr_encumbrance_equipment" value="0">
+            <input type="number" name="attr_encumbrance_total" value="@{encumbrance_armour}+@{encumbrance_weapons}+@{encumbrance_equipment}" disabled>
+            <input type="number" name="attr_stamina" readonly>
+            <input type="number" name="attr_stamina_minusenc" value="@{stamina}-(@{encumbrance_armour}+@{encumbrance_weapons}+@{encumbrance_equipment})" disabled>
+
+        </div>        <!-- Attribute Notes -->
+        <p><strong>Notes</strong></p>
+        <div class="sheet-rq35-spell-notes">
+            <label>Notes</label>
+            <fieldset class="repeating_attributenotes">
+                <textarea name="attr_attributenotes_description1"></textarea>
+            </fieldset>
         </div>    </div>    <!-- start of combat sheet -->
     <div class="sheet-combat">
         <p><strong>Armour & Hit Locations</strong></p>
@@ -219,42 +243,44 @@
             <label>Magic Boost</label>
             <label>Total Armour</label>
             <label>Hits to location</label>
-            <em> </em>
-            <em> </em>
-            <em> </em>
-
-            <p class="center">01 - 04</p>
-            <p class="center">01 - 03</p>
-            <p class="center">Right Leg</p>
-            <input name="attr_rleg_armour" type="text" class="armour-description">
-            <input name="attr_rleg_ap" value="0" type="number" class="sheet-stats">
-            <input name="attr_rleg_enchant" value="0" type="number" class="sheet-stats">
-            <input name="attr_rleg_ap_total" value="@{rleg_ap}+@{rleg_enchant}" type="number" class="sheet-stats" disabled>
-            <input name="attr_rleg_damage" value="0" type="number" class="sheet-stats">
-            <em> </em>
-            <em> </em>
+            <label>Blood<br>Loss</label>
+            <label>Total Hits Remaining</label>
             <em> </em>
 
-            <p class="center">05 - 08</p>
-            <p class="center">04 - 06</p>
-            <p class="center">Left Leg</p>
-            <input name="attr_lleg_armour" type="text" class="armour-description">
-            <input name="attr_lleg_ap" value="0" type="number" class="sheet-stats">
-            <input name="attr_lleg_enchant" value="0" type="number" class="sheet-stats">
-            <input name="attr_lleg_ap_total" value="@{lleg_ap}+@{lleg_enchant}" type="number" class="sheet-stats" disabled>
-            <input name="attr_lleg_damage" value="0" type="number" class="sheet-stats">
+            <p class="center">19 - 20</p>
+            <p class="center">20</p>
+            <p class="center">Head</p>
+            <input name="attr_head_armour" type="text" class="armour-description">
+            <input name="attr_head_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_head_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_head_total_ap" value="@{head_ap}+@{head_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_head_damage" value="0" type="number" class="sheet-stats">
+
+            <input name="attr_blood_loss" type="number" class="sheet-stats" value="0">
+            <input name="attr_remaining_hits" class="sheet-stats" value="ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant}-(@{rleg_damage}+@{lleg_damage}+@{abdomen_damage}+@{head_damage}+@{chest_damage}+@{rarm_damage}+@{larm_damage}+@{blood_loss})" type="number" disabled>
+            <em> </em>
+
+            <p class="center">16 - 18</p>
+            <p class="center">18 - 19</p>
+            <p class="center">Left Arm</p>
+            <input name="attr_larm_armour" type="text" class="armour-description">
+            <input name="attr_larm_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_larm_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_larm_total_ap" value="@{larm_ap}+@{larm_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_larm_damage" value="0" type="number" class="sheet-stats">
+
             <label>Left Side</label>
             <label>Body</label>
             <label>Right Side</label>
 
-            <p class="center">09 - 11</p>
-            <p class="center">07 - 10</p>
-            <p class="center">Abdomen</p>
-            <input name="attr_abdomen_armour" type="text" class="armour-description">
-            <input name="attr_abdomen_ap" value="0" type="number" class="sheet-stats">
-            <input name="attr_abdomen_enchant" value="0" type="number" class="sheet-stats">
-            <input name="attr_abdomen_ap_total" value="@{abdomen_ap}+@{abdomen_enchant}" type="number" class="sheet-stats" disabled>
-            <input name="attr_abdomen_damage" value="0" type="number" class="sheet-stats">
+            <p class="center">13 - 15</p>
+            <p class="center">16 - 17</p>
+            <p class="center">Right Arm</p>
+            <input name="attr_rarm_armour" type="text" class="armour-description">
+            <input name="attr_rarm_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_rarm_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_rarm_total_ap" value="@{rarm_ap}+@{rarm_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_rarm_damage" value="0" type="number" class="sheet-stats">
 
             <em> </em>
             <input name="attr_head_hp_total" type="number" value="@{3_location}-@{head_damage}" disabled class="sheet-stats">
@@ -273,42 +299,74 @@
             <em> </em>
             <input name="attr_rarm_hp_total" type="number" value="@{25_location}-@{rarm_damage}" disabled class="sheet-stats">
 
-            <p class="center">13 - 15</p>
-            <p class="center">16 - 17</p>
-            <p class="center">Right Arm</p>
-            <input name="attr_rarm_armour" type="text" class="armour-description">
-            <input name="attr_rarm_ap" value="0" type="number" class="sheet-stats">
-            <input name="attr_rarm_enchant" value="0" type="number" class="sheet-stats">
-            <input name="attr_rarm_total_ap" value="@{rarm_ap}+@{rarm_enchant}" type="number" class="sheet-stats" disabled>
-            <input name="attr_rarm_damage" value="0" type="number" class="sheet-stats">
+
+            <p class="center">09 - 11</p>
+            <p class="center">07 - 10</p>
+            <p class="center">Abdomen</p>
+            <input name="attr_abdomen_armour" type="text" class="armour-description">
+            <input name="attr_abdomen_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_abdomen_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_abdomen_ap_total" value="@{abdomen_ap}+@{abdomen_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_abdomen_damage" value="0" type="number" class="sheet-stats">
 
             <em> </em>
             <input name="attr_chest_hp_total" type="number" value="@{4_location}-@{chest_damage}" disabled class="sheet-stats">
             <em> </em>
 
-            <p class="center">16 - 18</p>
-            <p class="center">18 - 19</p>
-            <p class="center">Left Arm</p>
-            <input name="attr_larm_armour" type="text" class="armour-description">
-            <input name="attr_larm_ap" value="0" type="number" class="sheet-stats">
-            <input name="attr_larm_enchant" value="0" type="number" class="sheet-stats">
-            <input name="attr_larm_total_ap" value="@{larm_ap}+@{larm_enchant}" type="number" class="sheet-stats" disabled>
-            <input name="attr_larm_damage" value="0" type="number" class="sheet-stats">
+            <p class="center">05 - 08</p>
+            <p class="center">04 - 06</p>
+            <p class="center">Left Leg</p>
+            <input name="attr_lleg_armour" type="text" class="armour-description">
+            <input name="attr_lleg_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_lleg_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_lleg_ap_total" value="@{lleg_ap}+@{lleg_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_lleg_damage" value="0" type="number" class="sheet-stats">
+
             <em> </em>
             <input name="attr_abdomen_hp_total" type="number" value="@{3_location}-@{abdomen_damage}" disabled class="sheet-stats">
             <em> </em>
 
-            <p class="center">19 - 20</p>
-            <p class="center">20</p>
-            <p class="center">Head</p>
-            <input name="attr_head_armour" type="text" class="armour-description">
-            <input name="attr_head_ap" value="0" type="number" class="sheet-stats">
-            <input name="attr_head_enchant" value="0" type="number" class="sheet-stats">
-            <input name="attr_head_total_ap" value="@{head_ap}+@{head_enchant}" type="number" class="sheet-stats" disabled>
-            <input name="attr_head_damage" value="0" type="number" class="sheet-stats">
+            <p class="center">01 - 04</p>
+            <p class="center">01 - 03</p>
+            <p class="center">Right Leg</p>
+            <input name="attr_rleg_armour" type="text" class="armour-description">
+            <input name="attr_rleg_ap" value="0" type="number" class="sheet-stats">
+            <input name="attr_rleg_enchant" value="0" type="number" class="sheet-stats">
+            <input name="attr_rleg_ap_total" value="@{rleg_ap}+@{rleg_enchant}" type="number" class="sheet-stats" disabled>
+            <input name="attr_rleg_damage" value="0" type="number" class="sheet-stats">
+
             <input name="attr_lleg_hp_total" type="number" value="@{3_location}-@{lleg_damage}" disabled class="sheet-stats">
             <em> </em>
             <input name="attr_rleg_hp_total" type="number" value="@{3_location}-@{rleg_damage}" disabled class="sheet-stats">
+        </div>
+        <!-- Dodge Combat Skills -->
+        <p><strong>Dodge Combat Skill</strong></p>
+        <div class="sheet-rq35-dodge">
+            <label>Experience Tick</label>
+            <label>Base Skill</label>
+            <label>Agility Modifier</label>
+            <label>Encumbrance Modifier</label>
+            <label>Total Skill</label>
+            <label>Skill Roll</label>
+            <label>Experience Roll</label>
+            <label>Hours of Training</label>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+
+            <input type="checkbox" name="attr_dodge_ticked">
+            <input type="number" name="attr_dodge_base" value="5">
+            <input type="number" name="attr_dodge_modifier" readonly>
+            <input type="number" name="attr_dodge_encumbrance" readonly>
+            <input type="number" name="attr_dodge_total" readonly>
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=Dodge}} {{rollmade=[[1d100]]}} {{normal=[[@{dodge_total}]]}} {{normalplus=[[@{dodge_total}+1]]}} {{fumble=[[100-floor(((100 - @{dodge_total}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{dodge_total}) / 20) + 0.55)-1]]}} {{special=[[round(@{dodge_total}/5)]]}} {{specialplus=[[round(@{dodge_total}/5)+1]]}} {{critical=[[round(@{dodge_total}/20)]]}} {{criticalplus=[[round(@{dodge_total}/20)+1]]}} {{supercritical=[[floor(@{dodge_total}/100)]]}} {{supercriticalplus=[[floor(@{dodge_total}/100)+1]]}} {{hypercritical=[[floor(@{dodge_total}/400)]]}} {{hypercriticalplus=[[floor(@{dodge_total}/100)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <button type="roll" name="roll_attackexp1"
+                        value="&{template:attackexp} {{name=Dodge}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{dodge_base}]]}} {{normalplus=[[@{dodge_base}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+            <input type="number" name="attr_dodge_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=Dodge}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dodge_base}]]}} {{baseskillplus=[[@{dodge_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=Dodge}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dodge_base}]]}} {{baseskillplus=[[@{dodge_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
         </div>
         <!-- melee -->
         <p><strong>Melee Weapon Skills</strong></p>
@@ -340,14 +398,14 @@
                         value="&{template:test} {{name=@{weapon_name1} Attack}} {{rollmade=[[1d100]]}} {{normal=[[@{weapon_tatt1}]]}} {{normalplus=[[@{weapon_tatt1}+1]]}} {{fumble=[[100-floor(((100 - @{weapon_tatt1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{weapon_tatt1}) / 20) + 0.55)-1]]}} {{special=[[round(@{weapon_tatt1}/5)]]}} {{specialplus=[[round(@{weapon_tatt1}/5)+1]]}} {{critical=[[round(@{weapon_tatt1}/20)]]}} {{criticalplus=[[round(@{weapon_tatt1}/20)+1]]}} {{supercritical=[[floor(@{weapon_tatt1}/100)]]}} {{supercriticalplus=[[floor(@{weapon_tatt1}/100)+1]]}} {{hypercritical=[[floor(@{weapon_tatt1}/400)]]}} {{hypercriticalplus=[[floor(@{weapon_tatt1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
                 <input type="number" name="attr_weapon_ap1">
                 <input type="number" name="attr_weapon_parry1" value="0">
-                <input type="number" name="attr_weapon_tparry1" value="@{weapon_parry1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" disabled>
+                <input type="number" name="attr_weapon_tparry1" value="@{weapon_magic1}+@{weapon_parry1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" disabled>
                 <button type="roll" name="roll_parry1"
                         value="&{template:test} {{name=@{weapon_name1} Parry}} {{rollmade=[[1d100]]}} {{normal=[[@{weapon_tparry1}]]}} {{normalplus=[[@{weapon_tparry1}+1]]}} {{fumble=[[100-floor(((100 - @{weapon_tparry1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{weapon_tparry1}) / 20) + 0.55)-1]]}} {{special=[[round(@{weapon_tparry1}/5)]]}} {{specialplus=[[round(@{weapon_tparry1}/5)+1]]}} {{critical=[[round(@{weapon_tparry1}/20)]]}} {{criticalplus=[[round(@{weapon_tparry1}/20)+1]]}} {{supercritical=[[floor(@{weapon_tparry1}/100)]]}} {{supercriticalplus=[[floor(@{weapon_tparry1}/100)+1]]}} {{hypercritical=[[floor(@{weapon_tparry1}/400)]]}} {{hypercriticalplus=[[floor(@{weapon_tparry1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
                 <input type="checkbox" name="attr_parry_ticked1" value="1">
                 <button type="roll" name="roll_attackexp1"
-                        value="&{template:attackexp} {{name=@{weapon_name1} Attack}} {{exproll=[[1d100]]}} {{normal=[[@{weapon_attack1}]]}} {{normalplus=[[@{weapon_attack1}+1]]}} {{master=[[100-(@{int_primary}+@{dex_primary}+@{str_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{dex_primary}+@{str_secondary})]]}}"></button>
+                        value="&{template:attackexp} {{name=@{weapon_name1} Attack}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{weapon_attack1}]]}} {{normalplus=[[@{weapon_attack1}+1]]}} {{master=[[100-(@{int_primary}+@{dex_primary}+@{str_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{dex_primary}+@{str_secondary})]]}}"></button>
                 <button type="roll" name="roll_attackexp1"
-                        value="&{template:attackexp} {{name=@{weapon_name1} Parry}} {{exproll=[[1d100]]}} {{normal=[[@{weapon_parry1}]]}} {{normalplus=[[@{weapon_parry1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                        value="&{template:attackexp} {{name=@{weapon_name1} Parry}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{weapon_parry1}]]}} {{normalplus=[[@{weapon_parry1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
             </fieldset>
         </div>
         <!-- missile -->
@@ -377,7 +435,7 @@
                 <button type="roll" name="roll_maxweapon1"
                         value="&{template:test} {{name=@{missile_name1} Attack (max range)}}  {{rollmade=[[1d100]]}} {{normal=[[@{missile_tattmax1}]]}} {{normalplus=[[@{missile_tattmax1}+1]]}} {{fumble=[[100-floor(((100 - @{missile_tattmax1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{missile_tattmax1}) / 20) + 0.55)-1]]}} {{fail=[[95]]}} {{special=[[round(@{missile_tattmax1}/5)]]}} {{specialplus=[[round(@{missile_tattmax1}/5)+1]]}} {{critical=[[round(@{missile_tattmax1}/20)]]}} {{criticalplus=[[round(@{missile_tattmax1}/20)+1]]}} {{supercritical=[[floor(@{missile_tattmax1}/100)]]}} {{supercriticalplus=[[floor(@{missile_tattmax1}/100)+1]]}} {{hypercritical=[[floor(@{missile_tattmax1}/400)]]}} {{hypercriticalplus=[[floor(@{missile_tattmax1}/400)+1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
                 <button type="roll" name="roll_attackexp1"
-                        value="&{template:attackexp} {{name=@{missile_name1} Attack}} {{exproll=[[1d100]]}} {{normal=[[@{missile_attack1}]]}} {{normalplus=[[@{missile_attack1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                        value="&{template:attackexp} {{name=@{missile_name1} Attack}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{missile_attack1}]]}} {{normalplus=[[@{missile_attack1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
             </fieldset>
         </div>        <!-- meleeDamage -->
         <p><strong>Weapon Damage</strong></p>
@@ -404,7 +462,14 @@
                         value="&{template:meleedamage} {{name=@{meleedamage_name1}}} {{subtags=Critical hit}} {{damage=[[@{meleedamage_base1}+@{meleedamage_base1}+@{meleedamage_magic1}+@{meleedamage_magic1}+@{meleedamage_mod1}+@{meleedamage_mod1}]] }}"></button>
             </fieldset>
         </div>
-    </div>
+        <!-- Combat Notes -->
+        <p><strong>Combat Notes</strong></p>
+        <div class="sheet-rq35-spell-notes">
+            <label>Combat Notes</label>
+            <fieldset class="repeating_combatnotes">
+                <textarea name="attr_combatnotes_description1"></textarea>
+            </fieldset>
+        </div>    </div>
 <!-- start of skills sheet -->
 <div class="sheet-rqskills">
     <div class="sheet-rqskills-main">
@@ -423,10 +488,11 @@
             <input type="text" name="attr_agilityskill_name1">
             <input type="number" name="attr_agilityskill_base1" value="0">
             <input type="number" name="attr_agilityskill_total1" value="@{agilityskill_base1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" disabled>
+            <input type="number" name="attr_agilityskill_modified1" value="@{agilityskill_base1}+@{dex_primary}+@{str_secondary}+@{siz_negative}+@{agil_enchant}" hidden disabled>
             <button type="roll" name="roll_weapon1"
-                    value="&{template:test} {{name=@{agilityskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{agilityskill_total1}]]}} {{normalplus=[[@{agilityskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{agilityskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{agilityskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{agilityskill_total1}/5)]]}} {{specialplus=[[round(@{agilityskill_total1}/5)+1]]}} {{critical=[[round(@{agilityskill_total1}/20)]]}} {{criticalplus=[[round(@{agilityskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                    value="&{template:test} {{name=@{agilityskill_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{agilityskill_modified1}]]}} {{normalplus=[[@{agilityskill_modified1}+1]]}} {{fumble=[[100-floor(((100 - @{agilityskill_modified1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{agilityskill_modified1}) / 20) + 0.55)-1]]}} {{special=[[round(@{agilityskill_modified1}/5)]]}} {{specialplus=[[round(@{agilityskill_modified1}/5)+1]]}} {{critical=[[round(@{agilityskill_modified1}/20)]]}} {{criticalplus=[[round(@{agilityskill_modified1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{agilityskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{agilityskill_base1}]]}} {{normalplus=[[@{agilityskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{agilityskill_name1}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{agilityskill_base1}]]}} {{normalplus=[[@{agilityskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
         </fieldset>
     </div>
     <p><strong>Communication Skills</strong></p>
@@ -445,7 +511,7 @@
             <button type="roll" name="roll_weapon1"
                     value="&{template:test} {{name=@{commskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{commskill_total1}]]}} {{normalplus=[[@{commskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{commskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{commskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{commskill_total1}/5)]]}} {{specialplus=[[round(@{commskill_total1}/5)+1]]}} {{critical=[[round(@{commskill_total1}/20)]]}} {{criticalplus=[[round(@{commskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{commskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{commskill_base1}]]}} {{normalplus=[[@{commskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{commskill_name1}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{commskill_base1}]]}} {{normalplus=[[@{commskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
         </fieldset>
     </div>
     <p><strong>Manipulation Skills</strong></p>
@@ -464,7 +530,7 @@
             <button type="roll" name="roll_weapon1"
                     value="&{template:test} {{name=@{manipulationskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{manipulationskill_total1}]]}} {{normalplus=[[@{manipulationskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{manipulationskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{manipulationskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{manipulationskill_total1}/5)]]}} {{specialplus=[[round(@{manipulationskill_total1}/5)+1]]}} {{critical=[[round(@{manipulationskill_total1}/20)]]}} {{criticalplus=[[round(@{manipulationskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{manipulationskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{manipulationskill_base1}]]}} {{normalplus=[[@{manipulationskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{manipulationskill_name1}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{manipulationskill_base1}]]}} {{normalplus=[[@{manipulationskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
         </fieldset>
     </div></div>
 <!-- end of left column -->
@@ -485,7 +551,7 @@
             <button type="roll" name="roll_weapon1"
                     value="&{template:test} {{name=@{knowskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{knowskill_total1}]]}} {{normalplus=[[@{knowskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{knowskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{knowskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{knowskill_total1}/5)]]}} {{specialplus=[[round(@{knowskill_total1}/5)+1]]}} {{critical=[[round(@{knowskill_total1}/20)]]}} {{criticalplus=[[round(@{knowskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{knowskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{knowskill_base1}]]}} {{normalplus=[[@{knowskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{knowskill_name1}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{knowskill_base1}]]}} {{normalplus=[[@{knowskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
         </fieldset>
     </div>
     <p><strong>Stealth Skills</strong></p>
@@ -504,7 +570,7 @@
             <button type="roll" name="roll_weapon1"
                     value="&{template:test} {{name=@{stealthskill_name1}}}  {{rollmade=[[1d100]]}} {{normal=[[@{stealthskill_total1}]]}} {{normalplus=[[@{stealthskill_total1}+1]]}} {{fumble=[[100-floor(((100 - @{stealthskill_total1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{stealthskill_total1}) / 20) + 0.55)-1]]}} {{special=[[round(@{stealthskill_total1}/5)]]}} {{specialplus=[[round(@{stealthskill_total1}/5)+1]]}} {{critical=[[round(@{stealthskill_total1}/20)]]}} {{criticalplus=[[round(@{stealthskill_total1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{stealthskill_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{stealthskill_base1}]]}} {{normalplus=[[@{stealthskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{stealthskill_name1}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{stealthskill_base1}]]}} {{normalplus=[[@{stealthskill_base1}+1]]}} {{master=[[100-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}} {{masterplus=[[101-(@{dex_primary}+@{str_secondary}+@{siz_negative})]]}}"></button>
         </fieldset>
     </div>
     <p><strong>Perception Skills</strong></p>
@@ -547,6 +613,50 @@
                 <input type="number" name="attr_equipment_enc1">
                 <input type="text" name="attr_equipment_located1">
             </fieldset>
+        </div>        <!-- Treasure - Coins -->
+        <p><strong>Money</strong></p>
+        <div class="sheet-rq35-money">
+            <label>Number</label>
+            <label>Type / Material</label>
+            <label>Issued Kingdom</label>
+            <label>Exchange Rate</label>
+            <em> </em>
+            <label>Number</label>
+            <label>Type / Material</label>
+            <label>Issued Kingdom</label>
+            <label>Exchange Rate</label>
+
+            <fieldset class="repeating_money">
+                <input type="number" name="attr_money_number1">
+                <input type="text" name="attr_money_type1">
+                <input type="text" name="attr_money_kingdom1">
+                <input type="text" name="attr_money_exchange1">
+                <em> </em>
+                <input type="number" name="attr_money_number1">
+                <input type="text" name="attr_money_type1">
+                <input type="text" name="attr_money_kingdom1">
+                <input type="text" name="attr_money_exchange1">
+            </fieldset>
+        </div>        <!-- Treasure - Gems Jewellery -->
+        <p><strong>Gems / Jewellery</strong></p>
+        <div class="sheet-rq35-gems">
+            <label>Number</label>
+            <label>Description</label>
+            <label>Value</label>
+            <label> </label>
+            <label>Number</label>
+            <label>Description</label>
+            <label>Value</label>
+
+            <fieldset class="repeating_gems">
+                <input type="number" name="attr_gems_number1">
+                <input type="text" name="attr_gems_description1">
+                <input type="text" name="attr_gems_value1">
+                <em> </em>
+                <input type="number" name="attr_gems_numberb1">
+                <input type="text" name="attr_gems_descriptionb1">
+                <input type="text" name="attr_gems_valueb1">
+            </fieldset>
         </div>    </div>
 </div><!-- start of equipment sheet -->
 <div class="sheet-rqspirit">
@@ -566,14 +676,62 @@
                 <input type="text" name="attr_spiritspell_name1">
                 <input type="number" name="attr_spiritspell_magicpoints1" value="0">
                 <input type="text" name="attr_spiritspell_location1">
+                <input type="number" name="attr_spiritspell_modified1" value="((@{pow} + @{pow_enchant}) * 5) + @{dodge_encumbrance}" hidden disabled>
+
                 <button type="roll" name="roll_spiritspell"
-                        value="&{template:spiritspell} {{name=@{spiritspell_name1} @{spiritspell_magicpoints1}}} {{rollmade=[[1d100]]}} {{x5=[[(@{pow}+@{pow_enchant}) * 5]]}} {{x5plus=[[((@{pow}+@{pow_enchant}) * 5) + 1]]}}"></button>
+                        value="&{template:spiritspell} {{name=@{spiritspell_name1} @{spiritspell_magicpoints1}}} {{rollmade=[[1d100]]}} {{x5=[[@{spiritspell_modified1}]]}} {{x5plus=[[@{spiritspell_modified1}+1]]}}"></button>
                 <input type="text" name="attr_spiritspell_nameb1">
                 <input type="number" name="attr_spiritspell_magicpointsb1" value="0">
                 <input type="text" name="attr_spiritspell_locationb1">
+                <input type="number" name="attr_spiritspell_modifiedb1" value="((@{pow} + @{pow_enchant}) * 5) + @{dodge_encumbrance}" hidden disabled>
                 <button type="roll" name="roll_spiritspell"
-                        value="&{template:spiritspell} {{name=@{spiritspell_nameb1} @{spiritspell_magicpointsb1}}} {{rollmade=[[1d100]]}} {{x5=[[(@{pow}+@{pow_enchant}) * 5]]}} {{x5plus=[[((@{pow}+@{pow_enchant}) * 5) + 1]]}}"></button>
+                        value="&{template:spiritspell} {{name=@{spiritspell_nameb1} @{spiritspell_magicpointsb1}}} {{rollmade=[[1d100]]}} {{x5=[[@{spiritspell_modifiedb1}]]}} {{x5plus=[[@{spiritspell_modifiedb1}+1]]}}"></button>
             </fieldset>
+        </div>
+        <!-- Sorcery Skills -->
+        <p><strong>Spirit Ritual Skills</strong></p>
+        <!-- use same class as spirit skills because format is the same -->
+        <div class="sheet-rq35-sorcery-rituals">
+            <label>Ritual Arts Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Ritual Skill Roll</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+
+            <input type="text" name="attr_spiritskill_ceremony" value="Ceremony" readonly>
+            <input type="number" name="attr_spiritskill_ceremonybase" value="0">
+            <input type="number" name="attr_spiritskill_ceremonytotal" value="@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{spiritskill_ceremony}}} {{rollmade=[[1d100]]}} {{normal=[[@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{spiritskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_spiritskill_ceremonyhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{spiritskill_ceremony}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_ceremonybase}]]}} {{baseskillplus=[[@{spiritskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{spiritskill_ceremony}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_ceremonybase}]]}} {{minskill=[[1]]}} {{baseskillplus=[[@{spiritskill_ceremonybase}+1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_spiritskill_enchant" value="Enchant" readonly>
+            <input type="number" name="attr_spiritskill_enchantbase" value="0">
+            <input type="number" name="attr_spiritskill_enchanttotal" value="@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{spiritskill_enchant}}} {{rollmade=[[1d100]]}} {{normal=[[@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{spiritskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_spiritskill_enchanthours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{spiritskill_enchant}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_enchantbase}]]}} {{baseskillplus=[[@{spiritskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{spiritskill_enchant}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_enchantbase}]]}} {{baseskillplus=[[@{spiritskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_spiritskill_summon" value="Summon" readonly>
+            <input type="number" name="attr_spiritskill_summonbase" value="0">
+            <input type="number" name="attr_spiritskill_summontotal" value="@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{spiritskill_summon}}} {{rollmade=[[1d100]]}} {{normal=[[@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{spiritskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_spiritskill_summonhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{spiritskill_summon}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_summonbase}]]}} {{baseskillplus=[[@{spiritskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{spiritskill_summon}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_summonbase}]]}} {{baseskillplus=[[@{spiritskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
         </div>
         <!-- Spirit Skills -->
         <p><strong>Spirit Spell Skills</strong></p>
@@ -581,21 +739,59 @@
             <label>Skill Name</label>
             <label>Base Skill</label>
             <label>Total Skill</label>
+            <label>Maximum Boost</label>
             <label>Number of Hours of Training</label>
-            <label>Being Trained Experience Roll</label>
-            <label>Self-training Experience Roll</label>
-            <fieldset class="repeating_spiritskills">
-                <input type="text" name="attr_spiritskill_name1">
-                <input type="number" name="attr_spiritskill_base1" value="0">
-                <input type="number" name="attr_spiritskill_total1" value="@{spiritskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
-                <input type="number" name="attr_spiritskill_hours1" value="0">
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{spiritskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_base1}]]}} {{baseskillplus=[[@{spiritskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{spiritskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{spiritskill_base1}]]}} {{minskill=[[1]]}}"></button>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+            <input type="text" name="attr_amplify_name" value="Amplify" readonly>
+            <input type="number" name="attr_amplify_base" value="0">
+            <input type="number" name="attr_amplify_total" readonly >
+            <input type="text" name="attr_amplify_boost" readonly>
+            <input type="number" name="attr_amplify_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{amplify_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{amplify_base}]]}} {{baseskillplus=[[@{amplify_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{amplify_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{amplify_base}]]}} {{baseskillplus=[[@{amplify_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary}]]}}"></button>
+
+            <input type="text" name="attr_combine_name" value="Combine" readonly>
+            <input type="number" name="attr_combine_base" value="0">
+            <input type="number" name="attr_combine_total" readonly >
+            <input type="text" name="attr_combine_boost" readonly>
+            <input type="number" name="attr_combine_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{combine_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{combine_base}]]}} {{baseskillplus=[[@{combine_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{combine_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{combine_base}]]}} {{baseskillplus=[[@{combine_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_distance_name" value="Distance" readonly>
+            <input type="number" name="attr_distance_base" value="0">
+            <input type="number" name="attr_distance_total" readonly >
+            <input type="text" name="attr_distance_boost" readonly>
+            <input type="number" name="attr_distance_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{distance_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{distance_base}]]}} {{baseskillplus=[[@{distance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{distance_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{distance_base}]]}} {{baseskillplus=[[@{distance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_prolong_name" value="Prolong" readonly>
+            <input type="number" name="attr_prolong_base" value="0">
+            <input type="number" name="attr_prolong_total" readonly >
+            <input type="text" name="attr_prolong_boost" readonly>
+            <input type="number" name="attr_prolong_hours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{prolong_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{prolong_base}]]}} {{baseskillplus=[[@{prolong_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{prolong_name}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{prolong_base}]]}} {{baseskillplus=[[@{prolong_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+        </div>
+        <!-- Spirit Spell Notes -->
+        <p><strong>Spirit Notes</strong></p>
+        <div class="sheet-rq35-spell-notes">
+            <label>Spirit Notes</label>
+            <fieldset class="repeating_spiritnotes">
+                <textarea name="attr_spiritnotes_description1"></textarea>
             </fieldset>
         </div>
-
 </div><!-- start of equipment sheet -->
 <div class="sheet-rqdivine">
     <div class="sheet-rqdivine-main">        <!-- Divine Spells -->
@@ -614,37 +810,67 @@
                 <input type="text" name="attr_divinespell_location1">
                 <input type="number" name="attr_divinespell_extensions1" value="0">
                 <input type="text" name="attr_divinespell_god1">
-                <input type="number" name="attr_divinespell_chance1" value="100" hidden>
                 <button type="roll" name="roll_spiritspell"
-                        value="&{template:spiritspell} {{name=@{divinespell_name1} }} {{rollmade=[[1d100]]}} {{x5=[[@{divinespell_chance1}]]}} {{x5plus=[[@{divinespell_chance1} + 1]]}}"></button>
+                        value="&{template:spiritspell} {{name=@{divinespell_name1} }} {{rollmade=[[1d100]]}} {{x5=[[100+@{dodge_encumbrance}]]}} {{x5plus=[[100+@{dodge_encumbrance}+1]]}}"></button>
                 <input type="checkbox" name="attr_divinespell_released1" value="1">
             </fieldset>
-        </div>        <!-- Divine Skills -->
-        <p><strong>Divine Spell Skills</strong></p>
-        <!-- use same css as spirit skills because format the same -->
-        <div class="sheet-rq35-spirit-skills">
-            <label>Skill Name</label>
+        </div>        <!-- Divine Ritual Skills -->
+        <p><strong>Divine Ritual Skills</strong></p>
+        <div class="sheet-rq35-sorcery-rituals">
+            <label>Ritual Arts Name</label>
             <label>Base Skill</label>
             <label>Total Skill</label>
+            <label>Ritual Skill Roll</label>
             <label>Number of Hours of Training</label>
-            <label>Being Trained Experience Roll</label>
-            <label>Self-training Experience Roll</label>
-            <fieldset class="repeating_divineskills">
-                <input type="text" name="attr_divineskill_name1">
-                <input type="number" name="attr_divineskill_base1" value="0">
-                <input type="number" name="attr_divineskill_total1" value="@{divineskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
-                <input type="number" name="attr_divineskill_hours1" value="0">
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{divineskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_base1}]]}} {{baseskillplus=[[@{divineskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{divineskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_base1}]]}} {{minskill=[[1]]}}"></button>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+
+            <input type="text" name="attr_divineskill_ceremony" value="Ceremony" readonly>
+            <input type="number" name="attr_divineskill_ceremonybase" value="0">
+            <input type="number" name="attr_divineskill_ceremonytotal" value="@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{divineskill_ceremony}}} {{rollmade=[[1d100]]}} {{normal=[[@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{divineskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_divineskill_ceremonyhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{divineskill_ceremony}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_ceremonybase}]]}} {{baseskillplus=[[@{divineskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{divineskill_ceremony}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_ceremonybase}]]}} {{baseskillplus=[[@{divineskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_divineskill_enchant" value="Enchant" readonly>
+            <input type="number" name="attr_divineskill_enchantbase" value="0">
+            <input type="number" name="attr_divineskill_enchanttotal" value="@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{divineskill_enchant}}} {{rollmade=[[1d100]]}} {{normal=[[@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{divineskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_divineskill_enchanthours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{divineskill_enchant}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_enchantbase}]]}} {{baseskillplus=[[@{divineskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{divineskill_enchant}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_enchantbase}]]}} {{baseskillplus=[[@{divineskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_divineskill_summon" value="Summon" readonly>
+            <input type="number" name="attr_divineskill_summonbase" value="0">
+            <input type="number" name="attr_divineskill_summontotal" value="@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{divineskill_summon}}} {{rollmade=[[1d100]]}} {{normal=[[@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{divineskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_divineskill_summonhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{divineskill_summon}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_summonbase}]]}} {{baseskillplus=[[@{divineskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{divineskill_summon}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{divineskill_summonbase}]]}} {{baseskillplus=[[@{divineskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+        </div>
+        <!-- Divine Spell Notes -->
+        <p><strong>Divine Notes</strong></p>
+        <div class="sheet-rq35-spell-notes">
+            <label>Divine Notes</label>
+            <fieldset class="repeating_divinenotes">
+                <textarea name="attr_divinenotes_description1"></textarea>
             </fieldset>
         </div>        <!-- Primal Flux Calculator -->
         <p><strong>Primal Flux Calculator</strong></p>
         <div class="sheet-rq35-primalcalc">
             <label>Primal Base</label>
-            <label>Square Root of Number of Worshippers</label>
-            <label>Square Root of Number of Captured Souls</label>
+            <label>Number of Worshippers</label>
+            <label>Number of Captured Souls</label>
             <label>Total Base of Captured Deities</label>
             <label>Number of Shrines</label>
 
@@ -658,14 +884,13 @@
             <label>Number of Greater Temples</label>
             <label>Number of Mini Plains</label>
             <label>Number of Plains</label>
-            <label>Roll to Calculate</label>
+            <label>Total Daily Flux</label>
             <input type="number" name="attr_number_temples" value="0">
             <input type="number" name="attr_number_greater" value="0">
             <input type="number" name="attr_number_miniplanes" value="0">
             <input type="number" name="attr_number_planes" value="0">
+            <input type="text" name="attr_total_flux" readonly>
 
-            <button type="roll" name="roll_primalcalc"
-                    value="&{template:primalcalc} {{base=[[floor(@{primal_base} / 10)]]}} {{worshippers=[[@{number_worshippers}]]}} {{souls=[[floor(@{number_souls}/10)]]}} {{deities=[[floor(@{deities_base}/10)]]}} {{shrines=[[@{number_shrines} * 5]]}} {{temple=[[@{number_temples} * 10]]}} {{greater=[[@{number_greater} * 20]]}} {{mini=[[@{number_miniplanes} * 100]]}} {{planes=[[@{number_planes} * 1000]]}} {{totalflux=[[(floor(@{primal_base}/10))+(@{number_worshippers})+(@{number_shrines}*5)+(floor((@{number_souls}+0.5)/10))+(floor((@{deities_base}+0.5)/10))+(@{number_temples} * 10)+(@{number_greater} * 20)+(@{number_miniplanes} * 100)+(@{number_planes} * 1000)]]}}"></button>
         </div>    </div>
 </div><!-- start of equipment sheet -->
 <div class="sheet-rqdragon">
@@ -676,6 +901,7 @@
             <label>Name</label>
             <label>Base Skill</label>
             <label>Total Skill</label>
+            <label>Hours Trained</label>
             <label>Experience Roll</label>
             <label>Trained Exp. Roll</label>
             <label>Research Exp. Roll</label>
@@ -684,34 +910,83 @@
             <input type="text" name="attr_illumination_name" value="Draconic Illumination" readonly>
             <input type="number" name="attr_illumination_base">
             <input type="number" name="attr_illumination_total" value="@{illumination_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <input type="number" name="attr_illumination_hours">
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{illumination_name}}} {{exproll=[[1d100]]}} {{normal=[[@{illumination_base}]]}} {{normalplus=[[@{illumination_base}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{illumination_name}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{illumination_base}]]}} {{normalplus=[[@{illumination_base}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
             <button type="roll" name="roll_training1"
                     value="&{template:training} {{name=@{illumination_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{illumination_base}]]}} {{baseskillplus=[[@{illumination_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
             <button type="roll" name="roll_training1"
-                    value="&{template:training} {{name=@{illumination_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{illumination_base}]]}} {{minskill=[[1]]}}"></button>
+                    value="&{template:training} {{name=@{illumination_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{illumination_base}]]}} {{baseskillplus=[[@{illumination_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
 
             <input type="checkbox" name="attr_dance_checked" value="1">
             <input type="text" name="attr_dance_name" value="Dragon Dance" readonly>
             <input type="number" name="attr_dance_base">
             <input type="number" name="attr_dance_total" value="@{dance_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <input type="number" name="attr_dance_hours">
             <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{dance_name}}} {{exproll=[[1d100]]}} {{normal=[[@{dance_base}]]}} {{normalplus=[[@{dance_base}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{dance_name}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{dance_base}]]}} {{normalplus=[[@{dance_base}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
             <button type="roll" name="roll_training1"
                     value="&{template:training} {{name=@{dance_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dance_base}]]}} {{baseskillplus=[[@{dance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
             <button type="roll" name="roll_training1"
-                    value="&{template:training} {{name=@{dance_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dance_base}]]}} {{minskill=[[1]]}}"></button>
+                    value="&{template:training} {{name=@{dance_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dance_base}]]}} {{baseskillplus=[[@{dance_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
 
-            <input type="checkbox" name="attr_trigger_checked" value="1">
+            <span> </span>
             <input type="text" name="attr_trigger_name" value="Trigger" readonly>
             <input type="number" name="attr_trigger_base">
-            <input type="number" name="attr_trigger_total" value="@{dance_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <input type="number" name="attr_trigger_total" value="@{trigger_base}+@{pow_primary}+@{int_primary}+@{dex_secondary}" disabled >
+            <input type="number" name="attr_trigger_hours">
             <span> </span>
             <button type="roll" name="roll_training1"
                     value="&{template:training} {{name=@{trigger_name}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{trigger_base}]]}} {{baseskillplus=[[@{trigger_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
             <button type="roll" name="roll_training1"
-                    value="&{template:training} {{name=@{trigger_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{trigger_base}]]}} {{minskill=[[1]]}}"></button>
-        </div>        <!-- Dragon Spells -->
+                    value="&{template:training} {{name=@{trigger_name}}} {{subtags=Research Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{trigger_base}]]}} {{baseskillplus=[[@{trigger_base}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+        </div>
+        <!-- Dragon Ritual Skills -->
+        <p><strong>Draconic Ritual Skills</strong></p>
+        <!-- use same class as spirit skills because format is the same -->
+        <div class="sheet-rq35-sorcery-rituals">
+            <label>Ritual Arts Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Ritual Skill Roll</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+
+            <input type="text" name="attr_dragonskill_ceremony" value="Ceremony" readonly>
+            <input type="number" name="attr_dragonskill_ceremonybase" value="0">
+            <input type="number" name="attr_dragonskill_ceremonytotal" value="@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{dragonskill_ceremony}}} {{rollmade=[[1d100]]}} {{normal=[[@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{dragonskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_dragonskill_ceremonyhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dragonskill_ceremony}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dragonskill_ceremonybase}]]}} {{baseskillplus=[[@{dragonskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dragonskill_ceremony}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dragonskill_ceremonybase}]]}} {{baseskillplus=[[@{dragonskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_dragonskill_enchant" value="Enchant" readonly>
+            <input type="number" name="attr_dragonskill_enchantbase" value="0">
+            <input type="number" name="attr_dragonskill_enchanttotal" value="@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{dragonskill_enchant}}} {{rollmade=[[1d100]]}} {{normal=[[@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{dragonskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_dragonskill_enchanthours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dragonskill_enchant}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dragonskill_enchantbase}]]}} {{baseskillplus=[[@{dragonskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dragonskill_enchant}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dragonskill_enchantbase}]]}} {{baseskillplus=[[@{dragonskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_dragonskill_summon" value="Summon" readonly>
+            <input type="number" name="attr_dragonskill_summonbase" value="0">
+            <input type="number" name="attr_dragonskill_summontotal" value="@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{dragonskill_summon}}} {{rollmade=[[1d100]]}} {{normal=[[@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{dragonskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_dragonskill_summonhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dragonskill_summon}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dragonskill_summonbase}]]}} {{baseskillplus=[[@{dragonskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{dragonskill_summon}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{dragonskill_summonbase}]]}} {{baseskillplus=[[@{dragonskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+        </div>
+        <!-- Dragon Spells -->
         <p><strong>Dragon Spells</strong></p>
         <div class="sheet-rq35-dragon-spells">
             <label>Spell Name</label>
@@ -739,15 +1014,94 @@
                     value="&{template:test} {{name=@{dragonspell_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}]]}} {{normalplus=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}+1]]}} {{fumble=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)-1]]}} {{special=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)]]}} {{specialplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)+1]]}} {{critical=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)]]}} {{criticalplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
 
             </fieldset>
+        </div>        <!-- Dragon Held Spells -->
+        <p><strong>Dragon Held Spells</strong></p>
+        <div class="sheet-rq35-dragonheld-spells">
+            <label>Spell Name</label>
+            <label>Magnitude</label>
+            <label>Number Held</label>
+            <label>Cast Spell</label>
+            <label> </label>
+            <label>Spell Name</label>
+            <label>Magnitude</label>
+            <label>Number Held</label>
+            <label>Cast Spell</label>
+
+            <fieldset class="repeating_dragonheld">
+                <input type="text" name="attr_dragonheld_name1">
+                <input type="number" name="attr_dragonheld_magnitude1">
+                <input type="number" name="attr_dragonheld_number1">
+                <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{dragonheld_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}]]}} {{normalplus=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}+1]]}} {{fumble=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)-1]]}} {{special=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)]]}} {{specialplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)+1]]}} {{critical=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)]]}} {{criticalplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                <span> </span>
+                <input type="text" name="attr_dragonheld_nameb1">
+                <input type="number" name="attr_dragonheld_magnitudeb1">
+                <input type="number" name="attr_dragonheld_numberb1">
+                <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{dragonheld_nameb1}}} {{rollmade=[[1d100]]}} {{normal=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}]]}} {{normalplus=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}+1]]}} {{fumble=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}) / 20) + 0.55)-1]]}} {{special=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)]]}} {{specialplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/5)+1]]}} {{critical=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)]]}} {{criticalplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{illumination_base}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            </fieldset>
+        </div>        <!-- Dragon Spell Notes -->
+        <p><strong>Dragon Notes</strong></p>
+        <div class="sheet-rq35-spell-notes">
+            <label>Dragon Notes</label>
+            <fieldset class="repeating_dragonnotes">
+                <textarea name="attr_dragonnotes_description1"></textarea>
+            </fieldset>
         </div>
 </div><!-- start of equipment sheet -->
 <div class="sheet-rqsorcery">
-    <div class="sheet-rqsorcery-main">        <!-- Sorcery Spells -->
+    <div class="sheet-rqsorcery-main">        <!-- Sorcery Ritual Skills -->
+        <p><strong>Sorcery Ritual Skills</strong></p>
+        <div class="sheet-rq35-sorcery-rituals">
+            <label>Ritual Arts Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Ritual Skill Roll</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained<br/>Experience Roll</label>
+            <label>Self-training<br/>Experience Roll</label>
+
+            <input type="text" name="attr_sorceryskill_ceremony" value="Ceremony" readonly>
+            <input type="number" name="attr_sorceryskill_ceremonybase" value="0">
+            <input type="number" name="attr_sorceryskill_ceremonytotal" value="@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{sorceryskill_ceremony}}} {{rollmade=[[1d100]]}} {{normal=[[@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{sorceryskill_ceremonybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_sorceryskill_ceremonyhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_ceremony}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_ceremonybase}]]}} {{baseskillplus=[[@{sorceryskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_ceremony}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_ceremonybase}]]}} {{baseskillplus=[[@{sorceryskill_ceremonybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_enchant" value="Enchant" readonly>
+            <input type="number" name="attr_sorceryskill_enchantbase" value="0">
+            <input type="number" name="attr_sorceryskill_enchanttotal" value="@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{sorceryskill_enchant}}} {{rollmade=[[1d100]]}} {{normal=[[@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{sorceryskill_enchantbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_sorceryskill_enchanthours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_enchant}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_enchantbase}]]}} {{baseskillplus=[[@{sorceryskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_enchant}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_enchantbase}]]}} {{baseskillplus=[[@{sorceryskill_enchantbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_summon" value="Summon" readonly>
+            <input type="number" name="attr_sorceryskill_summonbase" value="0">
+            <input type="number" name="attr_sorceryskill_summontotal" value="@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <button type="roll" name="roll_weapon1"
+                    value="&{template:test} {{name=@{sorceryskill_summon}}} {{rollmade=[[1d100]]}} {{normal=[[@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}]]}} {{normalplus=[[@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}+1]]}} {{fumble=[[100-floor(((100 - @{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}) / 20) + 0.55)-1]]}} {{special=[[round(@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)]]}} {{specialplus=[[round(@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/5)+1]]}} {{critical=[[round(@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)]]}} {{criticalplus=[[round(@{sorceryskill_summonbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+            <input type="number" name="attr_sorceryskill_summonhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_summon}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_summonbase}]]}} {{baseskillplus=[[@{sorceryskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_summon}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_summonbase}]]}} {{baseskillplus=[[@{sorceryskill_summonbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+        </div>
+        <!-- Sorcery Spells -->
         <p><strong>Sorcery Spells</strong></p>
         <div class="sheet-rq35-sorcery-spells">
             <label>Cast Tick</label>
             <label>Spell Name</label>
             <label>Base Skill</label>
+            <label>Ceremony</label>
+            <label>Device Intensity</label>
             <label>Total Skill</label>
             <label>Where Stored</label>
             <label>Casting Roll</label>
@@ -757,12 +1111,15 @@
                 <input type="checkbox" name="attr_sorceryspell_ticked1" value="1">
                 <input type="text" name="attr_sorceryspell_name1">
                 <input type="number" name="attr_sorceryspell_base1" value="0">
-                <input type="number" name="attr_sorceryspell_total1" value="@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}" disabled>
+                <input type="number" name="attr_sorceryspell_ceremony1" value="0">
+                <input type="number" name="attr_sorceryspell_device1" value="0">
+                <input type="number" name="attr_sorceryspell_devicemod1" value="@{sorceryspell_device1}*10" hidden disabled>
+                <input type="number" name="attr_sorceryspell_total1" value="@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1}" disabled>
                 <input type="text" name="attr_sorceryspell_location1">
                 <button type="roll" name="roll_weapon1"
-                    value="&{template:test} {{name=@{sorceryspell_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}]]}} {{normalplus=[[@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}+1]]}} {{fumble=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}) / 20) + 0.55)]]}} {{fumbleminus=[[100-floor(((100 - @{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}) / 20) + 0.55)-1]]}} {{special=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/5)]]}} {{specialplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/5)+1]]}} {{critical=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/20)]]}} {{criticalplus=[[round(@{pow_primary}+@{int_primary}+@{dex_secondary}+@{sorceryspell_base1}/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
+                    value="&{template:test} {{name=@{sorceryspell_name1}}} {{rollmade=[[1d100]]}} {{normal=[[@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1}]]}} {{normalplus=[[@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1}+1]]}} {{fumble=[[100-floor(((100-(@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1}) /20)+0.55)]]}} {{fumbleminus=[[100-floor(((100-(@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1})/20)+0.55)-1]]}} {{special=[[round((@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1})/5)]]}} {{specialplus=[[round((@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1})/5)+1]]}} {{critical=[[round((@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1})/20)]]}} {{criticalplus=[[round((@{sorceryspell_base1}+@{sorceryspell_ceremony1}+@{sorceryspell_devicemod1})/20)+1]]}} {{supercritical=[[0]]}} {{supercriticalplus=[[1]]}} {{hypercritical=[[0]]}} {{hypercriticalplus=[[1]]}} {{specmin=[[1]]}} {{critmin=[[1]]}}"></button>
                 <button type="roll" name="roll_attackexp1"
-                    value="&{template:attackexp} {{name=@{sorceryspell_name1}}} {{exproll=[[1d100]]}} {{normal=[[@{sorceryspell_base1}]]}} {{normalplus=[[@{sorceryspell_base1}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
+                    value="&{template:attackexp} {{name=@{sorceryspell_name1}}} {{rollmade=[[1d6]]}} {{exproll=[[1d100]]}} {{normal=[[@{sorceryspell_base1}]]}} {{normalplus=[[@{sorceryspell_base1}+1]]}} {{master=[[100-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{pow_primary}+@{int_primary}+@{dex_secondary})]]}}"></button>
             </fieldset>
         </div>
         <!-- Held Spells -->
@@ -780,7 +1137,7 @@
             <label>Range</label>
             <label>Multispell</label>
 
-            <fieldset class="repeating_sorceryspells">
+            <fieldset class="repeating_heldspells">
                 <input type="checkbox" name="attr_heldspell_ticked1" value="1">
                 <input type="text" name="attr_heldspell_name1">
                 <input type="number" name="attr_heldspell_intensity1" value="1">
@@ -805,38 +1162,217 @@
             <label>Magic Points</label>
             <label>Cast On</label>
 
-            <fieldset class="repeating_sorceryspells">
+            <fieldset class="repeating_runningspells">
                 <input type="checkbox" name="attr_runningspell_dropped1" value="1">
                 <input type="text" name="attr_runningspell_name1">
                 <input type="number" name="attr_runningspell_intensity1" value="1">
                 <input type="number" name="attr_runningspell_range1" value="0">
                 <input type="number" name="attr_runningspell_multispell1" value="0">
-                <input type="number" name="attr_runningspell_magicpoints1" value="0">
+                <input type="number" name="attr_runningspell_magicpoints1" value="@{runningspell_intensity1}+@{runningspell_range1}+@{runningspell_multispell1}" disabled>
                 <input type="text" name="attr_runningspell_upon1">
             </fieldset>
         </div>
         <!-- Sorcery Skills -->
         <p><strong>Sorcery Spell Skills</strong></p>
         <!-- use same class as spirit skills because format is the same -->
-        <div class="sheet-rq35-spirit-skills">
-            <label>Skill Name</label>
+        <div class="sheet-rq35-sorcery-skills">
+            <label>Basic Arts Name</label>
             <label>Base Skill</label>
             <label>Total Skill</label>
             <label>Number of Hours of Training</label>
             <label>Being Trained Experience Roll</label>
             <label>Self-training Experience Roll</label>
-            <fieldset class="repeating_sorceryskills">
-                <input type="text" name="attr_sorceryskill_name1">
-                <input type="number" name="attr_sorceryskill_base1" value="0">
-                <input type="number" name="attr_sorceryskill_total1" value="@{sorceryskill_base1}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
-                <input type="number" name="attr_sorceryskill_hours1" value="0">
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{sorceryskill_name1}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_base1}]]}} {{baseskillplus=[[@{sorceryskill_base1}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
-                <button type="roll" name="roll_training1"
-                        value="&{template:training} {{name=@{sorceryskill_name1}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_base1}]]}} {{minskill=[[1]]}}"></button>
-            </fieldset>
+            <input type="text" name="attr_sorceryskill_intensity" value="Intensity" readonly>
+            <input type="number" name="attr_sorceryskill_intensitybase" value="0">
+            <input type="number" name="attr_sorceryskill_intensitytotal" value="@{sorceryskill_intensitybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_intensityhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_intensity}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_intensitybase}]]}} {{baseskillplus=[[@{sorceryskill_intensitybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_intensity}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_intensitybase}]]}} {{baseskillplus=[[@{sorceryskill_intensitybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_range" value="Range" readonly>
+            <input type="number" name="attr_sorceryskill_rangebase" value="0">
+            <input type="number" name="attr_sorceryskill_rangetotal" value="@{sorceryskill_rangebase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_rangehours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_range}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_rangebase}]]}} {{baseskillplus=[[@{sorceryskill_rangebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_range}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_rangebase}]]}} {{baseskillplus=[[@{sorceryskill_rangebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_multispell" value="Multispell" readonly>
+            <input type="number" name="attr_sorceryskill_multispellbase" value="0">
+            <input type="number" name="attr_sorceryskill_multispelltotal" value="@{sorceryskill_multispellbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_multispellhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_multispell}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_multispellbase}]]}} {{baseskillplus=[[@{sorceryskill_multispellbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_multispell}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_multispellbase}]]}} {{baseskillplus=[[@{sorceryskill_multispellbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <label>Secondary Arts Name</label>
+            <label>Base Skill</label>
+            <label>Total Skill</label>
+            <label>Number of Hours of Training</label>
+            <label>Being Trained Experience Roll</label>
+            <label>Self-training Experience Roll</label>
+
+            <input type="text" name="attr_sorceryskill_accuracy" value="Accuracy" readonly>
+            <input type="number" name="attr_sorceryskill_accuracybase" value="0">
+            <input type="number" name="attr_sorceryskill_accuracytotal" value="@{sorceryskill_accuracybase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_accuracyhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_accuracy}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_accuracybase}]]}} {{baseskillplus=[[@{sorceryskill_accuracybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_accuracy}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_accuracybase}]]}} {{baseskillplus=[[@{sorceryskill_accuracybase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_ease" value="Ease" readonly>
+            <input type="number" name="attr_sorceryskill_easebase" value="0">
+            <input type="number" name="attr_sorceryskill_easetotal" value="@{sorceryskill_easebase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_easehours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_ease}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_easebase}]]}} {{baseskillplus=[[@{sorceryskill_easebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_ease}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_easebase}]]}} {{baseskillplus=[[@{sorceryskill_easebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_force" value="Force" readonly>
+            <input type="number" name="attr_sorceryskill_forcebase" value="0">
+            <input type="number" name="attr_sorceryskill_forcetotal" value="@{sorceryskill_forcebase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_forcehours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_force}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_forcebase}]]}} {{baseskillplus=[[@{sorceryskill_forcebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_force}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_forcebase}]]}} {{baseskillplus=[[@{sorceryskill_forcebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_hold" value="Hold" readonly>
+            <input type="number" name="attr_sorceryskill_holdbase" value="0">
+            <input type="number" name="attr_sorceryskill_holdtotal" value="@{sorceryskill_holdbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_holdhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_hold}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_holdbase}]]}} {{baseskillplus=[[@{sorceryskill_holdbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_hold}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_holdbase}]]}} {{baseskillplus=[[@{sorceryskill_holdbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_permanence" value="Permanence" readonly>
+            <input type="number" name="attr_sorceryskill_permanencebase" value="0">
+            <input type="number" name="attr_sorceryskill_permanencetotal" value="@{sorceryskill_permanencebase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_permanencehours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_permanence}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_permanencebase}]]}} {{baseskillplus=[[@{sorceryskill_permanencebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_permanence}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_permanencebase}]]}} {{baseskillplus=[[@{sorceryskill_permanencebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_reinforce" value="Reinforce" readonly>
+            <input type="number" name="attr_sorceryskill_reinforcebase" value="0">
+            <input type="number" name="attr_sorceryskill_reinforcetotal" value="@{sorceryskill_reinforcebase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_reinforcehours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_reinforce}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_reinforcebase}]]}} {{baseskillplus=[[@{sorceryskill_reinforcebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_reinforce}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_reinforcebase}]]}} {{baseskillplus=[[@{sorceryskill_reinforcebase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+
+            <input type="text" name="attr_sorceryskill_speed" value="Speed" readonly>
+            <input type="number" name="attr_sorceryskill_speedbase" value="0">
+            <input type="number" name="attr_sorceryskill_speedtotal" value="@{sorceryskill_speedbase}+@{int_primary}+@{pow_primary}+@{dex_secondary}+@{magb_enchant}" disabled >
+            <input type="number" name="attr_sorceryskill_speedhours" value="0">
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_speed}}} {{subtags=Trained Roll}} {{expcheck=[[101]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_speedbase}]]}} {{baseskillplus=[[@{sorceryskill_speedbase}+1]]}} {{minskill=[[1]]}} {{master=[[100-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}} {{masterplus=[[101-(@{int_primary}+@{pow_primary}+@{dex_secondary})]]}}"></button>
+            <button type="roll" name="roll_training1"
+                    value="&{template:training} {{name=@{sorceryskill_speed}}} {{subtags=Self-Train Roll}} {{expcheck=[[1d100]]}} {{rollmade=[[1d6-2]]}} {{baseskill=[[@{sorceryskill_speedbase}]]}} {{minskill=[[1]]}}"></button>
         </div>
-    </div>
+        <!-- Sorcery Vows -->
+        <p><strong>Vows</strong></p>
+        <div class="sheet-rq35-vows">
+            <label> </label>
+            <label>Abjure Armour</label>
+            <label>Abjure Weapons</label>
+            <label>Abjure Intensity</label>
+            <label>Abjure Multispell</label>
+            <label>Abjure<br/>Range</label>
+            <label>Abjure Accuracy</label>
+            <label>Abjure<br/>Erase</label>
+            <label>Abjure<br/>Force</label>
+            <label>Abjure<br/>Hold</label>
+            <label>Abjure Permanence</label>
+            <label>Abjure Reinforce</label>
+
+            <em> </em>
+            <input type="checkbox" name="attr_abjure_armour" value="2">
+            <input type="checkbox" name="attr_abjure_weapons" value="3">
+            <input type="checkbox" name="attr_abjure_intensity" value="5">
+            <input type="checkbox" name="attr_abjure_multispell" value="5">
+            <input type="checkbox" name="attr_abjure_range" value="5">
+            <input type="checkbox" name="attr_abjure_accuracy" value="3">
+            <input type="checkbox" name="attr_abjure_ease" value="3">
+            <input type="checkbox" name="attr_abjure_force" value="3">
+            <input type="checkbox" name="attr_abjure_hold" value="3">
+            <input type="checkbox" name="attr_abjure_permanence" value="3">
+            <input type="checkbox" name="attr_abjure_reinforce" value="3">
+            <input name="attr_subtot_vows1" type="number" value="@{abjure_armour}+@{abjure_weapons}+@{abjure_intensity}+@{abjure_multispell}+@{abjure_range}+@{abjure_accuracy}+@{abjure_ease}+@{abjure_force}+@{abjure_hold}+@{abjure_permanence}+@{abjure_reinforce}" hidden disabled>
+
+            <label> </label>
+            <label>Abjure<br/>Speed</label>
+            <label>Abjure<br/>Divine</label>
+            <label>Abjure<br/>Spirit</label>
+            <label>Abjure Worship</label>
+            <label>Sacrifice Hand</label>
+            <label>Sacrifice<br/>2nd Hand</label>
+            <label>Sacrifice<br/>Leg</label>
+            <label>Sacrifice<br/>2nd Leg</label>
+            <label>Self Abnegation</label>
+            <label>Shun Tap Power</label>
+            <label>Self<br/>Exaltation</label>
+
+            <em> </em>
+            <input type="checkbox" name="attr_abjure_speed" value="3">
+            <input type="checkbox" name="attr_abjure_divine" value="2">
+            <input type="checkbox" name="attr_abjure_spirit" value="2">
+            <input type="checkbox" name="attr_abjure_worship" value="8">
+            <input type="checkbox" name="attr_sacrifice_hand" value="3">
+            <input type="checkbox" name="attr_sacrifice_hand2" value="9">
+            <input type="checkbox" name="attr_sacrifice_leg" value="3">
+            <input type="checkbox" name="attr_sacrifice_leg2" value="9">
+            <input type="checkbox" name="attr_self_abnegation" value="4">
+            <input type="checkbox" name="attr_shun_tap" value="2">
+            <input type="checkbox" name="attr_self_exaltation" value="6">
+            <input name="attr_subtot_vows2" type="number" value="@{abjure_speed}+@{abjure_divine}+@{abjure_spirit}+@{abjure_worship}+@{sacrifice_hand}+@{sacrifice_hand2}+@{sacrifice_leg}+@{sacrifice_leg2}+@{self_abnegation}+@{shun_tap}+@{self_exaltation}" hidden disabled>
+
+            <label> </label>
+            <label>Shun<br/>Cold</label>
+            <label>Shun<br/>Wind</label>
+            <label>Shun<br/>Fire</label>
+            <label>Shun<br/>Water</label>
+            <label>Shun<br/>Light</label>
+            <label>Shun<br/>Earth</label>
+            <label>Shun Immortality</label>
+            <label>Shun Darkness</label>
+            <label>Never Kill Human</label>
+            <label>Tend<br/>Familiar</label>
+            <label>Vegetarianism</label>
+
+            <em> </em>
+            <input type="checkbox" name="attr_shun_cold" value="2">
+            <input type="checkbox" name="attr_shun_wind" value="2">
+            <input type="checkbox" name="attr_shun_fire" value="2">
+            <input type="checkbox" name="attr_shun_water" value="2">
+            <input type="checkbox" name="attr_shun_light" value="2">
+            <input type="checkbox" name="attr_shun_earth" value="2">
+            <input type="checkbox" name="attr_shun_immortality" value="1">
+            <input type="checkbox" name="attr_shun_darkness" value="2">
+            <input type="checkbox" name="attr_never_kill" value=3">
+            <input type="checkbox" name="attr_tend_familiar" value="1">
+            <input type="checkbox" name="attr_vegetarianism" value="2">
+            <input name="attr_subtot_vows3" value="@{shun_cold}+@{shun_wind}+@{shun_fire}+@{shun_water}+@{shun_light}+@{shun_earth}+@{shun_immortality}+@{shun_darkness}+@{never_kill}+@{tend_familiar}+@{vegetarianism}" hidden disabled>
+            <em> </em>
+            <label>Presence from vows</label>
+            <input name="attr_total_vows" type="number" value="@{subtot_vows1}+@{subtot_vows2}+@{subtot_vows3}" disabled>
+        </div>        <!-- Sorcery Spell Notes -->
+        <p><strong>Sorcery Notes</strong></p>
+        <div class="sheet-rq35-spell-notes">
+            <label>Sorcery Notes</label>
+            <fieldset class="repeating_sorcerynotes">
+                <textarea name="attr_sorcerynotes_description1"></textarea>
+            </fieldset>
+        </div>    </div>
 </div><!-- start of equipment sheet -->
 <div class="sheet-rqdevices">
     <div class="sheet-rqdevices-main">
@@ -874,6 +1410,7 @@
             <label>True Name</label>
             <label>Type</label>
             <label>Strength</label>
+            <label>Power</label>
             <label>Size (Cubic Meters)</label>
             <label>Hit Points</label>
             <label>Damage</label>
@@ -884,10 +1421,11 @@
                 <input type="text" name="attr_elemental_name1">
                 <input type="text" name="attr_elemental_type1">
                 <input type="number" name="attr_elemental_str1">
+                <input type="number" name="attr_elemental_pow1">
                 <input type="number" name="attr_elemental_siz1">
                 <input type="number" name="attr_elemental_hits1">
                 <input type="text" name="attr_elemental_damage1">
-                <input type="text" name="attr_elemental_moverate1">
+                <input type="number" name="attr_elemental_moverate1">
             </fieldset>
         </div>
     </div>
@@ -1024,7 +1562,8 @@
         {{#rollLess() normal 100}}
             {{#rollGreater() exproll normal}}
                 <div class="sheet-normal">
-                    <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
+                    <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}<br>
+                    Increase your {{ name }} base by {{rollmade}}</span>
                 </div>
             {{/rollGreater() exproll normal}}
             {{#rollLess() exproll normalplus}}
@@ -1036,7 +1575,10 @@
         {{#rollGreater() normal 99}}
             {{#rollGreater() exproll master}}
                  <div class="sheet-normal">
-                     <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
+                     <span><strong>Experience Check Made!: &#10004;</strong><br>
+                         Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}<br>
+                         Increase your {{ name }} base by {{rollmade}}</span>
+                     </span>
                 </div>
             {{/rollGreater() exproll master}}
             {{#rollLess() exproll masterplus}}
@@ -1175,151 +1717,6 @@
             {{/rollLess() gain 41}}
         {{/rollLess() rollmade normalplus}}
     </div>
-</rolltemplate><!-- spiritSkillTemplate -->
-<rolltemplate class="sheet-rolltemplate-training">
-    <div class="sheet-rolltemplate-training">
-        <div class="sheet-template-container">
-        {{#rollLess() expcheck 101}}
-            <!-- training roll - check if it worked -->
-            <div class="sheet-template-header">{{ name }} {{ subtags }}: {{ expcheck }}</div>
-                {{#rollLess() baseskill 100}}
-                    {{#rollGreater() exproll baseskill}}
-                        <div class="sheet-normal">
-                            <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
-                        </div>
-                    {{/rollGreater() exproll baseskill}}
-                    {{#rollLess() exproll baseskillplus}}
-                        <div class="sheet-fail">
-                            <span><strong>Experience Roll Missed: &#10005;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal  }}</span>
-                        </div>
-                    {{/rollLess() exproll baseskillplus}}
-                {{/rollLess() baseskill 100}}
-                {{#rollGreater() baseskill 99}}
-                    {{#rollGreater() exproll master}}
-                         <div class="sheet-normal">
-                             <span><strong>Experience Check Made!: &#10004;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
-                        </div>
-                    {{/rollGreater() exproll master}}
-                    {{#rollLess() exproll masterplus}}
-                        <div class="sheet-fail">
-                            <span><strong>Experience Roll Missed: &#10005;</strong><br>Rolled {{ exproll }} vs base skill of {{ normal }} need to roll over {{ master }}</span>
-                        </div>
-                    {{/rollLess() exproll masterplus}}
-                {{/rollGreater() baseskill 99}}
-                {{#rollLess() rollmade 0}}
-                    {{#rollLess() baseskill 1}}
-                        <!-- training new skill - failed so need to start again -->
-                        <div class="sheet-fail">
-                            <span>Attempt to learn new skill {{ name }} failed.<br>Start again after another 50 hours.</span>
-                        </div>
-                    {{/rollLess() baseskill 1}}
-                    <!-- player already has some ability in this skill -->
-                    {{#rollGreater() baseskill 0}}
-                        {{#rollLess() rollmade -1}}
-                            <!-- rolled -2 -->
-                            {{#rollLess() baseskill 3}}
-                                <!-- cannot reduce skill to 0 so present with the minimum -->
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
-                                </div>
-                            {{/rollLess() baseskill 3}}
-                            {{#rollGreater() baseskill 2}}
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
-                                </div>
-                            {{/rollGreater() baseskill 2}}
-                        {{/rollLess() rollmade -1}}
-                        {{#rollGreater() rollmade -2}}
-                            <!-- rolled -1 -->
-                            {{#rollLess() baseskill 2}}
-                                <!-- cannot reduce skill to 0 so present with the minimum -->
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
-                                </div>
-                            {{/rollLess() baseskill 2}}
-                            {{#rollGreater() baseskill 1}}
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
-                                </div>
-                            {{/rollGreater() baseskill 1}}
-                        {{/rollGreater() rollmade -2}}
-                    {{/rollGreater() baseskill 0}}
-                {{/rollLess() rollmade 0}}
-                {{#rollLess() rollmade 1}}
-                    {{#rollGreater() rollmade -1}}
-                        <!-- rolled 0 -->
-                        <div class="sheet-fail">
-                            <span>No improvement training {{ name }}. Try again in another {{ baseskill }} hours.</span>
-                        </div>
-                    {{/rollGreater() rollmade -1}}
-                {{/rollLess() rollmade 1}}
-                {{#rollGreater() rollmade 0}}
-                    <div class="sheet-normal">
-                        <span>Success! Increase {{ name }} skill by {{ rollmade }}!</span>
-                    </div>
-                {{/rollGreater() rollmade 0}}
-            </div>
-        {{/rollLess() expcheck 101}}
-        {{#rollGreater() expcheck 100}}
-            <!-- skill roll from trainer -->
-            <div class="sheet-template-header">{{ name }} {{ subtags }}: {{ rollmade }}</div>
-                <!-- updated skill cannot be less than 0 -->
-                {{#rollLess() rollmade 0}}
-                    {{#rollLess() baseskill 1}}
-                        <!-- training new skill - failed so need to start again -->
-                        <div class="sheet-fail">
-                            <span>Attempt to learn new skill {{ name }} failed.<br>Start again after another 50 hours.</span>
-                        </div>
-                    {{/rollLess() baseskill 1}}
-                    <!-- player already has some ability in this skill -->
-                    {{#rollGreater() baseskill 0}}
-                        {{#rollLess() rollmade -1}}
-                            <!-- rolled -2 -->
-                            {{#rollLess() baseskill 3}}
-                                <!-- cannot reduce skill to 0 so present with the minimum -->
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
-                                </div>
-                            {{/rollLess() baseskill 3}}
-                            {{#rollGreater() baseskill 2}}
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
-                                </div>
-                            {{/rollGreater() baseskill 2}}
-                        {{/rollLess() rollmade -1}}
-                        {{#rollGreater() rollmade -2}}
-                            <!-- rolled -1 -->
-                            {{#rollLess() baseskill 2}}
-                                <!-- cannot reduce skill to 0 so present with the minimum -->
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. New skill is {{ minskill }}</span>
-                                </div>
-                            {{/rollLess() baseskill 2}}
-                            {{#rollGreater() baseskill 1}}
-                                <div class="sheet-fail">
-                                    <span>{{ name }} training failed. Reduce skill by {{ rollmade }}</span>
-                                </div>
-                            {{/rollGreater() baseskill 1}}
-                        {{/rollGreater() rollmade -2}}
-                    {{/rollGreater() baseskill 0}}
-                {{/rollLess() rollmade 0}}
-                {{#rollLess() rollmade 1}}
-                    {{#rollGreater() rollmade -1}}
-                        <!-- rolled 0 -->
-                        <div class="sheet-fail">
-                            <span>No improvement training {{ name }}. Try again in another {{ baseskill }} hours.</span>
-                        </div>
-                    {{/rollGreater() rollmade -1}}
-                {{/rollLess() rollmade 1}}
-                {{#rollGreater() rollmade 0}}
-                    <div class="sheet-normal">
-                        <span>Success! Increase {{ name }} skill by {{ rollmade }}!</span>
-                    </div>
-                {{/rollGreater() rollmade 0}}
-            </div>
-        {{/rollGreater() expcheck 100}}
-        </div>
-    </div>
 </rolltemplate><!-- spiritSpellTemplate -->
 <rolltemplate class="sheet-rolltemplate-spiritspell">
     <div class="sheet-template-container">
@@ -1345,87 +1742,245 @@
         {{/rollLess() rollmade 96}}
     </div>
 </rolltemplate>
-<!-- spiritSpellTemplate -->
-<rolltemplate class="sheet-rolltemplate-primalcalc">
-    <div class="sheet-template-container">
-	    <div class="sheet-template-header">Daily Primal Flux Calculation</div>
+<!-- spiritSkillTemplate -->
+<rolltemplate class="sheet-rolltemplate-training">
+    <div class="sheet-rolltemplate-training">
+        <div class="sheet-template-container">
 
-        <div class="sheet-normal">
-            {{#rollGreater() base 0}}
-                <span>Flux from base = {{ base }}</span><br>
-            {{/rollGreater() base 0}}
-            {{#rollGreater() worshippers 0}}
-                <span>Flux from worshippers = {{ worshippers }}</span><br>
-            {{/rollGreater() worshippers 0}}
-            {{#rollGreater() souls 0}}
-                <span>Flux from captured souls = {{ souls }}</span><br>
-            {{/rollGreater() souls 0}}
-            {{#rollGreater() deities 0}}
-                <span>Flux from captured deities base = {{ deities }}</span><br>
-            {{/rollGreater() deities 0}}
-            {{#rollGreater() shrines 0}}
-                <span>Flux from your shrines = {{ shrines }}</span><br>
-            {{/rollGreater() shrines 0}}
-            {{#rollGreater() temple 0}}
-                <span>Flux from your temples = {{ temple }}</span><br>
-            {{/rollGreater() temple 0}}
-            {{#rollGreater() greater 0}}
-                <span>Flux from your greater temples = {{ greater }}</span><br>
-            {{/rollGreater() greater 0}}
-            {{#rollGreater() mini 0}}
-                <span>Flux from mini planes = {{ mini }}</span><br>
-            {{/rollGreater() mini 0}}
-            {{#rollGreater() planes 0}}
-                <span>Flux from planes = {{ planes }}</span><br>
-            {{/rollGreater() planes 0}}
-            {{#rollGreater() totalflux 0}}
-                <span><strong>Total Flux per Day = {{ totalflux }}</strong></span>
-            {{/rollGreater() totalflux 0}}
+            <!-- self training section -->
+      <!-- self training section -->
+            {{#rollLess() expcheck 101}}
+                <div class="sheet-template-header">{{ name }} {{ subtags }}: {{ expcheck }}</div>
+
+                <!-- is base skill 100 or more -->
+                {{#rollGreater() baseskill 99}}
+                <!-- yes it is - need to roll over master value to qualify -->
+                    {{#rollGreater() expcheck master}}
+                    <!-- made it now check gain on 1d6-2 -->
+                        <div class="sheet-normal">
+                            <span><strong>Experience check Made!</strong><br>Rolled {{ expcheck }}. Needed over {{ master }}.</span><br>
+                        {{#rollLess() rollmade 1}}
+                            <span>
+                                Unfortunately you got<br> {{ rollmade }} on 1d6 - 2.<br>
+                                {{#rollGreater() rollmade -1}}
+                                    <strong>You do not get to increase your skill this time.</strong>
+                                {{/rollGreater() rollmade -1}}
+                                {{#rollLess() rollmade 0}}
+                                    <strong>Please reduce your {{ name }} skill by {{ rollmade }}</strong>
+                                {{/rollLess() rollmade 0}}
+                            </span>
+                        {{/rollLess() rollmade 1}}
+                        {{#rollGreater() rollmade 0}}
+                            <span>
+                                You got {{ rollmade }} on 1d6 - 2<br>
+                                <strong>Please increase your {{ name }} by {{ rollmade }}</strong>
+                            </span>
+                        {{/rollGreater() rollmade 0}}
+                        </div>
+                    {{/rollGreater() expcheck master}}
+                    <!-- failed experience roll on master skill (i.e. over 100) -->
+                    {{#rollLess() expcheck masterplus}}
+                        <div class="sheet-fail">
+                            <span><strong>Experience check failed!</strong><br>Rolled {{ expcheck }}. Needed over {{ master }}.</span>
+                        </div>
+                    {{/rollLess() expcheck masterplus}}
+                {{/rollGreater() baseskill 99}}
+                {{#rollLess() baseskill 100}}
+                    <!-- base skill less than 100 so we just need to beat that -->
+                    {{#rollGreater() expcheck baseskill}}
+                        <!-- made it now check how many points on 1d6 - 2 -->
+                        <div class="sheet-normal">
+                            <span><strong>Experience check Made!</strong><br>Rolled {{ expcheck }}. Needed over {{ baseskill }}.</span><br>
+                            {{#rollLess() rollmade 1}}
+                                <span>
+                                    Unfortunately you got<br> {{ rollmade }} on 1d6 - 2.<br>
+                                    {{#rollGreater() rollmade -1}}
+                                        <strong>You do not get to increase your skill this time.</strong>
+                                    {{/rollGreater() rollmade -1}}
+                                    {{#rollLess() rollmade 0}}
+                                        <strong>Please reduce your {{ name }} skill by {{ rollmade }}</strong>
+                                    {{/rollLess() rollmade 0}}
+                                </span>
+                            {{/rollLess() rollmade 1}}
+                            {{#rollGreater() rollmade 0}}
+                                <span>
+                                    You got {{ rollmade }} on 1d6 - 2<br>
+                                    <strong>Please increase your {{ name }} by {{ rollmade }}</strong>
+                                </span>
+                            {{/rollGreater() rollmade 0}}
+                        </div>
+                    {{/rollGreater() expcheck baseskill}}
+                    {{#rollLess() expcheck baseskillplus}}
+                        <div class="sheet-fail">
+                            <span><strong>Experience check failed!</strong><br>Rolled {{ expcheck }}. Needed over {{ baseskill }}.</span>
+                        </div>
+                    {{/rollLess() expcheck baseskillplus}}
+                {{/rollLess() baseskill 100}}
+            {{/rollLess() expcheck 101}}
+            <!-- section for just training roll without experience check -->
+            {{#rollGreater() expcheck 100}}
+                <div class="sheet-template-header">{{ name }} {{ subtags }}</div>
+
+                {{#rollLess() rollmade 1}}
+                    <div class="sheet-fail">
+                        <span>
+                            Unfortunately you got<br> {{ rollmade }} on 1d6 - 2.<br>
+                            {{#rollGreater() rollmade -1}}
+                                <strong>You do not get to increase your skill this time.</strong>
+                            {{/rollGreater() rollmade -1}}
+                            {{#rollLess() rollmade 0}}
+                                <strong>Please reduce your {{ name }} skill by {{ rollmade }}</strong>
+                            {{/rollLess() rollmade 0}}
+                        </span>
+                    </div>
+                {{/rollLess() rollmade 1}}
+                {{#rollGreater() rollmade 0}}
+                    <div class="sheet-normal">
+                        <span>You got {{ rollmade }} on 1d6 - 2<br>
+                            <strong>Please increase your {{ name }} by {{ rollmade }}</strong></span>
+                    </div>
+                {{/rollGreater() rollmade 0}}
+            {{/rollGreater() expcheck 100}}
         </div>
     </div>
 </rolltemplate>
  
 <script type="text/worker">
-    on("change:dex change:dex_enchant change:siz change:siz_enchant change:str change:str_enchant change:pow change:pow_enchant change:app change:app_enchant change:con change:con_enchant", function() {
-        console.log("***** start dex strike rank *****");
-        getAttrs(["dex", "dex_enchant", "siz", "siz_enchant", "str", "str_enchant", "pow", "pow_enchant", "app", "app_enchant", "con", "con_enchant"], function(pvalue) {
-				console.log("current dex value: " + pvalue.dex);
-				console.log("dex enchant value: " + pvalue.dex_enchant);
-        		console.log("current siz value: " + pvalue.siz);
-				console.log("siz enchant value: " + pvalue.siz_enchant);
-                console.log("current str value: " + pvalue.str);
+    on("change:str change:str_enchant change:con change:con_enchant change:siz change:siz_enchant " +
+        "change:int change:int_enchant change:dex change:dex_enchant change:pow change:pow_enchant " +
+        "change:app change:app_enchant change:encumbrance_total", function() {
+        console.log("***** start dex strike rank ***** at " + Date.now());
+        getAttrs(["str", "str_enchant", "con", "con_enchant", "siz", "siz_enchant", "int", "int_enchant",
+            "dex", "dex_enchant", "pow", "pow_enchant", "app", "app_enchant"], function(pvalue) {
+				console.log("str value: " + pvalue.str);
 				console.log("str enchant value: " + pvalue.str_enchant);
+                console.log("con value: " + pvalue.con);
+				console.log("con enchant value: " + pvalue.con_enchant);
+                console.log("siz value: " + pvalue.siz);
+				console.log("siz enchant value: " + pvalue.siz_enchant);
+                console.log("int value: " + pvalue.int);
+				console.log("int enchant value: " + pvalue.int_enchant);
+                console.log("dex value: " + pvalue.dex);
+				console.log("dex enchant value: " + pvalue.dex_enchant);
+        		console.log("pow value: " + pvalue.dex);
+				console.log("pow enchant value: " + pvalue.dex_enchant);
+        		console.log("app value: " + pvalue.dex);
+				console.log("app enchant value: " + pvalue.dex_enchant);
 
-				let totalSiz = parseInt(pvalue.siz) + parseInt(pvalue.siz_enchant);
-	            let totalDex = parseInt(pvalue.dex) + parseInt(pvalue.dex_enchant);
 	            let totalStr = parseInt(pvalue.str) + parseInt(pvalue.str_enchant);
+	            let totalCon = parseInt(pvalue.con) + parseInt(pvalue.con_enchant);
+				let totalSiz = parseInt(pvalue.siz) + parseInt(pvalue.siz_enchant);
+				let totalInt = parseInt(pvalue.int) + parseInt(pvalue.int_enchant);
+	            let totalDex = parseInt(pvalue.dex) + parseInt(pvalue.dex_enchant);
+	            let totalPow = parseInt(pvalue.pow) + parseInt(pvalue.pow_enchant);
+	            let totalApp = parseInt(pvalue.app) + parseInt(pvalue.app_enchant);
+                let secondaryMax = 10;
+
 	            let damage = totalSiz + totalStr;
                 let update = {};
 
-	            update['str_secondary'] = Math.ceil((parseInt(pvalue.str) + parseInt(pvalue.str_enchant)-10)/2);
-	            if (update['str_secondary'] > 20) {
-	                update['str_secondary'] = 20;
-                }
+                /*
+                 *  Calculate Stamina
+                 */
+                update['stamina'] = totalStr + totalCon;
 
-	            update['con_secondary'] = Math.ceil((parseInt(pvalue.con) + parseInt(pvalue.con_enchant)-10)/2);
-	            if (update['con_secondary'] > 20) {
-	                update['con_secondary'] = 20;
+                /*
+                 *  Calculate Strength skill modifiers
+                 */
+                console.log("Setting STR monifiers");
+                update['str_primary'] = totalStr - secondaryMax;
+                update['str_negative'] = secondaryMax - totalStr;
+	            update['str_secondary'] = Math.ceil((totalStr - secondaryMax)/2);
+	            if (update['str_secondary'] > secondaryMax) {
+	                update['str_secondary'] = secondaryMax;
                 }
+                console.log("set STR primary = " + update['str_primary']);
+                console.log("set STR negative = " + update['str_negative']);
+                console.log("set STR secondary = " + update['str_secondary']);
 
-	            update['pow_secondary'] = Math.ceil((parseInt(pvalue.pow) + parseInt(pvalue.pow_enchant)-10)/2);
-	            if (update['pow_secondary'] > 20) {
-	                update['pow_secondary'] = 20;
+	            /*
+                 *  Calculate Constitution skill modifiers
+                 */
+                console.log("Setting CON monifiers");
+                update['con_primary'] = totalCon - secondaryMax;
+                update['con_negative'] = secondaryMax - totalCon;
+	            update['con_secondary'] = Math.ceil((totalCon - secondaryMax)/2);
+	            if (update['con_secondary'] > secondaryMax) {
+	                update['con_secondary'] = secondaryMax;
                 }
+                console.log("set CON primary = " + update['con_primary']);
+                console.log("set CON negative = " + update['con_negative']);
+                console.log("set CON secondary = " + update['con_secondary']);
 
-	            update['dex_secondary'] = Math.ceil((parseInt(pvalue.dex) + parseInt(pvalue.dex_enchant)-10)/2);
-	            if (update['dex_secondary'] > 20) {
-	                update['dex_secondary'] = 20;
+	            /*
+                 *  Calculate Size skill modifiers
+                 */
+                console.log("Setting SIZ monifiers");
+                update['siz_primary'] = totalSiz - secondaryMax;
+                update['siz_negative'] = secondaryMax - totalSiz;
+	            update['siz_secondary'] = Math.ceil((totalSiz - secondaryMax)/2);
+	            if (update['siz_secondary'] > secondaryMax) {
+	                update['siz_secondary'] = secondaryMax;
                 }
+                console.log("set SIZ primary = " + update['siz_primary']);
+                console.log("set SIZ negative = " + update['siz_negative']);
+                console.log("set SIZ secondary = " + update['siz_secondary']);
 
-	            update['app_secondary'] = Math.ceil((parseInt(pvalue.app) + parseInt(pvalue.app_enchant)-10)/2);
-	            if (update['app_secondary'] > 20) {
-	                update['app_secondary'] = 20;
+	            /*
+                 *  Calculate Intelligence skill modifiers
+                 */
+                console.log("Setting INT monifiers");
+                update['int_primary'] = totalInt - secondaryMax;
+                update['int_negative'] = secondaryMax - totalInt;
+	            update['int_secondary'] = Math.ceil((totalInt - secondaryMax)/2);
+	            if (update['int_secondary'] > secondaryMax) {
+	                update['int_secondary'] = secondaryMax;
                 }
+                console.log("set INT primary = " + update['int_primary']);
+                console.log("set INT negative = " + update['int_negative']);
+                console.log("set INT secondary = " + update['int_secondary']);
+
+	            /*
+                 *  Calculate Dexterity skill modifiers
+                 */
+                console.log("Setting DEX monifiers");
+                update['dex_primary'] = totalDex - secondaryMax;
+                update['dex_negative'] = secondaryMax - totalDex;
+	            update['dex_secondary'] = Math.ceil((totalDex - secondaryMax)/2);
+	            if (update['dex_secondary'] > secondaryMax) {
+	                update['dex_secondary'] = secondaryMax;
+                }
+                console.log("set DEX primary = " + update['dex_primary']);
+                console.log("set DEX negative = " + update['dex_negative']);
+                console.log("set DEX secondary = " + update['dex_secondary']);
+
+	            /*
+                 *  Calculate Power skill modifiers
+                 */
+                console.log("Setting POW monifiers");
+                update['pow_primary'] = totalPow - secondaryMax;
+                update['pow_negative'] = secondaryMax - totalPow;
+	            update['pow_secondary'] = Math.ceil((totalPow - secondaryMax)/2);
+	            if (update['pow_secondary'] > secondaryMax) {
+	                update['pow_secondary'] = secondaryMax;
+                }
+                console.log("set POW primary = " + update['pow_primary']);
+                console.log("set POW negative = " + update['pow_negative']);
+                console.log("set POW secondary = " + update['pow_secondary']);
+
+	            /*
+                 *  Calculate Power skill modifiers
+                 */
+                console.log("Setting APP monifiers");
+                update['app_primary'] = totalApp - secondaryMax;
+                update['app_negative'] = secondaryMax - totalApp;
+	            update['app_secondary'] = Math.ceil((totalApp - secondaryMax)/2);
+	            if (update['app_secondary'] > secondaryMax) {
+	                update['app_secondary'] = secondaryMax;
+                }
+                console.log("set APP primary = " + update['app_primary']);
+                console.log("set APP negative = " + update['app_negative']);
+                console.log("set APP secondary = " + update['app_secondary']);
 
 	            update['meleemod_dice'] = 0;
 	            update['meleemod_sides'] = 6;
@@ -1500,6 +2055,249 @@
 
         console.log("***** End Dex SR *****");
     });
+on("change:primal_base change:number_worshippers change:number_souls change:deities_base change:number_shrines " +
+    "change:number_temples change:number_greater change:number_miniplanes change:number_planes", function () {
+    console.log("***** start primal calculator *****");
+    getAttrs(["primal_base", "number_worshippers", "number_souls", "deities_base", "number_shrines", "number_temples",
+        "number_greater", "number_miniplanes", "number_planes"], function (pvalue) {
+        let update = {};
+        let total = 0;
+        let sqRoot = 0;
+
+        console.log('Primal Base = ' + pvalue.primal_base);
+        console.log('# of worshippers = ' + pvalue.number_worshippers);
+        console.log('# of souls = ' + pvalue.number_souls);
+        console.log('deities base = ' + pvalue.deities_base);
+        console.log('# shrines = ' + pvalue.number_shrines);
+        console.log('# of temples ' + pvalue.number_temples);
+        console.log('# of greater temples ' + pvalue.number_greater);
+        console.log('# of mini planes = ' + pvalue.number_miniplanes);
+        console.log('# of planes = ' + pvalue.number_planes);
+
+        if (parseInt(pvalue.number_worshippers) > 0) {
+            console.log("Calculating square root of number of worshippers (" + pvalue.number_worshippers + ')');
+            sqroot = Math.sqrt(parseInt(pvalue.number_worshippers));
+            total = Math.floor(sqroot);
+            console.log('Square root of num worshippers (' + pvalue.number_worshippers + ') is ' + sqroot)
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.number_souls) > 0) {
+            sqroot = Math.sqrt(parseInt(pvalue.number_souls));
+            console.log('Square root of num souls (' + pvalue.number_souls + ') is ' + sqroot);
+            total = total + Math.floor(sqroot / 10);
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.deities_base) > 0) {
+            console.log('Adding 10% of captured deities base (' + pvalue.deities_base + ')');
+            total = total + Math.floor(parseInt(pvalue.deities_base) / 10);
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.number_shrines) > 0) {
+            console.log('Adding 5 * number of shrines (' + pvalue.number_shrines + ')');
+            total = total + parseInt(pvalue.number_shrines) * 5;
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.number_temples) > 0) {
+            console.log('Adding 10 * number of temples (' + pvalue.number_temples + ')');
+            total = total + parseInt(pvalue.number_temples) * 10;
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.number_greater) > 0) {
+            console.log('Adding 20 * number of greater temples (' + pvalue.number_greater + ')');
+            total = total + parseInt(pvalue.number_greater) * 20;
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.number_miniplanes) > 0) {
+            console.log('Adding 100 * number of miniplanes (' + pvalue.number_miniplanes + ')');
+            total = total + parseInt(pvalue.number_miniplanes) * 100;
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.number_planes) > 0) {
+            console.log('Adding 1000 * number of planes (' + pvalue.number_planes + ')');
+            total = total + parseInt(pvalue.number_planes) * 1000;
+            console.log('Total is ' + total);
+        }
+
+        if (parseInt(pvalue.primal_base) > 0) {
+            console.log('Adding 10% of primal base (' + pvalue.primal_base + ')');
+            total = total + Math.floor(parseInt(pvalue.primal_base) / 10);
+            console.log('Total is ' + total);
+        } else {
+            console.log('No primal base = no primal flux')
+            total = 0;
+            console.log('Total is ' + total);
+        }
+        update['total_flux'] = total;
+        console.log("Calculated primal flux at " + update['total_flux']);
+        setAttrs(update);
+    });
+    }
+);
+on("change:amplify_base change:combine_base change:distance_base change:prolong_base change:int_primary change:pow_primary change:dex_secondary change:magb_enchant", function () {
+    console.log("**** start spirit skills calculator ****");
+    getAttrs(["amplify_base", "combine_base", "distance_base", "prolong_base", "int_primary", "pow_primary",
+        "dex_secondary", "magb_enchant"], function (pvalue) {
+        /*
+         * trace messages
+         */
+        console.log("amplify base = " + pvalue.amplify_base);
+        console.log("combine base = " + pvalue.combine_base);
+        console.log("distance base = " + pvalue.distance_base);
+        console.log("prolong base = " + pvalue.prolong_base);
+        console.log("int primary  = " + pvalue.int_primary);
+        console.log("pow primary  = " + pvalue.pow_primary);
+        console.log("dex seconary = " + pvalue.dex_secondary);
+        console.log("magb_enchant = " + pvalue.magb_enchant);
+
+        /*
+         * internal declarations
+         */
+        let spiritupdate = {};
+        let magicBonus = parseInt(pvalue.int_primary) + parseInt(pvalue.pow_primary) + parseInt(pvalue.dex_secondary) +
+            parseInt(pvalue.magb_enchant);
+        let amplifyBase  = parseInt(pvalue.amplify_base);
+        let amplifyTotal = 0;
+        let amplifyBoost = 0;
+
+        let combineBase  = parseInt(pvalue.combine_base);
+        let combineTotal = 0;
+        let combineBoost = 0;
+
+        let distanceBase  = parseInt(pvalue.distance_base);
+        let distanceTotal = 0;
+        let distanceBoost = 0;
+
+        let prolongBase  = parseInt(pvalue.prolong_base);
+        let prolongTotal = 0;
+        let prolongBoost = 0;
+
+        /*
+         * calculate boost ability for amplify
+         */
+        if (amplifyBase > 0) {
+            amplifyTotal = amplifyBase + magicBonus;
+            amplifyBoost = Math.floor(amplifyTotal / 10);
+        }
+        console.log("Magic bonus  = " + magicBonus);
+        spiritupdate['amplify_total'] = amplifyTotal;
+        console.log("Updating amplify total to " + spiritupdate['amplify_total']);
+
+        if (amplifyBoost > 0) {
+            spiritupdate['amplify_boost'] = "Add up to " + amplifyBoost + " points";
+        } else {
+            spiritupdate['amplify_boost'] = "Not enough skill";
+        }
+
+        /*
+         * calculate boost ability for combine
+         */
+        if (combineBase > 0) {
+            combineTotal = combineBase + magicBonus;
+            combineBoost = Math.floor(combineTotal / 10);
+        }
+        console.log("Magic bonus  = " + magicBonus);
+        spiritupdate['combine_total'] = combineTotal;
+        console.log("Updating combine total to " + spiritupdate['combine_total']);
+
+        if (combineBoost > 0) {
+            spiritupdate['combine_boost'] = "Combine up to " + combineBoost + " spells";
+        } else {
+            spiritupdate['combine_boost'] = "Not enough skill";
+        }
+
+        /*
+         * calculate boost ability for distance
+         */
+        if (distanceBase > 0) {
+            distanceTotal = distanceBase + magicBonus;
+            distanceBoost = Math.floor(distanceTotal / 10) * 50;
+        }
+        console.log("Magic bonus  = " + magicBonus);
+        spiritupdate['distance_total'] = distanceTotal;
+        console.log("Updating distance total to " + spiritupdate['distance_total']);
+
+        if (distanceBoost > 0) {
+            spiritupdate['distance_boost'] = "Increase range up to " + distanceBoost + "m";
+        } else {
+            spiritupdate['distance_boost'] = "Not enough skill";
+        }
+
+        /*
+         * calculate boost ability for prolong
+         */
+        if (prolongBase > 0) {
+            prolongTotal = prolongBase + magicBonus;
+            prolongBoost = Math.floor(prolongTotal / 10) * 5;
+        }
+        console.log("Magic bonus  = " + magicBonus);
+        spiritupdate['prolong_total'] = prolongTotal;
+        console.log("Updating prolong total to " + spiritupdate['prolong_total']);
+
+        if (prolongBoost > 0) {
+            spiritupdate['prolong_boost'] = "Increase duration up to " + prolongBoost + " mins";
+        } else {
+            spiritupdate['prolong_boost'] = "Not enough skill";
+        }
+
+        setAttrs(spiritupdate);
+    });
+});on("change:dodge_base change:dex change:dex_enchant change:str change:str_enchant change:siz " +
+    "change:siz_enchant change:agil_enchant change:encumbrance_total", function () {
+        console.log("**** Start Dodge Calculator **** at " + Date.now());
+        getAttrs(["dodge_base", "dex_primary", "str_secondary", "siz_negative", "agil_enchant",
+                "encumbrance_armour", "encumbrance_weapons", "encumbrance_equipment"],
+            function (pvalue) {
+                console.log("dodge base  = " + pvalue.dodge_base);
+                console.log("dex primary = " + pvalue.dex_primary);
+                console.log("str secondary = " + pvalue.str_secondary);
+                console.log("siz negative = " + pvalue.siz_negative);
+                console.log("agil_enchant = " + pvalue.agil_enchant);
+                console.log("encumbrance armour = " + pvalue.encumbrance_armour);
+                console.log("encumbrance weapons = " + pvalue.encumbrance_weapons);
+                console.log("encumbrance equipment = " + pvalue.encumbrance_equipment);
+
+                let update = {};
+
+                /*
+                 * calculate dodge total
+                 */
+                let dodgeMod = parseInt(pvalue.dex_primary) + parseInt(pvalue.str_secondary) +
+                    parseInt(pvalue.siz_negative) + parseInt(pvalue.agil_enchant);
+                console.log("Dodge skill = " + dodgeMod);
+                update['dodge_modifier'] = dodgeMod;
+                /*
+                 * calculate encumbrance total
+                 */
+                let encumbrance = parseInt(pvalue.encumbrance_armour) + parseInt(pvalue.encumbrance_weapons) +
+                    parseInt(pvalue.encumbrance_equipment);
+                encumbrance = encumbrance * -1;
+                console.log("Encumbrance total = " + encumbrance);
+                update['dodge_encumbrance'] = encumbrance;
+
+                /*
+                 * calculate total dodge skill after encumbrance
+                 */
+                let totalDodge = parseInt(pvalue.dodge_base) + dodgeMod + encumbrance;
+                console.log("Dodge after encumbrance = " + totalDodge);
+
+                /*
+                 * cannot have dodge less than 5%
+                 */
+                if (totalDodge < 5) {
+                    totalDodge = 5;
+                }
+                update['dodge_total'] = totalDodge;
+                console.log("Setting total dodge to " + totalDodge);
+                setAttrs(update);
+        });
+});
 const buttonlist = ["attributes","combat","skills","equipment","spirit","divine","dragon","sorcery","devices"];
 buttonlist.forEach(button => {
     on(`clicked:${button}`, function() {
@@ -1507,4 +2305,5 @@ buttonlist.forEach(button => {
             sheetTab: button
         });
     });
-});</script>
+});
+</script>
