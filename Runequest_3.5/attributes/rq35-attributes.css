@@ -11,6 +11,11 @@
 .sheet-rq35-attributes input {
     width: 90px;
     align-self: center;
+    margin-left: 5px;
+}
+.sheet-rq35-attributes input[type="text"] {
+    width: 46px;
+    align-self: center;
 }
 .sheet-rq35-attributes label {
     color: #5e5e5e;

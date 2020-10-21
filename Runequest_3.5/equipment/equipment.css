@@ -22,6 +22,11 @@
     margin-right: auto;
     width: 260px;
 }
+.sheet-rq35-equipment div.repcontainer input[type="text"].sheet-rq35-smalltext  {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+}
 .sheet-rq35-equipment div.repcontainer input[type="number"] {
     margin-left: auto;
     margin-right: auto;

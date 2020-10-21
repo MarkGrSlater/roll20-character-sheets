@@ -34,12 +34,14 @@ equipment/treasureCoins.html
 equipment/gemsJewellery.html
 equipment/_end.html
 spirit/_start.html
+general/magicPoints.html
 spirit/spiritSpells.html
 spirit/spiritRituals.html
 spirit/spiritSkills.html
 spirit/spiritNotes.html
 spirit/_end.html
 divine/_start.html
+general/magicPoints.html
 divine/divineSpells.html
 divine/divineRituals.html
 divine/divineNotes.html
@@ -48,12 +50,14 @@ divine/_end.html
 dragon/_start.html
 dragon/dragonSkills.html
 dragon/dragonRituals.html
+general/magicPoints.html
 dragon/dragonMagic.html
 dragon/dragonHeldSpells.html
 dragon/dragonNotes.html
 dragon/_end.html
 sorcery/_start.html
 sorcery/sorceryRituals.html
+general/magicPoints.html
 sorcery/sorcerySpells.html
 sorcery/heldSpells.html
 sorcery/runningSpells.html
@@ -62,6 +66,7 @@ sorcery/vows.html
 sorcery/sorceryNotes.html
 sorcery/_end.html
 devices/_start.html
+general/magicPoints.html
 devices/magicItems.html
 devices/spiritsAndGhosts.html
 devices/elementals.html
@@ -74,3 +79,4 @@ attributes/attributeTemplate.html
 attributes/powerGainTemplate.html
 spirit/spiritSpellTemplate.html
 spirit/trainingTemplate.html
+sorcery/heldSpellTemplate.html

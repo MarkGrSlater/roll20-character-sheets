@@ -4,7 +4,7 @@
     width: 860px;
     background: #fff;
     border: thick double #32a1ce;
-    grid-template-columns: repeat(5, 172px);
+    grid-template-columns: repeat(5, 143px) 145px;
     grid-template-rows: auto;
 }
 .sheet-rq35-primalcalc div.repcontainer {
@@ -14,7 +14,7 @@
 .sheet-rq35-primalcalc div.repcontainer div.repitem {
     display: inline-grid;
     width: 860px;
-    grid-template-columns: repeat(5, 172px);
+    grid-template-columns: repeat(5, 143px) 145px;
     grid-template-rows: auto;
 }
 .sheet-rq35-primalcalc div.repcontainer input[type="text"] {

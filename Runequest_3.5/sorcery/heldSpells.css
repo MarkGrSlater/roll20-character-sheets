@@ -4,7 +4,7 @@
     width: 860px;
     background: #fff;
     border: thick double #32a1ce;
-    grid-template-columns: 60px 140px 70px 70px 70px 40px 60px 140px 70px 70px 70px;
+    grid-template-columns: 60px 40px 140px 60px 60px 60px 20px 60px 40px 140px 60px 60px 60px;
     grid-template-rows: auto;
 }
 .sheet-rq35-held-spells div.repcontainer {
@@ -14,7 +14,7 @@
 .sheet-rq35-held-spells div.repcontainer div.repitem {
     display: inline-grid;
     width: 860px;
-    grid-template-columns: 60px 140px 70px 70px 70px 40px 60px 140px 70px 70px 70px;
+    grid-template-columns: 60px 40px 140px 60px 60px 60px 20px 60px 40px 140px 60px 60px 60px;
     grid-template-rows: auto;
 }
 .sheet-rq35-held-spells div.repcontainer input[type="text"] {

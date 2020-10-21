@@ -19,6 +19,7 @@ attributes/attributeTemplate.css
 spirit/trainingTemplate.css
 spirit/spiritSkills.css
 spirit/spiritSpells.css
+spirit/magicPoints.css
 spirit/spiritSpellTemplate.css
 divine/divineSpells.css
 divine/primalCalculator.css
@@ -35,6 +36,7 @@ sorcery/heldSpells.css
 sorcery/runningSpells.css
 sorcery/sorcerySkills.css
 sorcery/vows.css
+sorcery/heldSpellTemplate.css
 devices/magicItems.css
 devices/spiritsAndGhosts.css
 devices/elementals.css

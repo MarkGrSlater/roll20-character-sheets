@@ -12,13 +12,25 @@
             <input name="attr_meleesr" type="number" readonly>
             <label>Damage Modifier: </label>
             <input name="attr_damagemod" type="text" readonly>
-            <label>Magic Points: </label>
-            <input name="attr_mp" value="@{pow}+@{pow_enchant}" type="number" disabled>
 
             <label>Strength Enchant: </label>
             <input name="attr_strengthen_enchant" type="number" value="0">
             <label>Total Hit Points:</label>
             <input name="attr_hp" value="ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant}" type="number" disabled>
+
+            <label>Current MP:</label>
+            <input name="attr_current_mp" type="number" value="0">
+
+            <label>Tapped MP:</label>
+            <input name="attr_tapped_mp" type="number" value="0">
+            <label>Total Power Spirits</label>
+            <input name="attr_power_spirits" type="number" value="0">
+
+            <label>Storage Devices:</label>
+            <input name="attr_storage_devices" type="number" value="0">
+
+            <label>Total Magic Points:</label>
+            <input name="attr_total_mp" type="number" value="@{current_mp}+@{tapped_mp}+@{power_spirits}+@{storage_devices}" disabled>
         </div>
         <input name="attr_25_location" value="ceil((ceil((ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant})/3)*3)/4)" disabled hidden>
         <input name="attr_3_location" value="ceil((ceil((ceil((@{con_total}+@{siz_total})/2)+@{strengthen_enchant})/3)*3)/3)" disabled hidden>

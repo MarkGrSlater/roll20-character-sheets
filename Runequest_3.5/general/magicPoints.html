@@ -1,0 +1,24 @@
+<p><strong>Magic Points Available</strong></p>
+
+        <div class="sheet-rq35-magic-points">
+            <em> </em>
+            <label>Personal Magic Points</label>
+            <label>Tapped Magic Points:</label>
+            <label>Total Power Spirits</label>
+            <label>Total Storage Devices:</label>
+            <label>Total Magic Points:</label>
+
+            <label>Maximum Points</label>
+            <input name="attr_maxpersonal_mp" type="number" value="@{pow}+@{pow_enchant}" disabled>
+            <input name="attr_maxtapped_mp" type="number" value="@{pow}+@{pow_enchant}" disabled>
+            <input name="attr_maxpower_spirits" type="number" value="0">
+            <input name="attr_maxstorage_devices" type="number" value="0">
+            <input name="attr_maxtotal_mp" type="number" value="@{maxpersonal_mp}+@{maxtapped_mp}+@{maxpower_spirits}+@{maxstorage_devices}" disabled>
+
+            <label>Current Points</label>
+            <input name="attr_current_mp" type="number" value="0">
+            <input name="attr_tapped_mp" type="number" value="0">
+            <input name="attr_power_spirits" type="number" value="0">
+            <input name="attr_storage_devices" type="number" value="0">
+            <input name="attr_total_mp" type="number" value="@{current_mp}+@{tapped_mp}+@{power_spirits}+@{storage_devices}" disabled>
+        </div>
